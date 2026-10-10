@@ -1,0 +1,681 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kids NZRN | Tu Guía para Niños | Nazareno Cali</title>
+    <meta name="description" content="El espacio donde tus hijos aprenden de Jesús mientras viven su mejor día. Salas por edades, seguridad total y amor." />
+    <link rel="icon" type="image/png" href="Media/favicon.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800;12..96,900&family=Caveat:wght@600;700&family=Sora:wght@400;600;700;800&family=Syne:wght@800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* ========================================================================
+        ESTÉTICA EXACTA MAGGIE APP (MAGGIE-APP.COM STYLE)
+        ======================================================================== */
+      :root {
+        --maggie-mint: #6fe8dc;
+        --maggie-dark: #06432b;
+        --maggie-pink: #ffb4d6;
+        --maggie-yellow: #ffe57f;
+        --maggie-lilac: #d9b8ff;
+        --maggie-coral: #ff8e72;
+        --maggie-cream: #faf7ee;
+        --maggie-border: #06432b;
+      }
+
+      body.kids-theme {
+        background: var(--maggie-cream);
+        color: var(--maggie-dark);
+        font-family: var(--body);
+        overflow-x: hidden;
+      }
+
+      /* Tipografías Maggie */
+      .maggie-script {
+        font-family: 'Caveat', cursive;
+        font-size: clamp(26px, 4vw, 38px);
+        font-weight: 700;
+        color: var(--maggie-dark);
+        letter-spacing: 0.02em;
+        line-height: 1;
+        display: block;
+      }
+
+      .maggie-chunky-title {
+        font-family: 'Bricolage Grotesque', sans-serif;
+        font-size: clamp(42px, 8.2vw, 105px);
+        font-weight: 900;
+        line-height: 0.9;
+        letter-spacing: -2.5px;
+        text-transform: uppercase;
+        color: var(--maggie-dark);
+        margin: 12px 0 28px;
+        text-wrap: balance;
+      }
+
+      /* Botones Pop con borde oscuro y sombra sólida */
+      .maggie-pill-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 14px 28px;
+        border-radius: 999px;
+        border: 2.5px solid var(--maggie-border);
+        font-size: 13px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        cursor: pointer;
+        transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s;
+        box-shadow: 0 4px 0 var(--maggie-border);
+        text-decoration: none;
+      }
+
+      .maggie-pill-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 7px 0 var(--maggie-border);
+      }
+
+      .maggie-pill-btn.pink { background: var(--maggie-pink); color: var(--maggie-dark); }
+      .maggie-pill-btn.yellow { background: var(--maggie-yellow); color: var(--maggie-dark); }
+      .maggie-pill-btn.white { background: #ffffff; color: var(--maggie-dark); }
+      .maggie-pill-btn.mint { background: var(--maggie-mint); color: var(--maggie-dark); }
+
+      /* Stickers inclinados */
+      .maggie-sticker {
+        display: inline-block;
+        padding: 4px 12px;
+        border-radius: 8px;
+        border: 2px solid var(--maggie-border);
+        background: #ffffff;
+        color: var(--maggie-dark);
+        font-size: 11px;
+        font-weight: 900;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        box-shadow: 2px 2px 0 var(--maggie-border);
+      }
+
+      /* ========================================================================
+        1. HERO PRINCIPAL VERDE MENTA (MAGGIE APP)
+        ======================================================================== */
+      .maggie-hero {
+        background: var(--maggie-mint);
+        border-bottom: 3px solid var(--maggie-border);
+        padding: calc(var(--header-height) + 30px) clamp(20px, 6vw, 80px) 70px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .maggie-hero-inner {
+        max-width: 1180px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+      }
+
+      .maggie-quick-nav {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 24px;
+      }
+
+      .maggie-hero-actions {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 14px;
+        flex-wrap: wrap;
+        margin-top: 10px;
+      }
+
+      /* ========================================================================
+        2. TICKER DE CITAS BÍBLICAS & MANIFIESTO
+        ======================================================================== */
+      .maggie-ticker-wrap {
+        background: var(--maggie-yellow);
+        border-bottom: 3px solid var(--maggie-border);
+        padding: 16px 0;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+
+      .maggie-ticker-track {
+        display: flex;
+        width: max-content;
+        gap: 32px;
+        font-family: 'Bricolage Grotesque', sans-serif;
+        font-size: 20px;
+        font-weight: 900;
+        color: var(--maggie-dark);
+        text-transform: uppercase;
+        animation: maggieMarquee 30s linear infinite;
+      }
+
+      @keyframes maggieMarquee {
+        to { transform: translateX(-50%); }
+      }
+
+      /* ========================================================================
+        3. GUÍA PARA PAPÁS (BENTO HANDBOOK)
+        ======================================================================== */
+      .parents-guide-section {
+        padding: 80px clamp(20px, 6vw, 80px);
+        max-width: 1360px;
+        margin: 0 auto;
+      }
+
+      .parents-guide-header {
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto 50px;
+      }
+
+      .parents-bento-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 24px;
+      }
+
+      .parents-card {
+        background: #ffffff;
+        border: 3px solid var(--maggie-border);
+        border-radius: 26px;
+        padding: 32px 26px;
+        box-shadow: 0 8px 0 var(--maggie-border);
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .parents-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 0 var(--maggie-border);
+      }
+
+      .parents-card-icon {
+        width: 58px;
+        height: 58px;
+        border-radius: 16px;
+        border: 2px solid var(--maggie-border);
+        display: grid;
+        place-items: center;
+        font-size: 26px;
+        margin-bottom: 20px;
+      }
+
+      .parents-card h3 {
+        font: 900 22px / 1.1 var(--display);
+        margin: 0 0 10px;
+        color: var(--maggie-dark);
+        letter-spacing: -0.5px;
+      }
+
+      .parents-card p {
+        color: #3b5e50;
+        font-size: 14.5px;
+        line-height: 1.6;
+        margin: 0;
+      }
+
+      /* ========================================================================
+        4. SALAS POR EDADES
+        ======================================================================== */
+      .rooms-pop-section {
+        background: var(--maggie-mint);
+        border-top: 3px solid var(--maggie-border);
+        border-bottom: 3px solid var(--maggie-border);
+        padding: 80px clamp(20px, 6vw, 80px);
+      }
+
+      .rooms-pop-container {
+        max-width: 1360px;
+        margin: 0 auto;
+      }
+
+      .rooms-pop-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 24px;
+        margin-top: 40px;
+      }
+
+      .room-pop-card {
+        border: 3px solid var(--maggie-border);
+        border-radius: 28px;
+        padding: 34px 28px;
+        box-shadow: 0 8px 0 var(--maggie-border);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 340px;
+      }
+
+      .room-pop-card.cunas { background: var(--maggie-pink); }
+      .room-pop-card.exploradores { background: var(--maggie-yellow); }
+      .room-pop-card.valientes { background: var(--maggie-lilac); }
+
+      .room-pop-card h3 {
+        font: 900 28px / 1 var(--display);
+        color: var(--maggie-dark);
+        margin: 12px 0 10px;
+        letter-spacing: -1px;
+      }
+
+      .room-pop-card p {
+        color: var(--maggie-dark);
+        font-size: 14.5px;
+        line-height: 1.55;
+        margin: 0 0 20px;
+        font-weight: 500;
+      }
+
+      /* ========================================================================
+        5. MURO DE VERSÍCULOS BÍBLICOS SOBRE NIÑOS & FAMILIA
+        ======================================================================== */
+      .verses-section {
+        padding: 90px clamp(20px, 6vw, 80px);
+        max-width: 1360px;
+        margin: 0 auto;
+      }
+
+      .verses-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 24px;
+        margin-top: 45px;
+      }
+
+      .verse-card {
+        background: #ffffff;
+        border: 3px solid var(--maggie-border);
+        border-radius: 24px;
+        padding: 32px 28px;
+        box-shadow: 0 6px 0 var(--maggie-border);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .verse-quote {
+        font-family: 'Bricolage Grotesque', sans-serif;
+        font-size: 19px;
+        font-weight: 800;
+        line-height: 1.4;
+        color: var(--maggie-dark);
+        margin: 0 0 16px;
+      }
+
+      .verse-ref {
+        font-size: 12px;
+        font-weight: 900;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--maggie-coral);
+      }
+
+      /* ========================================================================
+        6. PREGUNTAS FRECUENTES (MAGGIE ACCORDION)
+        ======================================================================== */
+      .maggie-faq-section {
+        padding: 0 clamp(20px, 6vw, 80px) 100px;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .maggie-faq-item {
+        background: #ffffff;
+        border: 2.5px solid var(--maggie-border);
+        border-radius: 18px;
+        margin-bottom: 14px;
+        overflow: hidden;
+        box-shadow: 0 4px 0 var(--maggie-border);
+      }
+
+      .maggie-faq-btn {
+        width: 100%;
+        padding: 20px 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: none;
+        border: none;
+        font: 800 16px var(--body);
+        color: var(--maggie-dark);
+        cursor: pointer;
+        text-align: left;
+      }
+
+      .maggie-faq-content {
+        padding: 0 24px 20px;
+        color: #3b5e50;
+        font-size: 14.5px;
+        line-height: 1.6;
+        display: none;
+      }
+
+      .maggie-faq-item.is-open .maggie-faq-content {
+        display: block;
+      }
+
+      @media (max-width: 960px) {
+        .parents-bento-grid { grid-template-columns: repeat(2, 1fr); }
+        .rooms-pop-grid { grid-template-columns: 1fr; }
+        .verses-grid { grid-template-columns: 1fr; }
+      }
+
+      @media (max-width: 650px) {
+        .parents-bento-grid { grid-template-columns: 1fr; }
+        .maggie-chunky-title { font-size: clamp(34px, 10vw, 54px); }
+      }
+    </style>
+  </head>
+  <body class="kids-theme">
+    <!-- Encabezado Global -->
+    <header class="site-header" data-header style="background: var(--maggie-mint); border-bottom: 2.5px solid var(--maggie-border);">
+      <a class="brand" href="index.html">
+        <img class="brand-logo" src="Media/logoNegro.png" alt="Nazareno Cali" />
+      </a>
+      <nav class="main-nav">
+        <a href="index.html" style="color:var(--maggie-dark);">Inicio</a>
+        <a class="active" href="kids.html" style="color:var(--maggie-dark);">Kids</a>
+        <a href="teens.html" style="color:var(--maggie-dark);">Teens</a>
+        <a href="jni.html" style="color:var(--maggie-dark);">JNI Jóvenes</a>
+        <a href="grupos.html" style="color:var(--maggie-dark);">Grupos</a>
+        <a href="visitanos.html" style="color:var(--maggie-dark);">Visítanos</a>
+      </nav>
+      <div class="header-actions">
+        <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Menu" style="border: 2px solid var(--maggie-border); background: #ffffff;">
+          <span style="background: var(--maggie-dark);"></span>
+          <span style="background: var(--maggie-dark);"></span>
+          <span style="background: var(--maggie-dark);"></span>
+        </button>
+      </div>
+    </header>
+
+    <div class="mobile-nav" id="mobile-nav" aria-hidden="true"></div>
+
+    <main>
+      <!-- ========================================================================
+        1. HERO ESTILO EXACTO MAGGIE APP
+        ======================================================================== -->
+      <section class="maggie-hero">
+        <div class="maggie-hero-inner reveal">
+          
+          <!-- Barra superior de botones pop de acceso rápido -->
+          <div class="maggie-quick-nav">
+            <a class="maggie-pill-btn pink" href="#guia-papas">Guía para papás</a>
+            <a class="maggie-pill-btn white" href="#salas">Salas por edades</a>
+            <a class="maggie-pill-btn yellow" href="#versiculos">Palabra de Dios</a>
+            <a class="maggie-pill-btn white" href="#preguntas">Preguntas</a>
+          </div>
+
+          <span class="maggie-script">conoce nazareno kids</span>
+          
+          <h1 class="maggie-chunky-title">
+            Tu lugar seguro para criar hijos apasionados por Jesús, un domingo a la vez.
+          </h1>
+
+          <div class="maggie-hero-actions">
+            <a class="maggie-pill-btn yellow" href="visitanos.html">
+              <i class="fa-solid fa-calendar-check"></i> Planificar visita en familia
+            </a>
+            <div style="position: relative; display: inline-block;">
+              <a class="maggie-pill-btn white" href="https://wa.link/62syyk" target="_blank" rel="noreferrer">
+                <i class="fa-brands fa-whatsapp"></i> Hablar con maestras
+              </a>
+              <span class="maggie-sticker" style="position: absolute; right: -12px; bottom: -14px; transform: rotate(-8deg); background: var(--maggie-pink);">
+                100% SEGURO
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================================
+        2. TICKER MARQUEE DE FRASE Y VALORES
+        ======================================================================== -->
+      <div class="maggie-ticker-wrap">
+        <div class="maggie-ticker-track">
+          <span>★ DEJAD A LOS NIÑOS VENIR A MÍ (MATEO 19:14)</span>
+          <span>★ CHECK-IN CON MANILLAS NUMERADAS</span>
+          <span>★ SALAS POR EDADES: CUNAS · EXPLORADORES · VALIENTES</span>
+          <span>★ CADA DOMINGO: 6:30 AM · 8:15 AM · 10:00 AM · 12:00 PM</span>
+          <span>★ DEJAD A LOS NIÑOS VENIR A MÍ (MATEO 19:14)</span>
+          <span>★ CHECK-IN CON MANILLAS NUMERADAS</span>
+          <span>★ SALAS POR EDADES: CUNAS · EXPLORADORES · VALIENTES</span>
+        </div>
+      </div>
+
+      <!-- ========================================================================
+        3. GUÍA PARA PAPÁS: TODO LO QUE NECESITAS SABER (BENTO GRID)
+        ======================================================================== -->
+      <section class="parents-guide-section" id="guia-papas">
+        <div class="parents-guide-header reveal">
+          <span class="maggie-script">tranquilidad total para tu hogar</span>
+          <h2 style="font: 900 clamp(34px, 5vw, 56px)/1 var(--display); letter-spacing: -1.5px; margin: 8px 0 14px;">
+            Lo que todo papá necesita saber antes del domingo.
+          </h2>
+          <p style="color: #3b5e50; font-size: 16px; margin: 0;">
+            Preparamos cada detalle para que dejes a tus hijos con absoluta confianza mientras disfrutas de la reunión principal.
+          </p>
+        </div>
+
+        <div class="parents-bento-grid">
+          
+          <!-- Card 1 -->
+          <article class="parents-card site-card reveal">
+            <div class="parents-card-icon" style="background: var(--maggie-mint);">🏷️</div>
+            <h3>Check-in con Manilla Exclusiva</h3>
+            <p>Al llegar, registras a tu hijo en el módulo de bienvenida y recibes una manilla numerada idéntica. Nadie más puede retirarlo sin esa manilla física.</p>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="parents-card site-card reveal">
+            <div class="parents-card-icon" style="background: var(--maggie-pink);">🎒</div>
+            <h3>¿Qué deben traer?</h3>
+            <p>Ropa cómoda, termo de agua marcado y pañalera identificada en caso de bebés. Nosotros proveemos materiales de arte y meriendas higienizadas.</p>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="parents-card site-card reveal">
+            <div class="parents-card-icon" style="background: var(--maggie-yellow);">🍼</div>
+            <h3>Sala de Lactancia & Bebés</h3>
+            <p>Contamos con una sala privada y climatizada para mamás lactantes con cambiadores, mecedoras y pantalla para seguir el culto en directo.</p>
+          </article>
+
+          <!-- Card 4 -->
+          <article class="parents-card site-card reveal">
+            <div class="parents-card-icon" style="background: var(--maggie-lilac);">🛡️</div>
+            <h3>Personal Verificado & Entrenado</h3>
+            <p>Todos nuestros maestros son miembros activos de la iglesia, capacitados en primeros auxilios básicos, pedagogía y protección infantil.</p>
+          </article>
+
+          <!-- Card 5 -->
+          <article class="parents-card site-card reveal">
+            <div class="parents-card-icon" style="background: #ffd3b6;">📱</div>
+            <h3>Aviso Inmediato al Celular</h3>
+            <p>Si tu hijo llora inconsolablemente o necesita tu presencia, te enviaremos un mensaje de texto de inmediato o proyectaremos tu código en pantalla.</p>
+          </article>
+
+          <!-- Card 6 -->
+          <article class="parents-card site-card reveal">
+            <div class="parents-card-icon" style="background: var(--maggie-mint);">🍎</div>
+            <h3>Control Estricto de Alergias</h3>
+            <p>Preguntamos sobre restricciones alimentarias en el registro inicial para asegurar que ninguna merienda afecte la salud de tu pequeño.</p>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- ========================================================================
+        4. SALAS POR EDADES (COLORES CANDY POP MAGGIE)
+        ======================================================================== -->
+      <section class="rooms-pop-section" id="salas">
+        <div class="rooms-pop-container">
+          <div class="reveal" style="text-align: center; max-width: 750px; margin: 0 auto;">
+            <span class="maggie-script" style="color: var(--maggie-dark);">espacios a su medida</span>
+            <h2 style="font: 900 clamp(36px, 5.5vw, 62px)/1 var(--display); letter-spacing: -2px; margin: 8px 0 12px; color: var(--maggie-dark);">
+              Salas diseñadas para cada etapa.
+            </h2>
+          </div>
+
+          <div class="rooms-pop-grid">
+            
+            <!-- Sala 1: Cunas -->
+            <article class="room-pop-card cunas site-card reveal">
+              <div>
+                <span class="maggie-sticker">0 A 2 AÑOS</span>
+                <span style="font-size: 40px; display: block; margin: 14px 0 8px;">🍼</span>
+                <h3>Cunas & Primeros Pasos</h3>
+                <p>Música de adoración instrumental, juguetes desinfectados, tapetes acolchados y brazos amorosos para los más chiquitos de la casa.</p>
+              </div>
+              <a class="maggie-pill-btn white" href="visitanos.html" style="font-size: 11px; padding: 10px 20px;">Conocer sala cunas ➔</a>
+            </article>
+
+            <!-- Sala 2: Exploradores -->
+            <article class="room-pop-card exploradores site-card reveal">
+              <div>
+                <span class="maggie-sticker">3 A 6 AÑOS</span>
+                <span style="font-size: 40px; display: block; margin: 14px 0 8px;">🎨</span>
+                <h3>Exploradores de la Biblia</h3>
+                <p>Títeres, plastilina, canciones con coreografías y las historias más épicas del Antiguo y Nuevo Testamento explicadas con sencillez.</p>
+              </div>
+              <a class="maggie-pill-btn white" href="visitanos.html" style="font-size: 11px; padding: 10px 20px;">Conocer exploradores ➔</a>
+            </article>
+
+            <!-- Sala 3: Valientes -->
+            <article class="room-pop-card valientes site-card reveal">
+              <div>
+                <span class="maggie-sticker">7 A 11 AÑOS</span>
+                <span style="font-size: 40px; display: block; margin: 14px 0 8px;">🚀</span>
+                <h3>Valientes con Propósito</h3>
+                <p>Lecciones prácticas para la escuela, memorización bíblica con premios, alabanza juvenil y dinámicas para forjar su carácter en Dios.</p>
+              </div>
+              <a class="maggie-pill-btn white" href="visitanos.html" style="font-size: 11px; padding: 10px 20px;">Conocer valientes ➔</a>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================================
+        5. MURO DE VERSÍCULOS BÍBLICOS SOBRE NIÑOS & FAMILIA
+        ======================================================================== -->
+      <section class="verses-section" id="versiculos">
+        <div class="reveal" style="text-align: center; max-width: 750px; margin: 0 auto;">
+          <span class="maggie-script">lo que dice la palabra</span>
+          <h2 style="font: 900 clamp(34px, 5vw, 56px)/1 var(--display); letter-spacing: -1.5px; margin: 8px 0 12px;">
+            El corazón de Dios hacia los niños.
+          </h2>
+        </div>
+
+        <div class="verses-grid">
+          
+          <article class="verse-card site-card reveal">
+            <p class="verse-quote">“Instruye al niño en su camino, y aun cuando fuere viejo no se apartará de él.”</p>
+            <span class="verse-ref">Proverbios 22:6</span>
+          </article>
+
+          <article class="verse-card site-card reveal" style="background: var(--maggie-yellow);">
+            <p class="verse-quote">“Dejad a los niños venir a mí, y no se lo impidáis; porque de los tales es el reino de Dios.”</p>
+            <span class="verse-ref">Lucas 18:16</span>
+          </article>
+
+          <article class="verse-card site-card reveal">
+            <p class="verse-quote">“He aquí, herencia de Jehová son los hijos; cosa de estima el fruto del vientre.”</p>
+            <span class="verse-ref">Salmos 127:3</span>
+          </article>
+
+          <article class="verse-card site-card reveal" style="background: var(--maggie-pink);">
+            <p class="verse-quote">“Ninguno tenga en poco tu juventud, sino sé ejemplo de los creyentes en palabra, conducta y amor.”</p>
+            <span class="verse-ref">1 Timoteo 4:12</span>
+          </article>
+
+          <article class="verse-card site-card reveal">
+            <p class="verse-quote">“Y el niño crecía y se fortalecía, y se llenaba de sabiduría; y la gracia de Dios era sobre él.”</p>
+            <span class="verse-ref">Lucas 2:40</span>
+          </article>
+
+          <article class="verse-card site-card reveal" style="background: var(--maggie-mint);">
+            <p class="verse-quote">“Grandes cosas ha hecho Jehová con nosotros; y estaremos alegres.”</p>
+            <span class="verse-ref">Salmos 126:3</span>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- ========================================================================
+        6. PREGUNTAS FRECUENTES PARA PAPÁS (MAGGIE ACCORDION)
+        ======================================================================== -->
+      <section class="maggie-faq-section" id="preguntas">
+        <div class="reveal" style="text-align: center; margin-bottom: 35px;">
+          <span class="maggie-script">resolvemos tus dudas</span>
+          <h2 style="font: 900 clamp(32px, 4.5vw, 48px)/1 var(--display); letter-spacing: -1px; margin: 8px 0;">
+            Preguntas frecuentes de los papás
+          </h2>
+        </div>
+
+        <div class="maggie-faq-item reveal">
+          <button class="maggie-faq-btn" type="button">
+            <span>¿A qué hora abre el registro de Kids los domingos?</span>
+            <i class="fa-solid fa-plus"></i>
+          </button>
+          <div class="maggie-faq-content">
+            El módulo de Check-in abre 20 minutos antes de cada culto dominical (6:10 AM, 7:55 AM, 9:40 AM y 11:40 AM) para que puedas registrar a tus hijos con calma antes de que inicie la alabanza.
+          </div>
+        </div>
+
+        <div class="maggie-faq-item reveal">
+          <button class="maggie-faq-btn" type="button">
+            <span>¿Puedo quedarme con mi hijo si es su primera vez?</span>
+            <i class="fa-solid fa-plus"></i>
+          </button>
+          <div class="maggie-faq-content">
+            ¡Totalmente! Si tu pequeño siente timidez, puedes acompañarlo en la sala los primeros minutos mientras se familiariza con sus maestras y compañeros de juego.
+          </div>
+        </div>
+
+        <div class="maggie-faq-item reveal">
+          <button class="maggie-faq-btn" type="button">
+            <span>¿Tiene algún costo el ministerio de Kids?</span>
+            <i class="fa-solid fa-plus"></i>
+          </button>
+          <div class="maggie-faq-content">
+            Ninguno. Nazareno Kids es un ministerio abierto y 100% gratuito para todas las familias que nos visitan cada domingo.
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer Oficial -->
+    <footer class="site-footer">
+      <div class="footer-bottom-strip">
+        <span>© 2026 Nazareno Kids (KIDS NZRN) · Iglesia del Nazareno Cali</span>
+      </div>
+    </footer>
+
+    <script src="js/visitas-tracker.js"></script>
+    <script src="script.js"></script>
+    <script>
+      // Interactividad simple para acordeón FAQ Maggie
+      document.querySelectorAll(".maggie-faq-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const item = btn.parentElement;
+          const isOpen = item.classList.contains("is-open");
+          document.querySelectorAll(".maggie-faq-item").forEach((el) => el.classList.remove("is-open"));
+          if (!isOpen) item.classList.add("is-open");
+        });
+      });
+    </script>
+  </body>
+</html>

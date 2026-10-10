@@ -1,0 +1,19 @@
+# Archivos basura de macOS y Discos Duros Externos
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+.fseventsd
+.AppleDouble
+.LSOverride
+Icon?
+
+# Archivos temporales de editores
+.vscode/
+.idea/
+*.swp
+
+# Dependencias y variables de entorno (si usas Node/React)
+node_modules/
+.env

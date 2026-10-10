@@ -1,0 +1,802 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Mira las transmisiones y prédicas de la Iglesia del Nazareno Cali."
+    />
+    <title>Mensajes | Iglesia del Nazareno Cali | NZRN</title>
+    <link rel="icon" type="image/png" href="Media/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Cormorant+Garamond:ital,wght@0,500;1,500;1,600&family=Sora:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="mensajes.css" />
+</head>
+  <body>
+    <header class="site-header" data-header>
+      <a
+        class="brand"
+        href="index.html"
+        aria-label="Iglesia del Nazareno Cali, inicio"
+        ><img
+          class="brand-logo"
+          src="Media/logoNegro.png"
+          alt="Iglesia del Nazareno Cali"
+      /></a>
+      <nav class="main-nav" aria-label="Navegación principal">
+        <a href="index.html">Inicio</a><a href="visitanos.html">Visítanos</a
+        ><a href="ministerios.html">Ministerios</a
+        ><a href="grupos.html">Grupos</a><a href="eventos.html">Eventos</a
+        ><a class="active" href="mensajes.html">Mensajes</a
+        ><a href="contacto.html">Contacto</a>
+      </nav>
+      <div class="header-actions">
+        <a class="live-pill" href="mensajes.html"
+          ><span class="live-dot"></span>Ver en vivo</a
+        ><button
+          class="menu-button"
+          type="button"
+          aria-expanded="false"
+          aria-controls="mobile-nav"
+          aria-label="Abrir menú"
+        >
+          <span></span><span></span>
+        </button>
+      </div>
+    </header>
+    <div class="mobile-nav" id="mobile-nav" aria-hidden="true">
+      <div class="mobile-nav-head">
+        <span>Explora Nazareno</span><span>MENÚ</span>
+      </div>
+      <a href="index.html">Inicio <small>01</small></a
+      ><a href="visitanos.html">Visítanos <small>02</small></a
+      ><a href="ministerios.html">Ministerios <small>03</small></a
+      ><a href="grupos.html">Grupos <small>04</small></a
+      ><a href="eventos.html">Eventos <small>05</small></a
+      ><a href="mensajes.html">En vivo y prédicas <small>06</small></a
+      ><a href="contacto.html">Contacto <small>07</small></a
+      ><a class="mobile-live" href="mensajes.html"
+        ><span class="live-dot"></span> Ver la transmisión</a
+      >
+    </div>
+    <main class="inner-page msg-page" id="main">
+      <div class="msg-shell">
+
+        <!-- ===== Video + detalle ===== -->
+        <section class="msg-hero" id="msg-featured" aria-labelledby="msg-title">
+          <div class="msg-wrap">
+            <div class="msg-player is-loading" data-msg-player>
+              <noscript>
+                <p>Activa JavaScript para reproducir el video dentro de la app.</p>
+              </noscript>
+            </div>
+
+            <div class="msg-details">
+              <div class="msg-info">
+                <h1 class="msg-title" id="msg-title" data-msg-title>Cargando mensaje…</h1>
+                <p class="msg-preacher" data-msg-preacher>Iglesia del Nazareno Cali</p>
+                <p class="msg-date" data-msg-date-row hidden>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>
+                  <time data-msg-date></time>
+                </p>
+
+                <div class="msg-actions">
+                  <a class="msg-pill" href="donar.html">
+                    Dar
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10Z"/></svg>
+                  </a>
+                  <button class="msg-pill" type="button" data-msg-share>
+                    Compartir
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 5l6 5.5-6 5.5v-3.2c-4.5 0-7.3 1.3-9 4.7.5-5.2 3.4-8.7 9-9.3Z"/></svg>
+                  </button>
+                </div>
+
+                <p class="msg-description" data-msg-description>Mira este mensaje de la Iglesia del Nazareno Cali y compártelo con alguien que lo necesite.</p>
+                <p class="msg-status" role="status" aria-live="polite" data-msg-status></p>
+              </div>
+
+              <aside class="msg-discussion" aria-labelledby="msg-discussion-title">
+                <svg class="msg-discussion-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-6.5L8 20.5V17H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"/><path d="m8.5 13 3.5-5 3.5 5M10 11.5h4"/></svg>
+                <h2 id="msg-discussion-title">Guía de discusión</h2>
+                <p>¿Quieres llevar lo que aprendiste al siguiente nivel? Continúa la conversación en tu grupo de conexión y comparte lo que te dejó el mensaje.</p>
+                <button class="msg-btn-light" type="button" data-msg-open-dialog>Ver preguntas de discusión</button>
+              </aside>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== Siguiente paso ===== -->
+        <section class="msg-steps" aria-labelledby="msg-steps-title">
+          <div class="msg-wrap">
+            <h2 id="msg-steps-title">Da tu siguiente paso de fe</h2>
+            <p class="msg-steps-lead">Cada persona está en un punto distinto de su camino con Dios. Donde sea que estés, queremos ayudarte a dar el siguiente paso.</p>
+            <div class="msg-steps-grid">
+              <a class="msg-step" href="contacto.html">
+                <svg class="msg-step-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10Z"/></svg>
+                <h3>Toma una decisión por Cristo</h3>
+                <p>Si aún no has aceptado a Jesús como tu Salvador, queremos ayudarte a descubrir la nueva vida que Él tiene para ti.</p>
+              </a>
+              <a class="msg-step" href="contacto.html">
+                <svg class="msg-step-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8c1.5 0 1.5 1 3 1s1.5-1 3-1 1.5 1 3 1 1.5-1 3-1 1.5 1 3 1 1.5-1 3-1M3 12c1.5 0 1.5 1 3 1s1.5-1 3-1 1.5 1 3 1 1.5-1 3-1 1.5 1 3 1 1.5-1 3-1M3 16c1.5 0 1.5 1 3 1s1.5-1 3-1 1.5 1 3 1 1.5-1 3-1 1.5 1 3 1 1.5-1 3-1"/></svg>
+                <h3>Da a conocer tu fe</h3>
+                <p>El bautismo es la declaración pública de tu decisión de seguir a Cristo. Descubre por qué es un paso importante de fe.</p>
+              </a>
+              <a class="msg-step" href="grupos.html">
+                <svg class="msg-step-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5M16 5.2a3 3 0 0 1 0 5.6M18 14.8c1.8.7 3 2.3 3 4.7"/></svg>
+                <h3>Encuentra tu gente</h3>
+                <p>No queremos que vivas la iglesia solo. Conéctate con otros en un grupo de conexión, en persona o en línea.</p>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== Carrusel: más prédicas ===== -->
+        <section class="msg-more" data-msg-more aria-labelledby="msg-more-title">
+          <div class="msg-wrap">
+            <div class="msg-more-head">
+              <h2 id="msg-more-title">Más prédicas</h2>
+              <button class="msg-see-all" type="button" aria-expanded="false" data-msg-see-all>Ver todas</button>
+            </div>
+            <div class="msg-carousel">
+              <button class="msg-arrow msg-arrow-prev" type="button" aria-label="Anteriores" data-msg-prev hidden>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg>
+              </button>
+              <ul class="msg-track" data-msg-track aria-live="polite"></ul>
+              <button class="msg-arrow msg-arrow-next" type="button" aria-label="Siguientes" data-msg-next hidden>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== Horarios ===== -->
+        <section class="msg-times" aria-labelledby="msg-times-title">
+          <div class="msg-wrap">
+            <p class="msg-times-eyebrow">Conéctate en vivo</p>
+            <h2 id="msg-times-title">Horarios de transmisión</h2>
+            <div class="msg-times-grid">
+              <p><strong>Domingos</strong><span>6:30 a. m. · 8:15 a. m. · 10:00 a. m. · 12:00 p. m.</span></p>
+              <p><strong>Miércoles</strong><span>5:00 a. m. · Tiempo de ayuno</span></p>
+              <p><strong>Sábados</strong><span>5:30 p. m. · Reunión JNI</span></p>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- Menú contextual de cada tarjeta (⋮) -->
+      <div class="msg-menu" role="menu" data-msg-menu hidden>
+        <button type="button" role="menuitem" data-act="play">Reproducir aquí</button>
+        <button type="button" role="menuitem" data-act="share">Compartir</button>
+      </div>
+
+      <!-- Preguntas de discusión -->
+      <dialog class="msg-dialog" data-msg-dialog aria-labelledby="msg-dialog-title">
+        <div class="msg-dialog-head">
+          <h2 id="msg-dialog-title">Para conversar en grupo</h2>
+          <button class="msg-dialog-close" type="button" aria-label="Cerrar" data-msg-close-dialog>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+          </button>
+        </div>
+        <ol>
+          <li>¿Qué idea del mensaje quieres recordar esta semana?</li>
+          <li>¿Qué paso práctico puedes dar a partir de lo que escuchaste?</li>
+          <li>¿Con quién puedes compartir esta reflexión y orar?</li>
+        </ol>
+      </dialog>
+    </main>
+    
+    <!-- ========================================================================
+      FOOTER PROFESIONAL (ESTILO SOUL CHURCH: REDES, LEGAL, CONTACTO Y NEWSLETTER)
+      ======================================================================== -->
+    <footer class="site-footer" id="contacto">
+      <div class="footer-main-grid">
+        <!-- Columna 1: Brand & Logo Badge -->
+        <div class="footer-col footer-col-brand">
+          <a class="footer-brand-badge" href="index.html" aria-label="Inicio">
+            <img src="Media/logoBlanco.png" alt="Logo Iglesia del Nazareno Cali" />
+          </a>
+          <p class="footer-brand-tagline">
+            Una iglesia en Cali apasionada por Jesús, comprometida con las personas y transformando nuestra ciudad.
+          </p>
+        </div>
+
+        <!-- Columna 2: Contacto General -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Contacto</h4>
+          <p class="footer-contact-item"><strong>Iglesia del Nazareno Cali</strong></p>
+          <p class="footer-contact-item">Calle 13 # 75-109, Quintas de Don Simón<br />Cali, Valle del Cauca, Colombia</p>
+          <p class="footer-contact-item"><a href="mailto:info@nazarenocali.org">info@nazarenocali.org</a></p>
+          <p class="footer-contact-item"><a href="https://wa.link/62syyk" target="_blank" rel="noreferrer">+57 304 377 8188</a></p>
+        </div>
+
+        <!-- Columna 3: Enlaces Rápidos & Legal -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Enlaces</h4>
+          <ul class="footer-links-list">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="visitanos.html">Planifica tu visita</a></li>
+            <li><a href="ministerios.html">Equipos de Servicio</a></li>
+            <li><a href="grupos.html">Grupos de Conexión</a></li>
+            <li><a href="eventos.html">Actividades & Eventos</a></li>
+            <li><a href="donar.html">Dar / Donación</a></li>
+            <li><a href="contacto.html">Políticas de Privacidad & Tratamiento de Datos ↗</a></li>
+          </ul>
+        </div>
+
+        <!-- Columna 4: Medios & Redes Sociales -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Medios & Redes</h4>
+          <ul class="footer-links-list">
+            <li><a href="https://www.youtube.com/user/nazarenocali" target="_blank" rel="noreferrer"><i class="fa-brands fa-youtube"></i> YouTube ↗</a></li>
+            <li><a href="https://www.instagram.com/nazarenocali/" target="_blank" rel="noreferrer"><i class="fa-brands fa-instagram"></i> Instagram ↗</a></li>
+            <li><a href="https://www.facebook.com/nazarenocali" target="_blank" rel="noreferrer"><i class="fa-brands fa-facebook"></i> Facebook ↗</a></li>
+            <li><a href="mensajes.html"><i class="fa-solid fa-podcast"></i> Prédicas en audio & Video</a></li>
+          </ul>
+        </div>
+
+        <!-- Columna 5: Newsletter / Boletín (Stay Tuned) -->
+        <div class="footer-col footer-col-newsletter">
+          <h4 class="footer-heading">Mantente Conectado</h4>
+          <p class="footer-newsletter-desc">
+            Suscríbete a nuestro boletín para recibir noticias, devocionales y actividades de nuestra comunidad.
+          </p>
+          <form class="footer-newsletter-form" data-footer-newsletter>
+            <div class="footer-form-field">
+              <input type="text" name="first_name" placeholder="Nombre" required />
+            </div>
+            <div class="footer-form-field">
+              <input type="text" name="last_name" placeholder="Apellido" required />
+            </div>
+            <div class="footer-form-field">
+              <input type="email" name="email" placeholder="Correo electrónico" required />
+            </div>
+            <label class="footer-form-checkbox">
+              <input type="checkbox" name="privacy_policy" required />
+              <span>Acepto las políticas de privacidad y tratamiento de datos de Nazareno Cali.</span>
+            </label>
+            <button class="footer-submit-btn" type="submit">Suscribirme ↗</button>
+            <p class="footer-form-status" data-newsletter-status></p>
+          </form>
+        </div>
+      </div>
+
+      <!-- Barra Inferior de Servicios y Transmisión -->
+      <div class="footer-bottom-strip">
+        <div class="footer-strip-left">
+          <span class="strip-label">Celebraciones de domingo:</span>
+          <span class="strip-times">6:30 AM · 8:15 AM · 10:00 AM · 12:00 PM</span>
+        </div>
+        <div class="footer-strip-center">
+          <a class="footer-live-link" href="mensajes.html">
+            <span class="live-dot"></span> Ver transmisión online ▷
+          </a>
+        </div>
+        <div class="footer-strip-right">
+          <span>© 2026 Iglesia del Nazareno Cali. Todos los derechos reservados.</span>
+        </div>
+      </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-client.js"></script>
+    <script src="js/visitas-tracker.js"></script>
+    <script src="script.js"></script>
+    <!--
+      CONFIGURACIÓN DE MENSAJES
+      - destacada.url: link de YouTube de la prédica principal. Déjalo vacío ("")
+        para mostrar siempre la más reciente del canal.
+      - titulo / predicador / fecha (AAAA-MM-DD) / descripcion: opcionales.
+        Si los dejas vacíos se toman de YouTube.
+      - extras: prédicas adicionales para el carrusel, solo con el link
+        (ej. {"url": "https://www.youtube.com/watch?v=XXXXXXXXXXX", "fecha": "2026-09-20"}).
+      - respaldo: video que se muestra si el canal no responde.
+    -->
+    <script type="application/json" id="msg-config">
+    {
+      "canal_url": "https://www.youtube.com/user/nazarenocali",
+      "canal_feed": "https://www.youtube.com/feeds/videos.xml?user=nazarenocali",
+      "destacada": { "url": "", "titulo": "", "predicador": "", "fecha": "", "descripcion": "" },
+      "extras": [],
+      "respaldo": "https://www.youtube.com/watch?v=kZNdlw4Z4Nw"
+    }
+    </script>
+    <script>
+(() => {
+  'use strict';
+
+  const doc = document;
+  const $ = (s, r = doc) => r.querySelector(s);
+
+  /* ---------- Configuración ---------- */
+  let cfg = {};
+  try { cfg = JSON.parse($('#msg-config').textContent); } catch (e) { console.warn('[mensajes] config inválida', e); }
+  const CANAL_URL = cfg.canal_url || 'https://www.youtube.com/user/nazarenocali';
+  const CANAL_FEED = cfg.canal_feed || 'https://www.youtube.com/feeds/videos.xml?user=nazarenocali';
+  const DEFAULT_PREACHER = 'Iglesia del Nazareno Cali';
+  const DEFAULT_DESC = 'Mira este mensaje de la Iglesia del Nazareno Cali y compártelo con alguien que lo necesite.';
+  const IS_WEB = /^https?:$/.test(location.protocol);
+  const REDUCE_MOTION = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const MAX_FEED_ITEMS = 24;
+
+  const el = {
+    player: $('[data-msg-player]'),
+    title: $('[data-msg-title]'),
+    preacher: $('[data-msg-preacher]'),
+    dateRow: $('[data-msg-date-row]'),
+    date: $('[data-msg-date]'),
+    desc: $('[data-msg-description]'),
+    status: $('[data-msg-status]'),
+    share: $('[data-msg-share]'),
+    more: $('[data-msg-more]'),
+    track: $('[data-msg-track]'),
+    prev: $('[data-msg-prev]'),
+    next: $('[data-msg-next]'),
+    seeAll: $('[data-msg-see-all]'),
+    menu: $('[data-msg-menu]'),
+    dialog: $('[data-msg-dialog]'),
+  };
+  if (!el.player || !el.track) return;
+  const state = { pool: [], feed: [], live: null, current: null, loading: true, player: null, menuItem: null };
+
+  /* ---------- Utilidades ---------- */
+  function h(tag, attrs = {}, kids = []) {
+    const e = doc.createElement(tag);
+    for (const [k, v] of Object.entries(attrs)) {
+      if (v === false || v == null) continue;
+      e.setAttribute(k, v === true ? '' : v);
+    }
+    [].concat(kids).forEach((k) => e.append(k && k.nodeType ? k : doc.createTextNode(k)));
+    return e;
+  }
+
+  function svg(markup) {
+    const t = doc.createElement('template');
+    t.innerHTML = markup.trim();
+    return t.content.firstChild;
+  }
+
+  const ICON_PLAY = '<svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5Z"/></svg>';
+  const ICON_KEBAB = '<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="5" r="1.8"/><circle cx="12" cy="12" r="1.8"/><circle cx="12" cy="19" r="1.8"/></svg>';
+
+  function ytId(input) {
+    if (!input) return '';
+    const s = String(input).trim();
+    if (/^[\w-]{11}$/.test(s)) return s;
+    try {
+      const u = new URL(s);
+      if (u.hostname === 'youtu.be') return u.pathname.slice(1, 12);
+      const v = u.searchParams.get('v');
+      if (v) return v.slice(0, 11);
+      const m = u.pathname.match(/\/(?:embed|shorts|live|v)\/([\w-]{11})/);
+      if (m) return m[1];
+    } catch (e) { /* no era una URL */ }
+    return '';
+  }
+
+  const watchUrl = (id) => 'https://www.youtube.com/watch?v=' + id;
+
+  function setThumb(img, id) {
+    img.src = 'https://i.ytimg.com/vi/' + id + '/maxresdefault.jpg';
+    img.addEventListener('error', () => {
+      img.onerror = null;
+      img.src = 'https://i.ytimg.com/vi/' + id + '/mqdefault.jpg';
+    }, { once: true });
+    // maxresdefault inexistente responde 120x90: se detecta tras cargar
+    img.addEventListener('load', () => {
+      if (img.naturalWidth && img.naturalWidth <= 120) img.src = 'https://i.ytimg.com/vi/' + id + '/mqdefault.jpg';
+    }, { once: true });
+  }
+
+  function parseDate(v) {
+    if (!v) return null;
+    if (v instanceof Date) return isNaN(v) ? null : v;
+    const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(v));
+    const d = m ? new Date(+m[1], +m[2] - 1, +m[3], 12) : new Date(v);
+    return isNaN(d) ? null : d;
+  }
+
+  const dateFmt = new Intl.DateTimeFormat('es-CO', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'America/Bogota' });
+
+  async function fetchJSON(url, ms = 8000) {
+    const ctrl = new AbortController();
+    const t = setTimeout(() => ctrl.abort(), ms);
+    try {
+      const r = await fetch(url, { signal: ctrl.signal });
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return await r.json();
+    } finally { clearTimeout(t); }
+  }
+
+  let statusTimer;
+  function say(msg) {
+    if (!el.status) return;
+    el.status.textContent = msg;
+    clearTimeout(statusTimer);
+    statusTimer = setTimeout(() => { el.status.textContent = ''; }, 3500);
+  }
+
+  /* ---------- Datos ---------- */
+  function mk(id, extra) {
+    return Object.assign({ id, title: '', preacher: '', date: null, description: '' }, extra);
+  }
+
+  function manualItems() {
+    const out = [];
+    const add = (o) => {
+      const id = ytId(o && o.url);
+      if (!id) return;
+      out.push(mk(id, {
+        title: o.titulo || '', preacher: o.predicador || '',
+        date: parseDate(o.fecha), description: o.descripcion || '',
+      }));
+    };
+    add(cfg.destacada);
+    (cfg.extras || []).forEach(add);
+    return out;
+  }
+
+  async function loadFeed() {
+    const key = 'msg-feed-v1';
+    try {
+      const c = JSON.parse(sessionStorage.getItem(key) || 'null');
+      if (c && Date.now() - c.t < 30 * 60 * 1000) return c.items.map((i) => mk(i.id, { title: i.title, preacher: i.preacher, date: i.ts ? new Date(i.ts) : null }));
+    } catch (e) { /* sin caché */ }
+
+    const data = await fetchJSON('https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent(CANAL_FEED));
+    if (data.status !== 'ok' || !Array.isArray(data.items)) throw new Error('feed');
+    const items = data.items.slice(0, MAX_FEED_ITEMS).map((it) => {
+      const id = ytId((it.guid || '').replace('yt:video:', '')) || ytId(it.link);
+      const ts = it.pubDate ? new Date(String(it.pubDate).replace(' ', 'T') + 'Z').getTime() : 0;
+      return { id, title: it.title || '', preacher: it.author || (data.feed && data.feed.title) || '', ts: isNaN(ts) ? 0 : ts };
+    }).filter((i) => i.id);
+    try { sessionStorage.setItem(key, JSON.stringify({ t: Date.now(), items })); } catch (e) { /* sin caché */ }
+    return items.map((i) => mk(i.id, { title: i.title, preacher: i.preacher, date: i.ts ? new Date(i.ts) : null }));
+  }
+
+  async function loadLive() {
+    const client = window.supabaseAdmin?.client;
+    if (!client) return null;
+    try {
+      // Actualiza el registro local con el estado oficial del canal. La Edge
+      // Function limita las consultas a YouTube para cuidar la cuota de la API.
+      const { error: syncError } = await client.functions.invoke('youtube-media-sync');
+      if (syncError) console.warn('[mensajes] no se pudo sincronizar el en vivo', syncError.message);
+
+      const { data, error } = await client
+        .from('sermones')
+        .select('titulo, predicador, fecha, youtube_url, youtube_video_id')
+        .eq('publicado', true)
+        .eq('en_vivo', true)
+        .limit(1)
+        .maybeSingle();
+      if (error || !data) return null;
+      const id = ytId(data.youtube_video_id) || ytId(data.youtube_url);
+      return id ? mk(id, {
+        title: data.titulo || 'Transmisión en vivo',
+        preacher: data.predicador || DEFAULT_PREACHER,
+        date: parseDate(data.fecha),
+        description: 'Estás viendo la transmisión en vivo de la Iglesia del Nazareno Cali.',
+        isLive: true,
+      }) : null;
+    } catch (e) {
+      console.warn('[mensajes] no se pudo consultar el en vivo', e);
+      return null;
+    }
+  }
+
+  function buildPool() {
+    const map = new Map();
+    const put = (src) => {
+      const cur = map.get(src.id) || mk(src.id);
+      ['title', 'preacher', 'description'].forEach((k) => { if (src[k]) cur[k] = src[k]; });
+      if (src.date) cur.date = src.date;
+      if (src.isLive) cur.isLive = true;
+      map.set(src.id, cur);
+    };
+    state.feed.forEach(put);
+    manualItems().forEach(put); // lo escrito a mano manda sobre lo de YouTube
+    if (state.live) put(state.live);
+    const arr = [...map.values()];
+    arr.sort((a, b) => (b.date ? +b.date : -Infinity) - (a.date ? +a.date : -Infinity));
+    state.pool = arr;
+  }
+
+  const lookup = (id) => state.pool.find((i) => i.id === id);
+
+  async function enrich(item) {
+    if (item.title && item.preacher) return item;
+    try {
+      const o = await fetchJSON('https://www.youtube.com/oembed?format=json&url=' + encodeURIComponent(watchUrl(item.id)), 6000);
+      item.title = item.title || o.title || '';
+      item.preacher = item.preacher || o.author_name || '';
+    } catch (e) { /* se usan los textos por defecto */ }
+    return item;
+  }
+
+  /* ---------- Video destacado ---------- */
+  function destroyPlayer() {
+    if (state.player && typeof state.player.destroy === 'function') {
+      try { state.player.destroy(); } catch (e) { /* ya destruido */ }
+    }
+    state.player = null;
+  }
+
+  function renderFacade(item) {
+    destroyPlayer();
+    el.player.classList.remove('is-loading');
+    el.player.replaceChildren();
+    const img = h('img', { class: 'msg-poster', alt: '', decoding: 'async' });
+    setThumb(img, item.id);
+    const btn = h('button', { class: 'msg-play', type: 'button', 'aria-label': 'Reproducir: ' + (item.title || 'mensaje') }, [
+      h('span', { class: 'msg-play-icon' }, [svg(ICON_PLAY)]),
+    ]);
+    btn.addEventListener('click', () => play(item));
+    el.player.append(img, btn);
+  }
+
+  function renderDetails(item) {
+    const title = item.title || 'Mensaje';
+    el.title.textContent = item.isLive ? 'EN VIVO · ' + title : (item.title || 'Cargando mensaje…');
+    el.preacher.textContent = item.preacher || DEFAULT_PREACHER;
+    el.desc.textContent = item.description || DEFAULT_DESC;
+    if (item.date) {
+      el.date.textContent = dateFmt.format(item.date);
+      el.date.setAttribute('datetime', item.date.toISOString().slice(0, 10));
+      el.dateRow.hidden = false;
+    } else {
+      el.dateRow.hidden = true;
+    }
+    document.title = title + ' | Mensajes | Iglesia del Nazareno Cali';
+    const playBtn = $('.msg-play', el.player);
+    if (playBtn) playBtn.setAttribute('aria-label', 'Reproducir: ' + title);
+  }
+
+  let ytPromise = null;
+  function loadYT() {
+    if (window.YT && window.YT.Player) return Promise.resolve();
+    if (ytPromise) return ytPromise;
+    ytPromise = new Promise((resolve, reject) => {
+      const prev = window.onYouTubeIframeAPIReady;
+      window.onYouTubeIframeAPIReady = () => { if (typeof prev === 'function') prev(); resolve(); };
+      const s = doc.createElement('script');
+      s.src = 'https://www.youtube.com/iframe_api';
+      s.async = true;
+      s.onerror = () => { ytPromise = null; reject(new Error('yt-api')); };
+      doc.head.append(s);
+      setTimeout(() => reject(new Error('timeout')), 8000);
+    });
+    return ytPromise;
+  }
+
+  function plainIframe(item) {
+    el.player.replaceChildren(h('iframe', {
+      title: item.title || 'Reproductor de YouTube',
+      src: 'https://www.youtube.com/embed/' + item.id + '?autoplay=1&rel=0&playsinline=1&widget_referrer=https%3A%2F%2Fwww.nazarenocali.org',
+      allow: 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share',
+      referrerpolicy: 'strict-origin-when-cross-origin',
+      allowfullscreen: true,
+    }));
+  }
+
+  function showPlayerError(item, code) {
+    destroyPlayer();
+    el.player.classList.remove('is-loading');
+    el.player.replaceChildren();
+    const img = h('img', { class: 'msg-poster', alt: '', decoding: 'async' });
+    setThumb(img, item.id);
+    el.player.append(
+      img,
+      h('div', { class: 'msg-player-error' }, [
+        h('p', {}, ['No pudimos reproducir el video aquí.']),
+        h('p', {}, ['Intenta de nuevo en unos segundos.']),
+        code ? h('small', {}, ['Código de error ' + code]) : '',
+      ]),
+    );
+  }
+
+  async function play(item) {
+    // El iframe estándar conserva el Referer de la WebView. El API de
+    // JavaScript puede perderlo en Capacitor y YouTube responde Error 153.
+    destroyPlayer();
+    el.player.classList.remove('is-loading');
+    plainIframe(item);
+  }
+
+  async function selectVideo(id, opts = {}) {
+    const item = lookup(id) || mk(id);
+    state.current = item;
+    renderFacade(item);
+    renderDetails(item);
+    renderCarousel();
+
+    if (opts.updateUrl !== false && IS_WEB) {
+      try {
+        const u = new URL(location.href);
+        u.searchParams.set('v', id);
+        history.replaceState(null, '', u);
+      } catch (e) { /* sin historial */ }
+    }
+    if (opts.scroll) {
+      $('#msg-featured').scrollIntoView({ behavior: REDUCE_MOTION ? 'auto' : 'smooth', block: 'start' });
+    }
+
+    if (!item.title || !item.preacher) {
+      await enrich(item);
+      if (state.current === item) { renderDetails(item); renderCarousel(); }
+    }
+  }
+
+  /* ---------- Compartir ---------- */
+  async function share(item) {
+    if (!item) return;
+    const url = IS_WEB ? location.origin + location.pathname + '?v=' + item.id : watchUrl(item.id);
+    const title = item.title || 'Mensaje';
+    try {
+      if (navigator.share) { await navigator.share({ title, text: title + ' · ' + DEFAULT_PREACHER, url }); return; }
+    } catch (e) {
+      if (e && e.name === 'AbortError') return;
+    }
+    try { await navigator.clipboard.writeText(url); say('Enlace copiado'); }
+    catch (e) { say(url); }
+  }
+
+  /* ---------- Carrusel ---------- */
+  function skeletonCard() {
+    return h('li', { class: 'msg-card msg-skeleton', 'aria-hidden': 'true' }, [
+      h('div', { class: 'msg-card-thumb' }),
+      h('span', { class: 'msg-skeleton-line' }),
+      h('span', { class: 'msg-skeleton-line is-short' }),
+    ]);
+  }
+
+  function renderCarousel() {
+    const curId = state.current && state.current.id;
+    const list = state.pool.filter((i) => i.id !== curId && !i.isLive);
+    el.track.replaceChildren();
+
+    if (state.loading) {
+      for (let i = 0; i < 4; i++) el.track.append(skeletonCard());
+      updateArrows();
+      return;
+    }
+
+    if (!list.length) {
+      el.track.append(h('li', { class: 'msg-empty' }, ['Pronto habrá más prédicas aquí.']));
+      el.seeAll.hidden = true;
+      updateArrows();
+      return;
+    }
+    el.seeAll.hidden = false;
+
+    list.forEach((item) => {
+      const img = h('img', { alt: '', loading: 'lazy', decoding: 'async' });
+      setThumb(img, item.id);
+      const thumb = h('button', { class: 'msg-card-thumb', type: 'button', 'aria-label': 'Ver: ' + (item.title || 'mensaje') }, [img]);
+      thumb.addEventListener('click', () => selectVideo(item.id, { scroll: true }));
+
+      const kebab = h('button', { class: 'msg-kebab', type: 'button', 'aria-label': 'Más opciones', 'aria-haspopup': 'menu' }, [svg(ICON_KEBAB)]);
+      kebab.addEventListener('click', (e) => { e.stopPropagation(); openMenu(kebab, item); });
+
+      el.track.append(h('li', { class: 'msg-card' }, [
+        thumb,
+        h('div', { class: 'msg-card-info' }, [
+          h('div', { class: 'msg-card-text' }, [
+            h('h3', {}, [item.title || 'Mensaje']),
+            h('p', {}, [item.preacher || DEFAULT_PREACHER]),
+          ]),
+          kebab,
+        ]),
+      ]));
+    });
+    updateArrows();
+  }
+
+  function updateArrows() {
+    const t = el.track;
+    const expanded = el.more.classList.contains('is-expanded');
+    const max = t.scrollWidth - t.clientWidth - 4;
+    el.prev.hidden = expanded || t.scrollLeft <= 4;
+    el.next.hidden = expanded || max <= 0 || t.scrollLeft >= max;
+  }
+
+  el.track.addEventListener('scroll', () => requestAnimationFrame(updateArrows), { passive: true });
+  addEventListener('resize', updateArrows);
+  el.prev.addEventListener('click', () => el.track.scrollBy({ left: -el.track.clientWidth * 0.9, behavior: 'smooth' }));
+  el.next.addEventListener('click', () => el.track.scrollBy({ left: el.track.clientWidth * 0.9, behavior: 'smooth' }));
+
+  el.seeAll.addEventListener('click', () => {
+    const on = el.more.classList.toggle('is-expanded');
+    el.seeAll.textContent = on ? 'Ver menos' : 'Ver todas';
+    el.seeAll.setAttribute('aria-expanded', String(on));
+    el.track.scrollLeft = 0;
+    updateArrows();
+  });
+
+  /* ---------- Menú ⋮ ---------- */
+  function openMenu(btn, item) {
+    state.menuItem = item;
+    el.menu.hidden = false;
+    const r = btn.getBoundingClientRect();
+    const mw = el.menu.offsetWidth;
+    const mh = el.menu.offsetHeight;
+    const left = Math.max(8, Math.min(r.right - mw, innerWidth - mw - 8));
+    const top = r.bottom + 6 + mh > innerHeight ? Math.max(8, r.top - mh - 6) : r.bottom + 6;
+    el.menu.style.left = left + 'px';
+    el.menu.style.top = top + 'px';
+    const first = $('button', el.menu);
+    if (first) first.focus();
+  }
+
+  function closeMenu() { el.menu.hidden = true; state.menuItem = null; }
+
+  el.menu.addEventListener('click', (e) => {
+    const act = e.target.closest('[data-act]');
+    if (!act) return;
+    const item = state.menuItem;
+    if (act.dataset.act === 'play' && item) selectVideo(item.id, { scroll: true });
+    if (act.dataset.act === 'share' && item) share(item);
+    closeMenu();
+  });
+  doc.addEventListener('click', (e) => { if (!el.menu.hidden && !el.menu.contains(e.target)) closeMenu(); });
+  doc.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
+  addEventListener('scroll', closeMenu, { passive: true });
+
+  /* ---------- Compartir + diálogo ---------- */
+  el.share.addEventListener('click', () => share(state.current));
+
+  const openBtn = $('[data-msg-open-dialog]');
+  const closeBtn = $('[data-msg-close-dialog]');
+  if (openBtn && el.dialog) {
+    openBtn.addEventListener('click', () => {
+      if (typeof el.dialog.showModal === 'function') el.dialog.showModal();
+      else el.dialog.setAttribute('open', '');
+    });
+    const close = () => (typeof el.dialog.close === 'function' ? el.dialog.close() : el.dialog.removeAttribute('open'));
+    if (closeBtn) closeBtn.addEventListener('click', close);
+    el.dialog.addEventListener('click', (e) => { if (e.target === el.dialog) close(); });
+  }
+
+  /* ---------- Arranque ---------- */
+  async function init() {
+    renderCarousel(); // esqueletos mientras carga
+
+    const fromUrl = ytId(new URLSearchParams(location.search).get('v'));
+    const pinned = ytId(cfg.destacada && cfg.destacada.url);
+    let id = fromUrl;
+
+    // El pool arranca con lo escrito a mano para poder pintar de inmediato
+    buildPool();
+    if (id) selectVideo(id, { scroll: false, updateUrl: false });
+
+    state.live = await loadLive();
+    try { state.feed = await loadFeed(); }
+    catch (e) { console.warn('[mensajes] no se pudo leer el canal de YouTube', e); }
+
+    buildPool();
+    state.loading = false;
+
+    if (!id) id = (state.live && state.live.id) || pinned || (state.feed[0] && state.feed[0].id) || ytId(cfg.respaldo);
+    if (id) {
+      const keepPlaying = state.current && state.current.id === id && el.player.querySelector('iframe');
+      if (keepPlaying) { renderDetails(lookup(id) || state.current); renderCarousel(); }
+      else selectVideo(id, { scroll: false, updateUrl: false });
+    } else {
+      renderCarousel();
+    }
+
+    // Completa títulos de las prédicas que no los traen del canal
+    const missing = state.pool.filter((i) => !i.title).slice(0, 12);
+    if (missing.length) { await Promise.allSettled(missing.map(enrich)); renderCarousel(); }
+  }
+
+  init();
+})();
+    </script>
+</body>
+</html>

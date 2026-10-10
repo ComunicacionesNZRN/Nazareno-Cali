@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eventos | Iglesia del Nazareno Cali | NZRN</title>
+    <meta name="description" content="Consulta eventos, reuniones y próximas actividades de Nazareno Cali." />
+    <link rel="icon" type="image/png" href="Media/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Cormorant+Garamond:ital,wght@0,500;1,500;1,600&family=Sora:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header" data-header>
+      <a class="brand" href="index.html" aria-label="Iglesia del Nazareno Cali, inicio">
+        <img class="brand-logo" src="Media/logoNegro.png" alt="Iglesia del Nazareno Cali" />
+      </a>
+      <nav class="main-nav" aria-label="Navegación principal">
+        <a href="index.html">Inicio</a>
+        <a href="visitanos.html">Visítanos</a>
+        <a href="ministerios.html">Ministerios</a>
+        <a href="grupos.html">Grupos</a>
+        <a class="active" href="eventos.html">Eventos</a>
+        <a href="mensajes.html">Mensajes</a>
+        <a href="contacto.html">Contacto</a>
+      </nav>
+      <div class="header-actions">
+        <a class="live-pill" href="mensajes.html"><span class="live-dot"></span>Ver en vivo</a>
+        <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Abrir menú">
+          <span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <div class="mobile-nav" id="mobile-nav" aria-hidden="true"></div>
+
+    <main class="inner-page">
+      <div class="inner-hero events-page-hero">
+        <p class="eyebrow">04 · AGENDA ABIERTA</p>
+        <h1>Lo que está<br /><em>pasando.</em></h1>
+        <p class="inner-lead">
+          Encuentra una próxima fecha para celebrar, conectar y vivir la fe con otros
+        </p>
+      </div>
+
+      <!-- 1. Banner Portada / Evento Principal -->
+      <div data-featured-event-slot></div>
+
+      <!-- 2. Grid de eventos (3 columnas estilo Elevation) -->
+      <div class="events-section-header">
+        <h2>Próximos eventos</h2>
+      </div>
+
+      <section class="events-elevation-grid" data-event-feed="page">
+        <!-- Renderizado dinámicamente -->
+      </section>
+
+      <section class="inner-band" style="margin-top: 80px;">
+        <p class="eyebrow">Una invitación</p>
+        <h2>Siempre hay un lugar<br /><em>para ti.</em></h2>
+      </section>
+    </main>
+
+    <dialog class="event-detail-modal" id="event-detail-modal" aria-labelledby="event-detail-title">
+      <div class="event-detail-shell">
+        <button class="event-detail-close" type="button" data-close-event-modal aria-label="Cerrar detalles del evento">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <img class="event-detail-image" data-event-detail-image alt="" hidden />
+        <div class="event-detail-content">
+          <p class="eyebrow">Detalles del evento</p>
+          <h2 id="event-detail-title" data-event-detail-title></h2>
+          <div class="event-detail-meta">
+            <p data-event-detail-date></p>
+            <p data-event-detail-time></p>
+            <p data-event-detail-location></p>
+          </div>
+          <p class="event-detail-description" data-event-detail-description></p>
+          <p class="event-detail-requirements" data-event-detail-requirements hidden></p>
+          <a class="button button-dark event-detail-register" data-event-detail-register target="_blank" rel="noopener noreferrer" hidden>
+            Inscribirme <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+    </dialog>
+
+    
+    <!-- ========================================================================
+      FOOTER PROFESIONAL (ESTILO SOUL CHURCH: REDES, LEGAL, CONTACTO Y NEWSLETTER)
+      ======================================================================== -->
+    <footer class="site-footer" id="contacto">
+      <div class="footer-main-grid">
+        <!-- Columna 1: Brand & Logo Badge -->
+        <div class="footer-col footer-col-brand">
+          <a class="footer-brand-badge" href="index.html" aria-label="Inicio">
+            <img src="Media/logoBlanco.png" alt="Logo Iglesia del Nazareno Cali" />
+          </a>
+          <p class="footer-brand-tagline">
+            Una iglesia en Cali apasionada por Jesús, comprometida con las personas y transformando nuestra ciudad.
+          </p>
+        </div>
+
+        <!-- Columna 2: Contacto General -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Contacto</h4>
+          <p class="footer-contact-item"><strong>Iglesia del Nazareno Cali</strong></p>
+          <p class="footer-contact-item">Calle 13 # 75-109, Quintas de Don Simón<br />Cali, Valle del Cauca, Colombia</p>
+          <p class="footer-contact-item"><a href="mailto:info@nazarenocali.org">info@nazarenocali.org</a></p>
+          <p class="footer-contact-item"><a href="https://wa.link/62syyk" target="_blank" rel="noreferrer">+57 304 377 8188</a></p>
+        </div>
+
+        <!-- Columna 3: Enlaces Rápidos & Legal -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Enlaces</h4>
+          <ul class="footer-links-list">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="visitanos.html">Planifica tu visita</a></li>
+            <li><a href="ministerios.html">Equipos de Servicio</a></li>
+            <li><a href="grupos.html">Grupos de Conexión</a></li>
+            <li><a href="eventos.html">Actividades & Eventos</a></li>
+            <li><a href="donar.html">Dar / Donación</a></li>
+            <li><a href="contacto.html">Políticas de Privacidad & Tratamiento de Datos ↗</a></li>
+          </ul>
+        </div>
+
+        <!-- Columna 4: Medios & Redes Sociales -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Medios & Redes</h4>
+          <ul class="footer-links-list">
+            <li><a href="https://www.youtube.com/user/nazarenocali" target="_blank" rel="noreferrer"><i class="fa-brands fa-youtube"></i> YouTube ↗</a></li>
+            <li><a href="https://www.instagram.com/nazarenocali/" target="_blank" rel="noreferrer"><i class="fa-brands fa-instagram"></i> Instagram ↗</a></li>
+            <li><a href="https://www.facebook.com/nazarenocali" target="_blank" rel="noreferrer"><i class="fa-brands fa-facebook"></i> Facebook ↗</a></li>
+            <li><a href="mensajes.html"><i class="fa-solid fa-podcast"></i> Prédicas en audio & Video</a></li>
+          </ul>
+        </div>
+
+        <!-- Columna 5: Newsletter / Boletín (Stay Tuned) -->
+        <div class="footer-col footer-col-newsletter">
+          <h4 class="footer-heading">Mantente Conectado</h4>
+          <p class="footer-newsletter-desc">
+            Suscríbete a nuestro boletín para recibir noticias, devocionales y actividades de nuestra comunidad.
+          </p>
+          <form class="footer-newsletter-form" data-footer-newsletter>
+            <div class="footer-form-field">
+              <input type="text" name="first_name" placeholder="Nombre" required />
+            </div>
+            <div class="footer-form-field">
+              <input type="text" name="last_name" placeholder="Apellido" required />
+            </div>
+            <div class="footer-form-field">
+              <input type="email" name="email" placeholder="Correo electrónico" required />
+            </div>
+            <label class="footer-form-checkbox">
+              <input type="checkbox" name="privacy_policy" required />
+              <span>Acepto las políticas de privacidad y tratamiento de datos de Nazareno Cali.</span>
+            </label>
+            <button class="footer-submit-btn" type="submit">Suscribirme ↗</button>
+            <p class="footer-form-status" data-newsletter-status></p>
+          </form>
+        </div>
+      </div>
+
+      <!-- Barra Inferior de Servicios y Transmisión -->
+      <div class="footer-bottom-strip">
+        <div class="footer-strip-left">
+          <span class="strip-label">Celebraciones de domingo:</span>
+          <span class="strip-times">6:30 AM · 8:15 AM · 10:00 AM · 12:00 PM</span>
+        </div>
+        <div class="footer-strip-center">
+          <a class="footer-live-link" href="mensajes.html">
+            <span class="live-dot"></span> Ver transmisión online ▷
+          </a>
+        </div>
+        <div class="footer-strip-right">
+          <span>© 2026 Iglesia del Nazareno Cali. Todos los derechos reservados.</span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-client.js"></script>
+    <script src="js/visitas-tracker.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

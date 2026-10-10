@@ -1,0 +1,91 @@
+{
+  "eventos": [
+    {
+      "id": "celebracion-domingo",
+      "titulo": "Celebraciones de domingo",
+      "fecha": "Cada domingo",
+      "lugar": "Calle 13 # 75-109, Cali",
+      "estado": "próximo",
+      "audiencia": "Toda la familia",
+      "promesa": "Una celebración cercana, un mensaje para la vida real y un espacio para conectar.",
+      "cta": {
+        "label": "Planifica tu visita",
+        "href": "primera-vez.html"
+      }
+    },
+    {
+      "id": "reunion-jovenes-jni",
+      "titulo": "Reunión de jóvenes JNI",
+      "fecha": "Próxima fecha por confirmar",
+      "lugar": "Iglesia del Nazareno Cali",
+      "estado": "próximo",
+      "audiencia": "Jóvenes",
+      "promesa": "Un espacio para hacer preguntas, construir amistades y crecer en la fe.",
+      "cta": {
+        "label": "Conoce el ministerio",
+        "href": "ministerios.html"
+      }
+    },
+    {
+      "id": "noche-adoracion",
+      "titulo": "Noche de adoración",
+      "fecha": "Fecha por confirmar",
+      "lugar": "Iglesia del Nazareno Cali",
+      "estado": "agotado",
+      "audiencia": "Comunidad Nazareno",
+      "promesa": "Una noche para detenernos, adorar juntos y renovar nuestra esperanza.",
+      "cta": {
+        "label": "Ver próximas fechas",
+        "href": "eventos.html"
+      }
+    },
+    {
+      "id": "taller-cancelado",
+      "titulo": "Taller para familias",
+      "fecha": "Fecha anterior",
+      "lugar": "Iglesia del Nazareno Cali",
+      "estado": "cancelado",
+      "audiencia": "Familias",
+      "promesa": "Un encuentro práctico para conversar sobre fe, crianza y vida en comunidad.",
+      "cta": {
+        "label": "Consultar novedades",
+        "href": "contacto.html"
+      }
+    }
+  ],
+  "ministerios": [
+    {
+      "id": "familias",
+      "nombre": "Familias y niños",
+      "estado": "próximo",
+      "audiencia": "Niños, madres, padres y cuidadores",
+      "promesa": "Acompañamiento para que cada familia encuentre un lugar seguro para crecer.",
+      "cta": {
+        "label": "Conocer el ministerio",
+        "href": "ministerios.html"
+      }
+    },
+    {
+      "id": "jovenes-jni",
+      "nombre": "Jóvenes JNI",
+      "estado": "próximo",
+      "audiencia": "Jóvenes",
+      "promesa": "Amistades honestas, preguntas reales y una fe que se vive en comunidad.",
+      "cta": {
+        "label": "Conectar con JNI",
+        "href": "contacto.html"
+      }
+    },
+    {
+      "id": "voluntariado",
+      "nombre": "Equipos de servicio",
+      "estado": "próximo",
+      "audiencia": "Personas que quieren servir",
+      "promesa": "Descubre una forma concreta de poner tus dones al servicio de la iglesia y Cali.",
+      "cta": {
+        "label": "Quiero servir",
+        "href": "contacto.html"
+      }
+    }
+  ]
+}

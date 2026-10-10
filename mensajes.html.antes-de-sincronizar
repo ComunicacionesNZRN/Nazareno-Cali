@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Mira las transmisiones y prédicas de la Iglesia del Nazareno Cali."
+    />
+    <title>Mensajes | Iglesia del Nazareno Cali | NZRN</title>
+    <meta name="description" content="Mira mensajes, prédicas y transmisiones de la Iglesia del Nazareno Cali desde cualquier lugar." />
+    <link rel="icon" type="image/png" href="Media/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Cormorant+Garamond:ital,wght@0,500;1,500;1,600&family=Sora:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header" data-header>
+      <a
+        class="brand"
+        href="index.html"
+        aria-label="Iglesia del Nazareno Cali, inicio"
+        ><img
+          class="brand-logo"
+          src="Media/logoNegro.png"
+          alt="Iglesia del Nazareno Cali"
+      /></a>
+      <nav class="main-nav" aria-label="Navegación principal">
+        <a href="index.html">Inicio</a><a href="visitanos.html">Visítanos</a
+        ><a href="ministerios.html">Ministerios</a
+        ><a href="grupos.html">Grupos</a><a href="eventos.html">Eventos</a
+        ><a class="active" href="mensajes.html">Mensajes</a
+        ><a href="contacto.html">Contacto</a>
+      </nav>
+      <div class="header-actions">
+        <a class="live-pill" href="mensajes.html"
+          ><span class="live-dot"></span>Ver en vivo</a
+        ><button
+          class="menu-button"
+          type="button"
+          aria-expanded="false"
+          aria-controls="mobile-nav"
+          aria-label="Abrir menú"
+        >
+          <span></span><span></span>
+        </button>
+      </div>
+    </header>
+    <div class="mobile-nav" id="mobile-nav" aria-hidden="true">
+      <div class="mobile-nav-head">
+        <span>Explora Nazareno</span><span>MENÚ</span>
+      </div>
+      <a href="index.html">Inicio <small>01</small></a
+      ><a href="visitanos.html">Visítanos <small>02</small></a
+      ><a href="ministerios.html">Ministerios <small>03</small></a
+      ><a href="grupos.html">Grupos <small>04</small></a
+      ><a href="eventos.html">Eventos <small>05</small></a
+      ><a href="mensajes.html">En vivo y prédicas <small>06</small></a
+      ><a href="contacto.html">Contacto <small>07</small></a
+      ><a class="mobile-live" href="mensajes.html"
+        ><span class="live-dot"></span> Ver la transmisión</a
+      >
+    </div>
+    <main class="inner-page media-library-page">
+      <section class="media-page-hero" aria-labelledby="messages-title">
+        <img class="media-page-hero-image" src="Media/01.jpg" alt="Comunidad de Iglesia del Nazareno Cali reunida en una celebración" fetchpriority="high" />
+        <div class="media-page-hero-shade" aria-hidden="true"></div>
+        <div class="media-page-hero-copy">
+          <p class="eyebrow">06 · Nazareno en línea</p>
+          <h1 id="messages-title">Una palabra<br />para tu <em>semana.</em></h1>
+          <p class="inner-lead">
+            Mira la transmisión y vuelve a escuchar mensajes que te acompañen
+            donde estés.
+          </p>
+        </div>
+      </section>
+      <section class="media-library" data-media-library aria-labelledby="media-library-title">
+        <div class="media-library-switcher" role="tablist" aria-label="Tipo de contenido">
+          <button id="sermons-tab" class="media-library-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="sermons-panel" data-library-tab="sermones">Prédicas</button>
+          <button id="podcasts-tab" class="media-library-tab" type="button" role="tab" aria-selected="false" aria-controls="podcasts-panel" data-library-tab="podcasts">Podcasts</button>
+        </div>
+
+        <section id="sermons-panel" class="media-library-panel" role="tabpanel" aria-labelledby="sermons-tab" data-library-panel="sermones">
+          <div class="media-library-heading">
+            <h2 id="media-library-title">Últimos sermones</h2>
+            <div class="media-library-tools">
+              <div class="media-filter" role="tablist" aria-label="Filtrar prédicas">
+                <button class="media-filter-tab" type="button" role="tab" aria-selected="false" data-sermon-filter="past">Sermones pasados</button>
+                <button class="media-filter-tab is-active" type="button" role="tab" aria-selected="true" data-sermon-filter="latest">Último sermón / En vivo</button>
+              </div>
+              <label class="media-sort-control">
+                <span>Ordenar histórico</span>
+                <select data-sermon-order aria-label="Ordenar sermones pasados">
+                  <option value="asc" selected>Antiguos a recientes</option>
+                  <option value="desc">Recientes a antiguos</option>
+                </select>
+              </label>
+            </div>
+          </div>
+          <p class="media-library-state" data-sermon-state role="status">Cargando prédicas...</p>
+          <div class="media-card-grid" data-sermon-grid aria-live="polite"></div>
+        </section>
+
+        <section id="podcasts-panel" class="media-library-panel" role="tabpanel" aria-labelledby="podcasts-tab" data-library-panel="podcasts" hidden>
+          <div class="media-library-heading">
+            <h2>Podcasts</h2>
+            <p>Conversaciones y enseñanzas para escuchar donde estés.</p>
+          </div>
+          <p class="media-library-state" data-podcast-state role="status">Cargando podcasts...</p>
+          <div class="media-card-grid" data-podcast-grid aria-live="polite"></div>
+        </section>
+      </section>
+
+      <dialog class="media-player-dialog" data-media-dialog aria-labelledby="media-dialog-title">
+        <div class="media-dialog-bar">
+          <h2 id="media-dialog-title">Reproducción</h2>
+          <button class="media-dialog-close" type="button" aria-label="Cerrar reproductor" data-media-dialog-close>
+            <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+          </button>
+        </div>
+        <div class="media-dialog-frame">
+          <iframe title="Reproductor de YouTube" data-media-iframe allow="autoplay; encrypted-media; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </dialog>
+
+      <a class="next-page" href="contacto.html">Hablemos <span>↗</span></a>
+    </main>
+    
+    <!-- ========================================================================
+      FOOTER PROFESIONAL (ESTILO SOUL CHURCH: REDES, LEGAL, CONTACTO Y NEWSLETTER)
+      ======================================================================== -->
+    <footer class="site-footer" id="contacto">
+      <div class="footer-main-grid">
+        <!-- Columna 1: Brand & Logo Badge -->
+        <div class="footer-col footer-col-brand">
+          <a class="footer-brand-badge" href="index.html" aria-label="Inicio">
+            <img src="Media/logoBlanco.png" alt="Logo Iglesia del Nazareno Cali" />
+          </a>
+          <p class="footer-brand-tagline">
+            Una iglesia en Cali apasionada por Jesús, comprometida con las personas y transformando nuestra ciudad.
+          </p>
+        </div>
+
+        <!-- Columna 2: Contacto General -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Contacto</h4>
+          <p class="footer-contact-item"><strong>Iglesia del Nazareno Cali</strong></p>
+          <p class="footer-contact-item">Calle 13 # 75-109, Quintas de Don Simón<br />Cali, Valle del Cauca, Colombia</p>
+          <p class="footer-contact-item"><a href="mailto:info@nazarenocali.org">info@nazarenocali.org</a></p>
+          <p class="footer-contact-item"><a href="https://wa.link/62syyk" target="_blank" rel="noreferrer">+57 304 377 8188</a></p>
+        </div>
+
+        <!-- Columna 3: Enlaces Rápidos & Legal -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Enlaces</h4>
+          <ul class="footer-links-list">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="visitanos.html">Planifica tu visita</a></li>
+            <li><a href="ministerios.html">Equipos de Servicio</a></li>
+            <li><a href="grupos.html">Grupos de Conexión</a></li>
+            <li><a href="eventos.html">Actividades & Eventos</a></li>
+            <li><a href="donar.html">Dar / Donación</a></li>
+            <li><a href="contacto.html">Políticas de Privacidad & Tratamiento de Datos ↗</a></li>
+          </ul>
+        </div>
+
+        <!-- Columna 4: Medios & Redes Sociales -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Medios & Redes</h4>
+          <ul class="footer-links-list">
+            <li><a href="https://www.youtube.com/user/nazarenocali" target="_blank" rel="noreferrer"><i class="fa-brands fa-youtube"></i> YouTube ↗</a></li>
+            <li><a href="https://www.instagram.com/nazarenocali/" target="_blank" rel="noreferrer"><i class="fa-brands fa-instagram"></i> Instagram ↗</a></li>
+            <li><a href="https://www.facebook.com/nazarenocali" target="_blank" rel="noreferrer"><i class="fa-brands fa-facebook"></i> Facebook ↗</a></li>
+            <li><a href="mensajes.html"><i class="fa-solid fa-podcast"></i> Prédicas en audio & Video</a></li>
+          </ul>
+        </div>
+
+        <!-- Columna 5: Newsletter / Boletín (Stay Tuned) -->
+        <div class="footer-col footer-col-newsletter">
+          <h4 class="footer-heading">Mantente Conectado</h4>
+          <p class="footer-newsletter-desc">
+            Suscríbete a nuestro boletín para recibir noticias, devocionales y actividades de nuestra comunidad.
+          </p>
+          <form class="footer-newsletter-form" data-footer-newsletter>
+            <div class="footer-form-field">
+              <input type="text" name="first_name" placeholder="Nombre" required />
+            </div>
+            <div class="footer-form-field">
+              <input type="text" name="last_name" placeholder="Apellido" required />
+            </div>
+            <div class="footer-form-field">
+              <input type="email" name="email" placeholder="Correo electrónico" required />
+            </div>
+            <label class="footer-form-checkbox">
+              <input type="checkbox" name="privacy_policy" required />
+              <span>Acepto las políticas de privacidad y tratamiento de datos de Nazareno Cali.</span>
+            </label>
+            <button class="footer-submit-btn" type="submit">Suscribirme ↗</button>
+            <p class="footer-form-status" data-newsletter-status></p>
+          </form>
+        </div>
+      </div>
+
+      <!-- Barra Inferior de Servicios y Transmisión -->
+      <div class="footer-bottom-strip">
+        <div class="footer-strip-left">
+          <span class="strip-label">Celebraciones de domingo:</span>
+          <span class="strip-times">6:30 AM · 8:15 AM · 10:00 AM · 12:00 PM</span>
+        </div>
+        <div class="footer-strip-center">
+          <a class="footer-live-link" href="mensajes.html">
+            <span class="live-dot"></span> Ver transmisión online ▷
+          </a>
+        </div>
+        <div class="footer-strip-right">
+          <span>© 2026 Iglesia del Nazareno Cali. Todos los derechos reservados.</span>
+        </div>
+      </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-client.js"></script>
+    <script src="js/visitas-tracker.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

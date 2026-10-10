@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Encuentros Espirituales | Iglesia del Nazareno Cali</title>
+    <meta
+      name="description"
+      content="Retiros espirituales de Hombres y Mujeres de la Iglesia del Nazareno Cali. Un fin de semana de desconexión, restauración y encuentro con Dios."
+    />
+    <link rel="icon" type="image/png" href="Media/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Cormorant+Garamond:ital,wght@0,500;1,500;1,600&family=Sora:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* Estilos específicos de la portada general de encuentros */
+      .encuentros-hub-hero {
+        padding: calc(var(--header-height) + 40px) clamp(16px, 6vw, 80px) 40px;
+        max-width: 960px;
+        margin: 0 auto;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .encuentros-hub-hero h1 {
+        margin: 12px auto 20px;
+        font: 800 clamp(44px, 7vw, 92px) / 0.95 var(--display);
+        letter-spacing: -2px;
+        text-align: center;
+      }
+
+      .encuentros-hub-hero h1 em {
+        color: var(--violet);
+        font-family: var(--serif);
+        font-style: italic;
+      }
+
+      /* AQUÍ SE CENTRA EL PÁRRAFO */
+      .encuentros-hub-hero .inner-lead {
+        margin: 0 auto;
+        text-align: center;
+        max-width: 680px;
+      }
+      .encuentros-cards-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 28px;
+        max-width: 1360px;
+        margin: 20px auto 80px;
+        padding: 0 clamp(16px, 6vw, 80px);
+      }
+      .encuentro-choice-card {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 0;
+        color: var(--ink);
+        transition: transform 0.25s ease;
+      }
+      .encuentro-choice-card:hover {
+        transform: translateY(-3px);
+      }
+      .encuentro-choice-bg {
+        position: relative;
+        inset: auto;
+        width: calc(100% + 48px);
+        height: auto;
+        aspect-ratio: 16 / 9;
+        margin: -24px -24px 22px;
+        object-fit: cover;
+        z-index: auto;
+      }
+      .encuentro-choice-card:hover .encuentro-choice-bg {
+        transform: none;
+      }
+      .encuentro-choice-overlay {
+        display: none;
+      }
+      .encuentro-choice-card.card-hombres .encuentro-choice-overlay {
+        background: linear-gradient(180deg, rgba(20,20,20,0.1) 0%, rgba(30,20,10,0.7) 50%, rgba(15,10,5,0.96) 100%);
+      }
+      .encuentro-choice-card.card-mujeres .encuentro-choice-overlay {
+        background: linear-gradient(180deg, rgba(20,20,20,0.1) 0%, rgba(40,20,70,0.7) 50%, rgba(20,10,35,0.96) 100%);
+      }
+      .choice-tag {
+        display: inline-block;
+        padding: 6px 14px;
+        border-radius: 99px;
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        margin-bottom: 14px;
+        width: fit-content;
+      }
+      .card-hombres .choice-tag {
+        background: #f2a218;
+        color: #141414;
+      }
+      .card-mujeres .choice-tag {
+        background: rgba(82, 48, 218, 0.1);
+        color: var(--violet);
+      }
+      .encuentro-choice-card h2 {
+        font: 800 clamp(28px, 3vw, 40px) / 1.05 var(--display);
+        margin: 0 0 12px;
+        letter-spacing: 0;
+        color: var(--ink);
+      }
+      .encuentro-choice-card p {
+        font-size: 14px;
+        line-height: 1.65;
+        color: var(--muted);
+        margin: 0 0 18px;
+      }
+      .choice-pills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 18px;
+      }
+      .choice-pills span {
+        font-size: 11px;
+        font-weight: 700;
+        padding: 6px 12px;
+        border: 1px solid #e5e7eb;
+        border-radius: 999px;
+        background: #fff;
+        color: var(--muted);
+      }
+      @media (max-width: 880px) {
+        .encuentros-cards-grid {
+          grid-template-columns: 1fr;
+        }
+        .encuentro-choice-card {
+          min-height: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Encabezado Global -->
+    <header class="site-header" data-header>
+      <a class="brand" href="index.html" aria-label="Iglesia del Nazareno Cali">
+        <img class="brand-logo" src="Media/logoNegro.png" alt="Iglesia del Nazareno Cali" />
+      </a>
+      <nav class="main-nav" aria-label="Navegación principal">
+        <a href="index.html">Inicio</a>
+        <a href="visitanos.html">Visítanos</a>
+        <a href="grupos.html">Grupos</a>
+        <a class="active" href="encuentros.html">Encuentros</a>
+        <a href="ministerios.html">Servir</a>
+        <a href="eventos.html">Actividades</a>
+        <a href="donar.html">Donación</a>
+        <a href="nosotros.html">Conócenos</a>
+      </nav>
+      <div class="header-actions">
+        <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Abrir menú">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <div class="mobile-nav" id="mobile-nav" aria-hidden="true"></div>
+
+    <main>
+      <!-- Hero Principal -->
+      <section class="encuentros-hub-hero reveal">
+        <p class="eyebrow">Retiros Espirituales · Nazareno Cali</p>
+        <h1>Un fin de semana.<br /><em>Una vida transformada.</em></h1>
+        <p class="inner-lead">
+          Los Encuentros son espacios de retiro campestre diseñados para desconectarte de la rutina, sanar el corazón, afirmar tu identidad en Dios y forjar amistades para toda la vida.
+        </p>
+      </section>
+
+      <!-- Los 2 Contenedores Principales (Hombres & Mujeres) -->
+      <section class="encuentros-cards-grid">
+        
+        <!-- Tarjeta 1: HOMBRES -->
+        <article class="encuentro-choice-card card-hombres site-card reveal">
+          <img class="encuentro-choice-bg" src="Media/encuentroHombres.jpg" alt="Encuentro de Hombres" />
+          <div class="encuentro-choice-overlay"></div>
+          <span class="choice-tag">★ Retiro de Hombres</span>
+          <h2>HOMBRES</h2>
+          <p>Un espacio de afirmación, carácter y restauración para hombres de todas las edades. Diseñado para fortalecer tu liderazgo en la familia y la sociedad.</p>
+          <div class="choice-pills">
+            <span><i class="fa-solid fa-hotel"></i> Alojamiento</span>
+            <span><i class="fa-solid fa-utensils"></i> Alimentación</span>
+            <span><i class="fa-solid fa-bus"></i> Transporte</span>
+          </div>
+          <a class="button" href="encuentro-hombres.html" style="background: #f2a218; color: #141414; border-color: #f2a218; width: fit-content;">
+            Ver Encuentro de Hombres ➔
+          </a>
+        </article>
+
+        <!-- Tarjeta 2: MUJERES -->
+        <article class="encuentro-choice-card card-mujeres site-card reveal">
+          <img class="encuentro-choice-bg" src="Media/03.jpg" alt="Encuentro de Mujeres" />
+          <div class="encuentro-choice-overlay"></div>
+          <span class="choice-tag">★ Retiro de Mujeres</span>
+          <h2>MUJERES</h2>
+          <p>Un tiempo íntimo de adoración, sanidad interior, descanso y edificación. Conéctate con Dios y comparte con amigas en un ambiente diseñado para renovarte.</p>
+          <div class="choice-pills">
+            <span><i class="fa-solid fa-heart"></i> Talleres & Plenarias</span>
+            <span><i class="fa-solid fa-spa"></i> Descanso campestre</span>
+            <span><i class="fa-solid fa-gift"></i> Detalles especiales</span>
+          </div>
+          <a class="button button-dark" href="encuentro-mujeres.html" style="background: var(--violet); border-color: var(--violet); width: fit-content;">
+            Ver Encuentro de Mujeres ➔
+          </a>
+        </article>
+
+      </section>
+
+      <!-- 3 Pilares del Encuentro -->
+      <section class="inner-band" style="max-width: 1360px; margin: 0 auto 80px;">
+        <p class="eyebrow" style="text-align: center;">¿Por qué vivir un Encuentro?</p>
+        <h2 style="text-align: center; margin-bottom: 40px;">Tres razones para <em>ir.</em></h2>
+        <div class="feature-list">
+          <article>
+            <b>01</b>
+            <h3>Desconexión Total</h3>
+            <p>Tres días fuera de la ciudad en una casa de retiros campestre, lejos del ruido cotidiano y las distracciones.</p>
+          </article>
+          <article>
+            <b>02</b>
+            <h3>Sanidad & Libertad</h3>
+            <p>Tiempos de ministración guiada para sanar heridas del pasado, perdonar y recibir la plenitud del Espíritu Santo.</p>
+          </article>
+          <article>
+            <b>03</b>
+            <h3>Hermandad Real</h3>
+            <p>Construye lazos sinceros con hermanos y hermanas en la fe que caminarán y orarán contigo en tu proceso.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer Profesional -->
+    <footer class="site-footer" id="contacto">
+      <div class="footer-main-grid">
+        <div class="footer-col footer-col-brand">
+          <a class="footer-brand-badge" href="index.html" aria-label="Inicio">
+            <img src="Media/logoBlanco.png" alt="Logo Iglesia del Nazareno Cali" />
+          </a>
+          <p class="footer-brand-tagline">
+            Una iglesia en Cali apasionada por Jesús, comprometida con las personas y transformando nuestra ciudad.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Contacto</h4>
+          <p class="footer-contact-item"><strong>Iglesia del Nazareno Cali</strong></p>
+          <p class="footer-contact-item">Calle 13 # 75-109, Quintas de Don Simón<br />Cali, Valle del Cauca, Colombia</p>
+          <p class="footer-contact-item"><a href="mailto:info@nazarenocali.org">info@nazarenocali.org</a></p>
+          <p class="footer-contact-item"><a href="https://wa.link/62syyk" target="_blank" rel="noreferrer">+57 304 377 8188</a></p>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Enlaces</h4>
+          <ul class="footer-links-list">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="visitanos.html">Planifica tu visita</a></li>
+            <li><a href="encuentros.html">Encuentros H/M</a></li>
+            <li><a href="grupos.html">Grupos de Conexión</a></li>
+            <li><a href="eventos.html">Actividades & Eventos</a></li>
+            <li><a href="donar.html">Dar / Donación</a></li>
+            <li><a href="contacto.html">Políticas de Privacidad ↗</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Medios & Redes</h4>
+          <ul class="footer-links-list">
+            <li><a href="https://www.youtube.com/user/nazarenocali" target="_blank" rel="noreferrer"><i class="fa-brands fa-youtube"></i> YouTube ↗</a></li>
+            <li><a href="https://www.instagram.com/nazarenocali/" target="_blank" rel="noreferrer"><i class="fa-brands fa-instagram"></i> Instagram ↗</a></li>
+            <li><a href="https://www.facebook.com/nazarenocali" target="_blank" rel="noreferrer"><i class="fa-brands fa-facebook"></i> Facebook ↗</a></li>
+            <li><a href="mensajes.html"><i class="fa-solid fa-podcast"></i> Prédicas en audio & Video</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col footer-col-newsletter">
+          <h4 class="footer-heading">Mantente Conectado</h4>
+          <p class="footer-newsletter-desc">
+            Suscríbete a nuestro boletín para recibir noticias, devocionales y retiros de nuestra comunidad.
+          </p>
+          <form class="footer-newsletter-form" data-footer-newsletter>
+            <div class="footer-form-field">
+              <input type="text" name="first_name" placeholder="Nombre" required />
+            </div>
+            <div class="footer-form-field">
+              <input type="email" name="email" placeholder="Correo electrónico" required />
+            </div>
+            <label class="footer-form-checkbox">
+              <input type="checkbox" name="privacy_policy" required />
+              <span>Acepto las políticas de tratamiento de datos.</span>
+            </label>
+            <button class="footer-submit-btn" type="submit">Suscribirme ↗</button>
+            <p class="footer-form-status" data-newsletter-status></p>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom-strip">
+        <div class="footer-strip-left">
+          <span class="strip-label">Celebraciones de domingo:</span>
+          <span class="strip-times">6:30 AM · 8:15 AM · 10:00 AM · 12:00 PM</span>
+        </div>
+        <div class="footer-strip-center">
+          <a class="footer-live-link" href="mensajes.html">
+            <span class="live-dot"></span> Ver transmisión online ▷
+          </a>
+        </div>
+        <div class="footer-strip-right">
+          <span>© 2026 Iglesia del Nazareno Cali. Todos los derechos reservados.</span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-client.js"></script>
+    <script src="js/visitas-tracker.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

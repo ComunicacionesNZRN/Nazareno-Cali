@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Devocional | Palabra de Vida | Iglesia del Nazareno Cali</title>
+    <meta name="description" content="Reflexiones diarias, guía bíblica y recursos espirituales de la Iglesia del Nazareno Cali." />
+    <link rel="icon" type="image/png" href="Media/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Cormorant+Garamond:ital,wght@0,500;1,500;1,600&family=Sora:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .monthly-guide-card { box-sizing: border-box; max-width: 1024px; margin: 48px auto; padding: 32px; text-align: center; background: #fff; border: 1px solid #e2e8f0; border-radius: 24px; box-shadow: 0 1px 2px rgb(15 23 42 / 5%); }
+      .monthly-guide-card[hidden] { display: none; }
+      .monthly-guide-eyebrow { display: inline-block; margin: 0 0 12px; padding: 4px 14px; color: #6b21a8; background: #f3e8ff; border-radius: 999px; font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+      .monthly-guide-title { margin: 0 0 12px; color: #0f172a; font-size: 30px; font-weight: 800; line-height: 1.15; }
+      .monthly-guide-description { max-width: 576px; margin: 0 auto 24px; color: #475569; font-size: 16px; line-height: 1.6; }
+      .monthly-guide-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; }
+      .monthly-guide-button { display: inline-flex; min-height: 48px; align-items: center; justify-content: center; gap: 10px; padding: 12px 24px; border: 1px solid transparent; border-radius: 12px; font: inherit; font-weight: 500; text-decoration: none; cursor: pointer; transition: background-color .2s ease, border-color .2s ease; }
+      .monthly-guide-button-primary { color: #fff; background: #000; }
+      .monthly-guide-button-primary:hover { background: #1e293b; }
+      .monthly-guide-button-secondary { color: #1e293b; background: #fff; border-color: #cbd5e1; }
+      .monthly-guide-button-secondary:hover { background: #f8fafc; }
+      .monthly-guide-dialog { width: min(1100px, 100%); max-width: none; max-height: 94vh; padding: 20px; overflow: hidden; border: 0; border-radius: 20px; background: #fff; box-shadow: 0 24px 80px rgb(0 0 0 / 28%); }
+      .monthly-guide-dialog::backdrop { background: rgb(0 0 0 / 70%); }
+      .monthly-guide-dialog-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 16px; }
+      .monthly-guide-dialog-title { margin: 0; color: #0f172a; font-size: 18px; font-weight: 700; }
+      .monthly-guide-close { display: grid; width: 40px; height: 40px; flex: 0 0 40px; place-items: center; border: 0; border-radius: 10px; color: #334155; background: #f1f5f9; font-size: 20px; cursor: pointer; }
+      .monthly-guide-frame { display: block; width: 100%; height: 80vh; border: 0; border-radius: 12px; background: #f1f5f9; }
+      @media (min-width: 768px) { .monthly-guide-card { padding: 48px; } .monthly-guide-title { font-size: 36px; } }
+      @media (max-width: 480px) { .monthly-guide-dialog { padding: 14px; } .monthly-guide-frame { height: 78vh; } .monthly-guide-button { width: 100%; } }
+    </style>
+  </head>
+  <body>
+    <!-- Encabezado Global -->
+    <header class="site-header" data-header>
+      <a class="brand" href="index.html" aria-label="Iglesia del Nazareno Cali, inicio">
+        <img class="brand-logo" src="Media/logoNegro.png" alt="Iglesia del Nazareno Cali" />
+      </a>
+      <nav class="main-nav" aria-label="Navegación principal">
+        <a href="index.html">Inicio</a>
+        <a href="visitanos.html">Visítanos</a>
+        <a href="grupos.html">Grupos</a>
+        <a href="encuentros.html">Encuentros</a>
+        <a href="ministerios.html">Servir</a>
+        <a href="eventos.html">Actividades</a>
+        <a href="donar.html">Donación</a>
+        <a href="nosotros.html">Conócenos</a>
+      </nav>
+      <div class="header-actions">
+        <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Abrir menú">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <div class="mobile-nav" id="mobile-nav" aria-hidden="true"></div>
+
+    <main class="give-page" style="padding-top: var(--header-height);">
+      
+      <!-- ========================================================================
+        1. BANNER HERO PANORÁMICO (PALABRA DE VIDA)
+        ======================================================================== -->
+      <section class="giving-hero-video-wrap">
+        <div class="giving-hero-media">
+          <img class="giving-hero-video" src="Media/devocional.jpg" alt="" />
+          <div class="giving-hero-overlay"></div>
+        </div>
+        
+        <div class="giving-hero-title-wrap reveal">
+          <h1 class="giving-hero-big-title" style="font-size: clamp(52px, 11vw, 170px);">PALABRA DE VIDA</h1>
+        </div>
+      </section>
+
+      <!-- ========================================================================
+        2. INTRODUCCIÓN EDITORIAL CENTRADA
+        ======================================================================== -->
+      <section class="give-hero" style="padding-top: 10px; padding-bottom: 60px;">
+        <div class="give-hero-inner reveal">
+          <p class="eyebrow">06 · Soy Nazareno</p>
+          <h2>Alimenta tu<br /><em>fe.</em></h2>
+          <p class="give-hero-lead">
+            Una pausa diaria para acercarte a Dios, meditar en su Palabra y caminar acompañado por la comunidad en cada etapa de tu vida.
+          </p>
+        </div>
+      </section>
+
+      <!-- ========================================================================
+        3. BANNER DESTACADO / ÚLTIMO DEVOCIONAL PUBLICADO
+        ======================================================================== -->
+      <div style="padding: 0 clamp(16px, 6vw, 80px); max-width: 1360px; margin: 0 auto;">
+        <div data-featured-devotional-slot></div>
+      </div>
+
+      <!-- ========================================================================
+        4. GRID DE DEVOCIONALES ANTERIORES (3 COLUMNAS)
+        ======================================================================== -->
+      <div style="padding: 0 clamp(16px, 6vw, 80px); max-width: 1360px; margin: 0 auto;">
+        <div class="events-section-header">
+          <h2>Devocionales anteriores</h2>
+        </div>
+
+        <section class="devotional-grid" id="grid-devocionales-anteriores" data-devotionals-grid>
+          <!-- Se renderizan dinámicamente desde Supabase -->
+        </section>
+      </div>
+
+      <!-- ========================================================================
+        5. INVITACIÓN A LA LECTURA DIARIA
+        ======================================================================== -->
+      <div style="padding: 0 clamp(16px, 6vw, 80px); max-width: 1360px; margin: 0 auto;">
+        <section class="monthly-guide-card" data-monthly-guide hidden aria-labelledby="monthly-guide-title">
+          <p class="monthly-guide-eyebrow">Recurso del mes</p>
+          <h2 class="monthly-guide-title" id="monthly-guide-title" data-monthly-guide-title></h2>
+          <p class="monthly-guide-description" data-monthly-guide-description></p>
+          <div class="monthly-guide-actions">
+            <button class="monthly-guide-button monthly-guide-button-primary" type="button" data-monthly-guide-open>
+              <i class="fa-regular fa-eye" aria-hidden="true"></i> Ver guía
+            </button>
+            <a class="monthly-guide-button monthly-guide-button-secondary" data-monthly-guide-download target="_blank" rel="noopener noreferrer">
+              <i class="fa-solid fa-download" aria-hidden="true"></i> Descargar PDF
+            </a>
+          </div>
+        </section>
+      </div>
+      <dialog class="monthly-guide-dialog" data-monthly-guide-dialog aria-labelledby="monthly-guide-dialog-title">
+        <div class="monthly-guide-dialog-header">
+          <h2 class="monthly-guide-dialog-title" id="monthly-guide-dialog-title" data-monthly-guide-dialog-title>Guía Bíblica del Mes</h2>
+          <button class="monthly-guide-close" type="button" data-monthly-guide-close aria-label="Cerrar visor">&times;</button>
+        </div>
+        <iframe class="monthly-guide-frame" data-monthly-guide-frame title="Visualizador de la Guía Bíblica del Mes"></iframe>
+      </dialog>
+    </main>
+
+    <!-- Footer Profesional Soul Church -->
+    <footer class="site-footer" id="contacto">
+      <div class="footer-main-grid">
+        <div class="footer-col footer-col-brand">
+          <a class="footer-brand-badge" href="index.html" aria-label="Inicio">
+            <img src="Media/logoBlanco.png" alt="Logo Iglesia del Nazareno Cali" />
+          </a>
+          <p class="footer-brand-tagline">
+            Una iglesia en Cali apasionada por Jesús, comprometida con las personas y transformando nuestra ciudad.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Contacto</h4>
+          <p class="footer-contact-item"><strong>Iglesia del Nazareno Cali</strong></p>
+          <p class="footer-contact-item">Calle 13 # 75-109, Quintas de Don Simón<br />Cali, Valle del Cauca, Colombia</p>
+          <p class="footer-contact-item"><a href="mailto:info@nazarenocali.org">info@nazarenocali.org</a></p>
+          <p class="footer-contact-item"><a href="https://wa.link/62syyk" target="_blank" rel="noreferrer">+57 304 377 8188</a></p>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Enlaces</h4>
+          <ul class="footer-links-list">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="visitanos.html">Planifica tu visita</a></li>
+            <li><a href="encuentros.html">Encuentros H/M</a></li>
+            <li><a href="grupos.html">Grupos de Conexión</a></li>
+            <li><a href="eventos.html">Actividades & Eventos</a></li>
+            <li><a href="donar.html">Dar / Donación</a></li>
+            <li><a href="contacto.html">Políticas de Privacidad & Tratamiento de Datos ↗</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Medios & Redes</h4>
+          <ul class="footer-links-list">
+            <li><a href="https://www.youtube.com/user/nazarenocali" target="_blank" rel="noreferrer"><i class="fa-brands fa-youtube"></i> YouTube ↗</a></li>
+            <li><a href="https://www.instagram.com/nazarenocali/" target="_blank" rel="noreferrer"><i class="fa-brands fa-instagram"></i> Instagram ↗</a></li>
+            <li><a href="https://www.facebook.com/nazarenocali" target="_blank" rel="noreferrer"><i class="fa-brands fa-facebook"></i> Facebook ↗</a></li>
+            <li><a href="mensajes.html"><i class="fa-solid fa-podcast"></i> Prédicas en audio & Video</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col footer-col-newsletter">
+          <h4 class="footer-heading">Mantente Conectado</h4>
+          <p class="footer-newsletter-desc">
+            Suscríbete a nuestro boletín para recibir noticias, devocionales y actividades de nuestra comunidad.
+          </p>
+          <form class="footer-newsletter-form" data-footer-newsletter>
+            <div class="footer-form-field">
+              <input type="text" name="first_name" placeholder="Nombre" required />
+            </div>
+            <div class="footer-form-field">
+              <input type="email" name="email" placeholder="Correo electrónico" required />
+            </div>
+            <label class="footer-form-checkbox">
+              <input type="checkbox" name="privacy_policy" required />
+              <span>Acepto las políticas de privacidad y tratamiento de datos de Nazareno Cali.</span>
+            </label>
+            <button class="footer-submit-btn" type="submit">Suscribirme ↗</button>
+            <p class="footer-form-status" data-newsletter-status></p>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom-strip">
+        <div class="footer-strip-left">
+          <span class="strip-label">Celebraciones de domingo:</span>
+          <span class="strip-times">6:30 AM · 8:15 AM · 10:00 AM · 12:00 PM</span>
+        </div>
+        <div class="footer-strip-center">
+          <a class="footer-live-link" href="mensajes.html">
+            <span class="live-dot"></span> Ver transmisión online ▷
+          </a>
+        </div>
+        <div class="footer-strip-right">
+          <span>© 2026 Iglesia del Nazareno Cali. Todos los derechos reservados.</span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-client.js"></script>
+    <script src="js/visitas-tracker.js"></script>
+    <script src="script.js"></script>
+    <script>
+      (() => {
+        const card = document.querySelector("[data-monthly-guide]");
+        const title = document.querySelector("[data-monthly-guide-title]");
+        const description = document.querySelector("[data-monthly-guide-description]");
+        const download = document.querySelector("[data-monthly-guide-download]");
+        const dialog = document.querySelector("[data-monthly-guide-dialog]");
+        const dialogTitle = document.querySelector("[data-monthly-guide-dialog-title]");
+        const frame = document.querySelector("[data-monthly-guide-frame]");
+        const client = window._supabase || window.supabaseClient || window.supabaseAdmin?.client;
+
+        const loadMonthlyGuide = async () => {
+          if (!card || !client) return;
+
+          try {
+            const { data: guide, error } = await client
+              .from("guias_biblicas")
+              .select("*")
+              .eq("activa", true)
+              .limit(1)
+              .maybeSingle();
+
+            if (error) throw error;
+            if (!guide?.archivo_url) return;
+
+            const pdfUrl = new URL(guide.archivo_url, window.location.href);
+            if (!["http:", "https:"].includes(pdfUrl.protocol)) return;
+
+            const month = guide.mes || guide.nombre_mes || new Intl.DateTimeFormat("es-CO", { month: "long" }).format(new Date());
+            const guideName = guide.titulo || (/^gu[ií]a b[ií]blica de /i.test(month) ? month : `Guía Bíblica de ${month}`);
+            title.textContent = guideName;
+            description.textContent = guide.descripcion || guide.resumen || "Lee y medita en la Palabra de Dios con la guía bíblica de este mes.";
+            download.href = pdfUrl.href;
+            dialogTitle.textContent = guideName;
+            card.hidden = false;
+          } catch (error) {
+            console.warn("No se pudo cargar la guía bíblica del mes:", error);
+          }
+        };
+
+        document.querySelector("[data-monthly-guide-open]")?.addEventListener("click", () => {
+          frame.src = download.href;
+          dialog.showModal();
+        });
+        document.querySelector("[data-monthly-guide-close]")?.addEventListener("click", () => dialog.close());
+        dialog?.addEventListener("click", (event) => {
+          if (event.target === dialog) dialog.close();
+        });
+        dialog?.addEventListener("close", () => { frame.src = "about:blank"; });
+        loadMonthlyGuide();
+      })();
+    </script>
+    <script>
+      // Renderizado dinámico de los devocionales en formato Banner + Grid x3
+      const getClient = () => window._supabase || window.supabaseClient || window.supabaseAdmin?.client;
+      const escapeDevotionalHtml = (value = "") => String(value).replace(/[&<>\"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;", "'": "&#39;" })[char]);
+
+      const formatDevoDate = (iso) => {
+        if (!iso) return "Hoy";
+        const date = new Date(iso);
+        if (Number.isNaN(date.getTime())) return "Fecha por confirmar";
+        return new Intl.DateTimeFormat("es-CO", { weekday: "short", day: "numeric", month: "short", year: "numeric" }).format(date);
+      };
+
+      const renderDevotionalsPage = (devotionals) => {
+        const featuredSlot = document.querySelector("[data-featured-devotional-slot]");
+        const gridContainer = document.querySelector("[data-devotionals-grid]");
+
+        if (!devotionals || !devotionals.length) {
+          if (featuredSlot) featuredSlot.innerHTML = '<p class="admin-empty">Aún no hay devocionales publicados.</p>';
+          if (gridContainer) gridContainer.innerHTML = '<p class="devotional-empty" role="status">Aún no hay devocionales anteriores.</p>';
+          return;
+        }
+
+        const [latest, ...past] = devotionals;
+
+        // 1. Banner Principal (Último devocional)
+        if (featuredSlot && latest) {
+          const latestTitle = escapeDevotionalHtml(latest.titulo || "Devocional");
+          const latestImage = escapeDevotionalHtml(latest.imagen_url || "Media/01.jpg");
+          const latestExcerpt = escapeDevotionalHtml(latest.resumen || latest.contenido || latest.cuerpo || "").slice(0, 180);
+          featuredSlot.innerHTML = `
+            <div class="event-hero-banner" style="background-image: url('${latestImage}')">
+              <div class="event-hero-content">
+                <div class="event-hero-info">
+                  <span class="event-hero-tag">★ DEVOCIONAL DEL DÍA</span>
+                  <h2>${latestTitle}</h2>
+                  <p>${latestExcerpt}${latestExcerpt.length >= 180 ? "…" : ""}</p>
+                  <div class="event-hero-meta">
+                    <span><i class="fa-regular fa-calendar"></i> ${formatDevoDate(latest.publicar_at || latest.fecha || latest.created_at)}</span>
+                  </div>
+                </div>
+                <div class="event-hero-actions">
+                  <a class="button button-light" href="devocional-publico.html?id=${encodeURIComponent(latest.id)}">
+                    Leer devocional <span>↗</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          `;
+        }
+
+        // 2. Grid de devocionales anteriores
+        if (gridContainer) {
+          gridContainer.innerHTML = past.map((dev) => {
+            const title = escapeDevotionalHtml(dev.titulo || "Devocional");
+            const excerpt = escapeDevotionalHtml(dev.resumen || dev.contenido || dev.cuerpo || "").slice(0, 140);
+            const image = escapeDevotionalHtml(dev.imagen_url || "Media/02.jpg");
+            const date = formatDevoDate(dev.publicar_at || dev.fecha || dev.created_at);
+            return `
+              <article class="devotional-card">
+                <a class="devotional-card-image" href="devocional-publico.html?id=${encodeURIComponent(dev.id)}" aria-label="Leer ${title}">
+                  <img src="${image}" alt="${title}" loading="lazy" />
+                </a>
+                <div class="devotional-card-content">
+                  <p class="devotional-card-date"><i class="fa-regular fa-calendar" aria-hidden="true"></i> ${date}</p>
+                  <h3>${title}</h3>
+                  <p class="devotional-card-excerpt">${excerpt}${excerpt.length >= 140 ? "…" : ""}</p>
+                  <a class="devotional-card-link" href="devocional-publico.html?id=${encodeURIComponent(dev.id)}">Leer devocional <span aria-hidden="true">↗</span></a>
+                </div>
+              </article>`;
+          }).join("");
+        }
+      };
+
+      const loadDevotionals = async () => {
+        const sb = getClient();
+        if (sb) {
+          try {
+            const { data, error } = await sb
+              .from("devocionales")
+              .select("*")
+              .eq("publicado", true)
+              .lte("publicar_at", new Date().toISOString())
+              .order("publicar_at", { ascending: false });
+
+            if (error) throw error;
+            if (data) {
+              renderDevotionalsPage(data);
+              return;
+            }
+          } catch (e) {
+            console.warn("Error cargando devocionales:", e);
+            const gridContainer = document.querySelector("[data-devotionals-grid]");
+            if (gridContainer) gridContainer.innerHTML = '<p class="devotional-empty" role="alert">No se pudieron cargar los devocionales. Inténtalo de nuevo más tarde.</p>';
+              return;
+          }
+        }
+        const gridContainer = document.querySelector("[data-devotionals-grid]");
+        if (gridContainer) gridContainer.innerHTML = '<p class="devotional-empty" role="alert">No se pudo conectar con la base de datos.</p>';
+      };
+
+      loadDevotionals();
+    </script>
+  </body>
+</html>

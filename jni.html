@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JNI NZRN | Juventud Nazarena Cali</title>
+    <meta name="description" content="La juventud de la Iglesia del Nazareno Cali. Pasión, comunidad y propósito real. Sábados 5:30 PM." />
+    <link rel="icon" type="image/png" href="Media/favicon.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800;12..96,900&family=Cormorant+Garamond:ital,wght@1,500;1,600;1,700&family=Sora:wght@400;600;700;800&family=Syne:wght@700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* ========================================================================
+        ESTÉTICA YOUNG & HANDSOME + BRAND MANUAL JNI NZRN
+        ======================================================================== */
+      :root {
+        --jni-bg: #0b0c10;
+        --jni-card-bg: #14161f;
+        --jni-yellow: #f5ee14;
+        --jni-pink: #ff007f;
+        --jni-purple: #3a064a;
+        --jni-navy: #15172e;
+        --jni-light-purple: #9d8cff;
+      }
+
+      body.jni-body {
+        background: var(--jni-bg);
+        color: #ffffff;
+        font-family: var(--body);
+        overflow-x: hidden;
+      }
+
+      /* ========================================================================
+        HERO COMPOSITION (YOUNG & HANDSOME STYLE)
+        ======================================================================== */
+      .yh-hero-section {
+        position: relative;
+        min-height: 92vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: calc(var(--header-height) + 40px) clamp(20px, 5vw, 60px) 70px;
+        background: var(--jni-bg);
+        overflow: hidden;
+        isolation: isolate;
+      }
+
+      /* Anillos elípticos orbitales de fondo */
+      .yh-ellipse-orbit {
+        position: absolute;
+        width: clamp(340px, 68vw, 920px);
+        height: clamp(220px, 44vw, 540px);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 50%;
+        transform: rotate(-10deg);
+        pointer-events: none;
+        z-index: -1;
+      }
+
+      .yh-ellipse-orbit::before {
+        content: "";
+        position: absolute;
+        inset: -14px;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 50%;
+        transform: rotate(4deg);
+      }
+
+      .yh-hero-content {
+        position: relative;
+        max-width: 1100px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      /* Titular Gigante con Tipografía Mixta */
+      .yh-giant-title {
+        font-family: 'Bricolage Grotesque', sans-serif;
+        font-size: clamp(40px, 6.5vw, 86px);
+        font-weight: 800;
+        line-height: 1.15;
+        letter-spacing: -2px;
+        color: #ffffff;
+        margin: 0 0 24px;
+        text-wrap: balance;
+      }
+
+      .yh-serif-italic {
+        font-family: 'Cormorant Garamond', Georgia, serif;
+        font-style: italic;
+        font-weight: 600;
+        color: #ffffff;
+        letter-spacing: -0.01em;
+      }
+
+      .yh-pill-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 4px clamp(16px, 2.5vw, 32px);
+        border-radius: 999px;
+        font-family: 'Bricolage Grotesque', sans-serif;
+        font-weight: 900;
+        font-size: 0.9em;
+        vertical-align: middle;
+        text-transform: none;
+        letter-spacing: -1px;
+      }
+
+      .yh-pill-badge.yellow {
+        background: var(--jni-yellow);
+        color: #0b0c10;
+      }
+
+      .yh-pill-badge.purple-light {
+        background: var(--jni-light-purple);
+        color: #0b0c10;
+      }
+
+      .yh-star-badge {
+        display: inline-grid;
+        place-items: center;
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        background: var(--jni-pink);
+        color: #ffffff;
+        font-size: 16px;
+        vertical-align: middle;
+        margin: 0 2px;
+        box-shadow: 0 0 20px rgba(255, 0, 127, 0.45);
+      }
+
+      /* Botón Circular Flotante (Young & Handsome) */
+      .yh-floating-circle-btn {
+        position: relative;
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        background: #151720;
+        color: #ffffff;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        font-size: 13px;
+        font-weight: 700;
+        line-height: 1.3;
+        text-align: center;
+        padding: 16px;
+        margin-top: 10px;
+        transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.25s, border-color 0.25s;
+        box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
+        cursor: pointer;
+      }
+
+      .yh-floating-circle-btn:hover {
+        transform: scale(1.1) rotate(6deg);
+        background: var(--jni-pink);
+        border-color: var(--jni-pink);
+        color: #ffffff;
+      }
+
+      /* Sticker / Badge Flotante Neón */
+      .yh-sticker-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        background: var(--jni-yellow);
+        color: #0b0c10;
+        font-size: 24px;
+        font-weight: 900;
+        position: absolute;
+        bottom: 20px;
+        left: 5vw;
+        box-shadow: 0 10px 25px rgba(245, 238, 20, 0.35);
+        transform: rotate(-12deg);
+        animation: floatSticker 4s ease-in-out infinite;
+      }
+
+      @keyframes floatSticker {
+        0%, 100% { transform: translateY(0) rotate(-12deg); }
+        50% { transform: translateY(-8px) rotate(-6deg); }
+      }
+
+      /* ========================================================================
+        BENTO SECTION: PALETA FIGMA (NAVY+YELLOW & PURPLE+PINK)
+        ======================================================================== */
+      .jni-bento-section {
+        padding: 60px clamp(20px, 6vw, 80px) 100px;
+        max-width: 1360px;
+        margin: 0 auto;
+      }
+
+      .jni-bento-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px;
+      }
+
+      .jni-bento-card {
+        border-radius: 28px;
+        padding: clamp(32px, 5vw, 48px);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 380px;
+        position: relative;
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .jni-bento-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
+      }
+
+      /* Combinación 1: Deep Navy + Neon Yellow (Figma 18 & 20) */
+      .card-navy-yellow {
+        background: var(--jni-navy);
+        border: 1px solid rgba(245, 238, 20, 0.2);
+        color: #ffffff;
+      }
+
+      .card-navy-yellow .bento-kicker {
+        color: var(--jni-yellow);
+        font-weight: 800;
+        font-size: 11px;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+      }
+
+      .card-navy-yellow h3 {
+        font: 800 clamp(28px, 3.8vw, 46px) / 1 var(--display);
+        color: #ffffff;
+        margin: 12px 0 16px;
+        letter-spacing: -1px;
+      }
+
+      .card-navy-yellow p {
+        color: #cbd0e2;
+        font-size: 15px;
+        line-height: 1.6;
+        margin: 0;
+      }
+
+      .card-navy-yellow .bento-btn {
+        background: var(--jni-yellow);
+        color: #0b0c10;
+      }
+
+      /* Combinación 2: Deep Purple + Hot Pink (Figma 14 & 19) */
+      .card-purple-pink {
+        background: var(--jni-purple);
+        border: 1px solid rgba(255, 0, 127, 0.25);
+        color: #ffffff;
+      }
+
+      .card-purple-pink .bento-kicker {
+        color: var(--jni-pink);
+        font-weight: 800;
+        font-size: 11px;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+      }
+
+      .card-purple-pink h3 {
+        font: 800 clamp(28px, 3.8vw, 46px) / 1 var(--display);
+        color: #ffffff;
+        margin: 12px 0 16px;
+        letter-spacing: -1px;
+      }
+
+      .card-purple-pink p {
+        color: #f1c7ec;
+        font-size: 15px;
+        line-height: 1.6;
+        margin: 0;
+      }
+
+      .card-purple-pink .bento-btn {
+        background: var(--jni-pink);
+        color: #ffffff;
+      }
+
+      .bento-actions {
+        margin-top: 30px;
+        display: flex;
+        gap: 12px;
+      }
+
+      .bento-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 22px;
+        border-radius: 99px;
+        font-size: 12px;
+        font-weight: 800;
+        cursor: pointer;
+        transition: transform 0.2s;
+      }
+
+      .bento-btn:hover {
+        transform: translateY(-2px);
+      }
+
+      /* ========================================================================
+        BANNER SÁBADOS 5:30 PM (YOUNG & HANDSOME FOOTER CTA)
+        ======================================================================== */
+      .jni-saturday-banner {
+        max-width: 1360px;
+        margin: 0 auto 90px;
+        padding: 0 clamp(20px, 6vw, 80px);
+      }
+
+      .saturday-card {
+        background: linear-gradient(135deg, #16182e 0%, #290833 60%, #151720 100%);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 32px;
+        padding: clamp(36px, 6vw, 64px);
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .saturday-card h2 {
+        font: 900 clamp(38px, 6vw, 76px) / 0.95 var(--display);
+        color: #ffffff;
+        margin: 10px 0 18px;
+        letter-spacing: -2px;
+      }
+
+      @media (max-width: 860px) {
+        .jni-bento-grid {
+          grid-template-columns: 1fr;
+        }
+        .yh-sticker-badge {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body class="jni-body">
+    <!-- Encabezado Oscuro JNI -->
+    <header class="site-header" data-header style="background: rgba(11,12,16,0.92); border-bottom: 1px solid rgba(255,255,255,0.1);">
+      <a class="brand" href="index.html">
+        <img class="brand-logo" src="Media/logoBlanco.png" alt="Nazareno Cali" />
+      </a>
+      <nav class="main-nav">
+        <a href="index.html" style="color:#ffffff;">Inicio</a>
+        <a class="active" href="jni.html" style="color:var(--jni-yellow);">JNI Jóvenes</a>
+        <a href="teens.html" style="color:#ffffff;">Teens</a>
+        <a href="kids.html" style="color:#ffffff;">Kids</a>
+        <a href="grupos.html" style="color:#ffffff;">Grupos</a>
+        <a href="podcast.html" style="color:#ffffff;">Podcast</a>
+      </nav>
+      <div class="header-actions">
+        <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Menu" style="border-color: rgba(255,255,255,0.2); background: transparent;">
+          <span style="background: #fff;"></span><span style="background: #fff;"></span><span style="background: #fff;"></span>
+        </button>
+      </div>
+    </header>
+
+    <div class="mobile-nav" id="mobile-nav" aria-hidden="true"></div>
+
+    <main>
+      <!-- ========================================================================
+        HERO PRINCIPAL ESTILO YOUNG & HANDSOME
+        ======================================================================== -->
+      <section class="yh-hero-section">
+        <div class="yh-ellipse-orbit"></div>
+        <div class="yh-sticker-badge">✦</div>
+
+        <div class="yh-hero-content reveal">
+          <p class="eyebrow" style="color: var(--jni-yellow); letter-spacing: 0.2em;">JUVENTUD NAZARENA · CALI</p>
+          
+          <h1 class="yh-giant-title">
+            Movimiento <span class="yh-serif-italic">juvenil</span> que vive conectado con <span class="yh-pill-badge yellow">PROPÓSITO</span> los sábados en <span class="yh-pill-badge purple-light"><span class="yh-star-badge">✦</span> CALI</span>
+          </h1>
+
+          <p style="color: #a3a8be; font-size: clamp(15px, 1.8vw, 18px); line-height: 1.6; max-width: 650px; margin: 0 auto 26px;">
+            No somos espectadores. Somos una comunidad de universitarios y jóvenes que adoran a Dios con pasión, construyen amistades auténticas y lideran su ciudad.
+          </p>
+
+          <div>
+            <a class="yh-floating-circle-btn" href="visitanos.html">
+              <span>Ven este sábado</span>
+              <span style="font-size: 18px; margin-top: 4px;">➔</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================================
+        BENTO GRID CON LAS PALETAS EXACTAS DEL FIGMA
+        ======================================================================== -->
+      <section class="jni-bento-section">
+        <div class="jni-bento-grid">
+          
+          <!-- Card 1: Deep Navy + Neon Yellow (Figma #18 & #20) -->
+          <article class="jni-bento-card card-navy-yellow site-card reveal">
+            <div>
+              <span class="bento-kicker">01 · REUNIONES DE SÁBADO</span>
+              <h3>Noches de Poder & Alabanza</h3>
+              <p>
+                Música contemporánea en vivo, adoración sin filtros y mensajes prácticos que conectan con la vida real, los retos de la universidad y las decisiones importantes.
+              </p>
+            </div>
+            <div class="bento-actions">
+              <span class="bento-btn">Sábados 5:30 P. M.</span>
+              <a class="bento-btn" href="visitanos.html" style="background: rgba(255,255,255,0.1); color: #fff;">Ver Sede Cali ↗</a>
+            </div>
+          </article>
+
+          <!-- Card 2: Deep Purple + Hot Pink (Figma #14 & #19) -->
+          <article class="jni-bento-card card-purple-pink site-card reveal">
+            <div>
+              <span class="bento-kicker">02 · COMUNIDAD & TRIBUS</span>
+              <h3>Amistades que suman fe</h3>
+              <p>
+                Grupos de jóvenes durante la semana para compartir café, estudiar la Biblia, orar y hacer amigos sanos que te acompañan en cada paso.
+              </p>
+            </div>
+            <div class="bento-actions">
+              <a class="bento-btn" href="https://wa.link/62syyk" target="_blank" rel="noreferrer">Unirme a una Tribu ➔</a>
+              <a class="bento-btn" href="https://www.instagram.com/nazarenocali/" target="_blank" rel="noreferrer" style="background: rgba(255,255,255,0.15); color: #fff;">@JNI_Cali ↗</a>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- ========================================================================
+        BANNER INVITACIÓN SÁBADOS
+        ======================================================================== -->
+      <section class="jni-saturday-banner reveal">
+        <div class="saturday-card">
+          <span class="yh-pill-badge yellow" style="margin-bottom: 12px;">TU FIN DE SEMANA COMIENZA AQUÍ</span>
+          <h2>Hay un lugar listo para ti este sábado.</h2>
+          <p style="color: #cbd0e2; font-size: 16px; margin: 0 0 28px;">Calle 13 # 75-109 · Quintas de Don Simón, Cali · Entrada Libre</p>
+          <a class="button button-light" href="visitanos.html" style="padding: 16px 32px; font-weight: 800;">
+            Planificar mi primera visita ➔
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer Oficial -->
+    <footer class="site-footer">
+      <div class="footer-bottom-strip">
+        <span>© 2026 Juventud Nazarena Cali (JNI NZRN) · Iglesia del Nazareno Cali</span>
+      </div>
+    </footer>
+
+    <script src="js/visitas-tracker.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

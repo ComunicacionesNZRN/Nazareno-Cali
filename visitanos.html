@@ -1,0 +1,966 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Visítanos | Planifica tu Visita | Iglesia del Nazareno Cali | NZRN</title>
+    <meta
+      name="description"
+      content="Planifica tu primera visita a la Iglesia del Nazareno Cali. Consulta horarios de cultos dominicales, ubicación en Quintas de Don Simón, salas para niños y qué esperar."
+    />
+    <link rel="icon" type="image/png" href="Media/favicon.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800;12..96,900&family=Sora:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* ========================================================================
+        ESTILOS EXCLUSIVOS DE PLANIFICA TU VISITA (INSPIRACIÓN REFERENTES)
+        ======================================================================== */
+      :root {
+        --visit-bg: #f8f6f0;
+        --visit-dark: #121316;
+        --visit-card: #ffffff;
+      }
+
+      body.visit-page {
+        background: var(--visit-bg);
+        color: var(--ink);
+        font-family: var(--body);
+        padding-top: var(--header-height);
+        overflow-x: hidden;
+      }
+
+      /* ========================================================================
+        1. HERO CINEMÁTICO CON MAPA FLOTANTE (REFERENTE 1)
+        ======================================================================== */
+      .visit-hero-wrap {
+        position: relative;
+        width: 100%;
+        min-height: 80vh;
+        max-height: 850px;
+        display: flex;
+        align-items: flex-end;
+        padding: clamp(40px, 6vw, 90px) clamp(20px, 6vw, 80px);
+        background: #141414;
+        border-radius: 0 0 clamp(24px, 4vw, 44px) clamp(24px, 4vw, 44px);
+        overflow: hidden;
+        isolation: isolate;
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.15);
+      }
+
+      .visit-hero-bg {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 30%;
+        z-index: -2;
+        filter: grayscale(1) contrast(1.15);
+      }
+
+      .visit-hero-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(18,19,22,0.3) 0%, rgba(18,19,22,0.75) 55%, rgba(18,19,22,0.98) 100%);
+        z-index: -1;
+      }
+
+      .visit-hero-content {
+        max-width: 820px;
+        color: #ffffff;
+        position: relative;
+        z-index: 2;
+      }
+
+      .visit-hero-title {
+        font: 900 clamp(42px, 6.5vw, 86px) / 0.96 var(--display);
+        letter-spacing: -2.5px;
+        margin: 10px 0 20px;
+        color: #ffffff;
+      }
+
+      .visit-hero-title em {
+        color: var(--violet);
+        font-family: var(--serif);
+        font-style: italic;
+        font-weight: 500;
+      }
+
+      .visit-hero-lead {
+        color: #d1d4dc;
+        font-size: clamp(15px, 1.8vw, 18px);
+        line-height: 1.65;
+        margin: 0 0 32px;
+        max-width: 620px;
+      }
+
+      .visit-hero-actions {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+
+      /* Insignia Flotante con Mini Mapa (Referente 1) */
+      .visit-floating-map-badge {
+        position: absolute;
+        right: clamp(20px, 6vw, 80px);
+        bottom: clamp(40px, 6vw, 90px);
+        background: #ffffff;
+        border-radius: 20px;
+        padding: 12px 14px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+        z-index: 5;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        transition: transform 0.25s ease;
+        text-decoration: none;
+        color: var(--ink);
+      }
+
+      .visit-floating-map-badge:hover {
+        transform: translateY(-4px) scale(1.03);
+      }
+
+      .mini-map-thumb {
+        width: 54px;
+        height: 54px;
+        border-radius: 12px;
+        overflow: hidden;
+        background: #e5e3df;
+        flex-shrink: 0;
+      }
+
+      .mini-map-thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .mini-map-text strong {
+        display: block;
+        font-family: var(--display);
+        font-size: 13px;
+        font-weight: 800;
+        line-height: 1.2;
+      }
+
+      .mini-map-text span {
+        font-size: 11px;
+        color: var(--muted);
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        margin-top: 3px;
+      }
+
+      .mini-map-pin-btn {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: #007aff;
+        color: #ffffff;
+        display: grid;
+        place-items: center;
+        font-size: 12px;
+        flex-shrink: 0;
+      }
+
+      /* ========================================================================
+        2. HORARIOS DE SERVICIOS (BENTO HIGHLIGHT)
+        ======================================================================== */
+      .visit-schedule-section {
+        padding: 70px clamp(16px, 5vw, 60px) 40px;
+        max-width: 1360px;
+        margin: 0 auto;
+      }
+
+      .schedule-bento-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 24px;
+      }
+
+      .schedule-main-card {
+        background: #ffffff;
+        border: 1px solid var(--line);
+        border-radius: 28px;
+        padding: clamp(30px, 5vw, 48px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .schedule-times-row {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+        margin: 28px 0;
+      }
+
+      .time-slot-box {
+        background: #faf8f5;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 16px 12px;
+        text-align: center;
+        transition: border-color 0.2s;
+      }
+
+      .time-slot-box:hover {
+        border-color: var(--violet);
+        background: #f5f2ff;
+      }
+
+      .time-slot-box strong {
+        display: block;
+        font: 800 clamp(16px, 2vw, 22px) / 1 var(--display);
+        color: var(--ink);
+      }
+
+      .time-slot-box span {
+        font-size: 11px;
+        font-weight: 700;
+        color: var(--violet);
+        text-transform: uppercase;
+        margin-top: 4px;
+        display: block;
+      }
+
+      .schedule-side-card {
+        background: #faf8f5;
+        border: 1px solid var(--line);
+        border-radius: 28px;
+        padding: clamp(28px, 4vw, 40px);
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        justify-content: center;
+      }
+
+      .midweek-item {
+        padding-bottom: 16px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .midweek-item:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+
+      .midweek-item strong {
+        display: block;
+        font: 800 18px var(--display);
+        color: var(--ink);
+      }
+
+      .midweek-item span {
+        color: var(--violet);
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      .midweek-item p {
+        color: var(--muted);
+        font-size: 12.5px;
+        margin: 4px 0 0;
+      }
+
+      /* ========================================================================
+        3. TESTIMONIOS Y VIDAS TRANSFORMADAS (REFERENTE 1)
+        ======================================================================== */
+      .testimonials-section {
+        padding: 60px clamp(16px, 5vw, 60px) 80px;
+        max-width: 1360px;
+        margin: 0 auto;
+      }
+
+      .testimonials-header {
+        max-width: 700px;
+        margin-bottom: 40px;
+      }
+
+      .testimonials-header h2 {
+        font: 900 clamp(34px, 4.8vw, 56px) / 1 var(--display);
+        letter-spacing: -1.5px;
+        margin: 8px 0 0;
+      }
+
+      .testimonials-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 24px;
+      }
+
+      .testimonial-quote-card {
+        background: #ffffff;
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        padding: 34px 28px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.03);
+        transition: transform 0.25s ease;
+      }
+
+      .testimonial-quote-card:hover {
+        transform: translateY(-4px);
+      }
+
+      .testimonial-user {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 20px;
+      }
+
+      .testimonial-avatar {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        overflow: hidden;
+        background: #e5e3df;
+        flex-shrink: 0;
+      }
+
+      .testimonial-avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .testimonial-quote-text {
+        font-size: 14.5px;
+        line-height: 1.65;
+        color: var(--ink);
+        margin: 0 0 24px;
+        font-style: italic;
+      }
+
+      .testimonial-author-name {
+        font-family: var(--display);
+        font-size: 14px;
+        font-weight: 800;
+        color: var(--muted);
+      }
+
+      /* Tarjeta de Video Testimonio */
+      .testimonial-video-card {
+        position: relative;
+        border-radius: 24px;
+        overflow: hidden;
+        aspect-ratio: 4 / 5;
+        background: #121316;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 24px;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+        isolation: isolate;
+      }
+
+      .testimonial-video-bg {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -2;
+      }
+
+      .testimonial-video-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,0.85) 100%);
+        z-index: -1;
+      }
+
+      .video-play-center-btn {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 58px;
+        height: 58px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.95);
+        color: var(--ink);
+        display: grid;
+        place-items: center;
+        font-size: 20px;
+        padding-left: 3px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        cursor: pointer;
+        transition: transform 0.2s;
+      }
+
+      .testimonial-video-card:hover .video-play-center-btn {
+        transform: translate(-50%, -50%) scale(1.1);
+        background: var(--violet);
+        color: #ffffff;
+      }
+
+      /* ========================================================================
+        4. GUÍA DE PRIMERA VEZ (CUADRÍCULA ESTILO NEXUS · REFERENTE 2)
+        ======================================================================== */
+      .nexus-guide-section {
+        padding: 40px clamp(16px, 5vw, 60px) 90px;
+        max-width: 1360px;
+        margin: 0 auto;
+      }
+
+      .nexus-header {
+        text-align: center;
+        max-width: 650px;
+        margin: 0 auto 50px;
+      }
+
+      .nexus-header h2 {
+        font: 900 clamp(34px, 4.5vw, 54px) / 1 var(--display);
+        letter-spacing: -1.5px;
+        margin: 8px 0 14px;
+      }
+
+      .nexus-cards-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 24px;
+      }
+
+      .nexus-card {
+        background: #ffffff;
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.03);
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+
+      .nexus-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
+      }
+
+      .nexus-card-thumb-wrap {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 16 / 10;
+        overflow: hidden;
+        background: #e8e4db;
+      }
+
+      .nexus-card-thumb-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .nexus-card:hover .nexus-card-thumb-wrap img {
+        transform: scale(1.05);
+      }
+
+      .nexus-card-pill {
+        position: absolute;
+        top: 14px;
+        left: 14px;
+        padding: 5px 12px;
+        border-radius: 99px;
+        background: rgba(18, 19, 22, 0.88);
+        backdrop-filter: blur(4px);
+        color: #ffffff;
+        font-family: var(--display);
+        font-size: 10px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+      }
+
+      .nexus-card-body {
+        padding: 24px 22px 28px;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+      }
+
+      .nexus-card-body h3 {
+        font: 800 20px / 1.18 var(--display);
+        color: var(--ink);
+        margin: 0 0 8px;
+        letter-spacing: -0.5px;
+      }
+
+      .nexus-card-body p {
+        color: var(--muted);
+        font-size: 13.5px;
+        line-height: 1.6;
+        margin: 0;
+      }
+
+      /* ========================================================================
+        5. MAPA & CÓMO LLEGAR (UBICACIÓN EXACTA EN CALI)
+        ======================================================================== */
+      .visit-map-section {
+        padding: 0 clamp(16px, 5vw, 60px) 90px;
+        max-width: 1360px;
+        margin: 0 auto;
+      }
+
+      .visit-map-box {
+        background: #ffffff;
+        border: 1px solid var(--line);
+        border-radius: 28px;
+        overflow: hidden;
+        display: grid;
+        grid-template-columns: 1fr 1.3fr;
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.04);
+      }
+
+      .visit-map-info {
+        padding: clamp(30px, 4vw, 50px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .visit-map-frame {
+        width: 100%;
+        min-height: 440px;
+        border: none;
+      }
+
+      /* Responsive Breakpoints */
+      @media (max-width: 1024px) {
+        .schedule-bento-grid { grid-template-columns: 1fr; }
+        .schedule-times-row { grid-template-columns: repeat(2, 1fr); }
+        .testimonials-grid { grid-template-columns: 1fr; }
+        .nexus-cards-grid { grid-template-columns: repeat(2, 1fr); }
+        .visit-map-box { grid-template-columns: 1fr; }
+        .visit-floating-map-badge { display: none; }
+      }
+
+      @media (max-width: 650px) {
+        .nexus-cards-grid { grid-template-columns: 1fr; }
+        .visit-hero-actions { flex-direction: column; width: 100%; }
+        .visit-hero-actions .button { width: 100%; text-align: center; }
+      }
+    </style>
+  </head>
+  <body class="visit-page">
+    <!-- Encabezado Global -->
+    <header class="site-header" data-header>
+      <a class="brand" href="index.html" aria-label="Iglesia del Nazareno Cali, inicio">
+        <img class="brand-logo" src="Media/logoNegro.png" alt="Iglesia del Nazareno Cali" />
+      </a>
+      <nav class="main-nav" aria-label="Navegación principal">
+        <a href="index.html">Inicio</a>
+        <a class="active" href="visitanos.html">Visítanos</a>
+        <a href="primera-vez.html">Primera vez</a>
+        <a href="grupos.html">Grupos</a>
+        <a href="encuentros.html">Encuentros</a>
+        <a href="podcast.html">Podcast</a>
+        <a href="eventos.html">Actividades</a>
+        <a href="donar.html">Donación</a>
+        <a href="nosotros.html">Conócenos</a>
+      </nav>
+      <div class="header-actions">
+        <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Abrir menú">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <div class="mobile-nav" id="mobile-nav" aria-hidden="true"></div>
+
+    <main>
+      <!-- ========================================================================
+        1. HERO CINEMÁTICO (REFERENTE 1 ESTILO WELCOME HOME + MINI MAP BADGE)
+        ======================================================================== -->
+      <section class="visit-hero-wrap">
+        <img class="visit-hero-bg" src="Media/01.jpg" alt="Celebración Iglesia del Nazareno Cali" />
+        <div class="visit-hero-overlay"></div>
+
+        <div class="visit-hero-content reveal">
+          <p class="eyebrow" style="color: var(--orange); margin-bottom: 12px;">TU PRIMER DOMINGO</p>
+          <h1 class="visit-hero-title">
+            Bienvenidos a Casa.<br /><em>Tu lugar de fe y comunidad.</em>
+          </h1>
+          <p class="visit-hero-lead">
+            No importa de dónde vengas o en qué punto de tu camino te encuentres: aquí siempre serás recibido con los brazos abiertos para conocer a Jesús y crecer juntos.
+          </p>
+          <div class="visit-hero-actions">
+            <a class="button button-light" href="#horarios" style="padding: 15px 28px; font-weight: 800;">
+              Ver horarios de domingo ➔
+            </a>
+            <a class="button" href="https://maps.google.com/?q=Calle+13+75-109+Cali" target="_blank" rel="noreferrer" style="background: rgba(255,255,255,0.12); color: #fff; border: 1px solid rgba(255,255,255,0.25);">
+              Abrir en Google Maps ↗
+            </a>
+          </div>
+        </div>
+
+        <!-- Insignia Flotante de Mapa (Referente 1) -->
+        <a class="visit-floating-map-badge" href="#ubicacion">
+          <div class="mini-map-thumb">
+            <img src="Media/favicon.png" alt="Ubicación Nazareno Cali" />
+          </div>
+          <div class="mini-map-text">
+            <strong>Sede Principal Cali</strong>
+            <span><i class="fa-solid fa-location-dot" style="color:var(--violet);"></i> Calle 13 # 75-109</span>
+          </div>
+          <div class="mini-map-pin-btn">
+            <i class="fa-solid fa-arrow-down"></i>
+          </div>
+        </a>
+      </section>
+
+      <!-- ========================================================================
+        2. HORARIOS DE SERVICIOS (BENTO HIGHLIGHT)
+        ======================================================================== -->
+      <section class="visit-schedule-section" id="horarios">
+        <div class="schedule-bento-grid reveal">
+          
+          <!-- Celebraciones Dominicales -->
+          <div class="schedule-main-card site-card">
+            <div>
+              <span class="impact-badge">Celebraciones Principales</span>
+              <h2 style="font: 900 clamp(30px, 4.5vw, 48px)/1 var(--display); letter-spacing: -1.5px; margin: 10px 0 12px;">
+                Domingos en Familia
+              </h2>
+              <p style="color: var(--muted); font-size: 15px; margin: 0;">
+                Música contemporánea en vivo, adoración genuina y enseñanzas bíblicas prácticas para tu vida diaria.
+              </p>
+            </div>
+
+            <div class="schedule-times-row">
+              <div class="time-slot-box site-card">
+                <strong>6:30 AM</strong>
+                <span>Culto Matutino</span>
+              </div>
+              <div class="time-slot-box site-card">
+                <strong>8:15 AM</strong>
+                <span>Culto Familiar</span>
+              </div>
+              <div class="time-slot-box site-card">
+                <strong>10:00 AM</strong>
+                <span>Culto Central</span>
+              </div>
+              <div class="time-slot-box site-card">
+                <strong>12:00 PM</strong>
+                <span>Culto Mediodía</span>
+              </div>
+            </div>
+
+            <p style="font-size: 12.5px; color: var(--muted); margin: 0; display: flex; align-items: center; gap: 8px;">
+              <i class="fa-solid fa-shield-heart" style="color: var(--violet);"></i> Salas de Nazareno Kids disponibles con Check-in 20 minutos antes de cada horario.
+            </p>
+          </div>
+
+          <!-- Reuniones de Entre Semana -->
+          <div class="schedule-side-card site-card">
+            <span class="impact-badge" style="background: rgba(242, 162, 24, 0.15); color: #c47c00;">Entre Semana</span>
+            
+            <div class="midweek-item">
+              <strong>Miércoles · 5:00 A. M.</strong>
+              <span>Ayuno & Oración de Madrugada</span>
+              <p>Un espacio íntimo para buscar la dirección de Dios al inicio del día.</p>
+            </div>
+
+            <div class="midweek-item">
+              <strong>Sábados · 5:30 P. M.</strong>
+              <span>JNI Juventud Nazarena</span>
+              <p>Reunión enérgica de universitarios y jóvenes con adoración y comunidad.</p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ========================================================================
+        3. TESTIMONIOS: VIDAS TRANSFORMADAS (REFERENTE 1)
+        ======================================================================== -->
+      <section class="testimonials-section">
+        <div class="testimonials-header reveal">
+          <p class="eyebrow">TESTIMONIOS · COMUNIDAD QUE TRANSFORMA</p>
+          <h2>Historias de vidas transformadas<br />por el <em>amor de Jesús.</em></h2>
+        </div>
+
+        <div class="testimonials-grid reveal">
+          
+          <!-- Testimonio 1 -->
+          <article class="testimonial-quote-card site-card">
+            <div class="testimonial-user">
+              <div class="testimonial-avatar">
+                <img src="Media/03.jpg" alt="Foto testimonio" />
+              </div>
+              <div>
+                <strong style="display:block; font-family:var(--display); font-size:15px;">Carolina M.</strong>
+                <span style="font-size:12px; color:var(--muted);">Miembro desde 2021</span>
+              </div>
+            </div>
+            <p class="testimonial-quote-text">
+              “Llegué a Nazareno Cali en un momento muy difícil de mi vida. Encontrar una comunidad que me recibió sin juzgarme y que me enseñó a orar restauró por completo la paz en mi hogar.”
+            </p>
+            <span class="testimonial-author-name">Familia & Grupos de Conexión</span>
+          </article>
+
+          <!-- Testimonio 2 -->
+          <article class="testimonial-quote-card site-card">
+            <div class="testimonial-user">
+              <div class="testimonial-avatar">
+                <img src="Media/01.jpg" alt="Foto testimonio" />
+              </div>
+              <div>
+                <strong style="display:block; font-family:var(--display); font-size:15px;">Andrés & Marcela R.</strong>
+                <span style="font-size:12px; color:var(--muted);">Padres en Nazareno Kids</span>
+              </div>
+            </div>
+            <p class="testimonial-quote-text">
+              “Las prédicas son profundamente bíblicas y aterrizadas a la realidad. Mis hijos adoran ir a Kids los domingos; la seguridad y el amor con el que los cuidan no tiene precio.”
+            </p>
+            <span class="testimonial-author-name">Comunidad Dominical</span>
+          </article>
+
+          <!-- Testimonio 3: Video Testimonio -->
+          <article class="testimonial-video-card">
+            <img class="testimonial-video-bg" src="Media/02.jpg" alt="Video Historia de Fe" />
+            <div class="testimonial-video-overlay"></div>
+            
+            <a class="video-play-center-btn" href="https://www.youtube.com/watch?v=kZNdlw4Z4Nw" target="_blank" rel="noreferrer" title="Ver testimonio en video">
+              <i class="fa-solid fa-play"></i>
+            </a>
+
+            <div>
+              <span class="impact-badge" style="background: rgba(255,255,255,0.2); color:#fff; margin-bottom:6px;">★ HISTORIA EN VIDEO</span>
+              <h3 style="font:800 20px / 1.2 var(--display); color:#fff; margin:0 0 4px;">David & Familia</h3>
+              <p style="font-size:12.5px; color:rgba(255,255,255,0.8); margin:0;">De la incertidumbre a una vida con propósito en Dios.</p>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- ========================================================================
+        4. GUÍA DE PRIMERA VEZ (CUADRÍCULA ESTILO NEXUS · REFERENTE 2)
+        ======================================================================== -->
+      <section class="nexus-guide-section">
+        <div class="nexus-header reveal">
+          <p class="eyebrow">TODO LO QUE NECESITAS SABER</p>
+          <h2>Para tu primera visita</h2>
+          <p style="color: var(--muted); font-size: 15px; margin: 0;">
+            Respuestas claras y sencillas a las dudas más comunes antes de venir el domingo.
+          </p>
+        </div>
+
+        <div class="nexus-cards-grid reveal">
+          
+          <!-- Nexus Card 1 -->
+          <article class="nexus-card site-card">
+            <div class="nexus-card-thumb-wrap">
+              <img src="Media/01.jpg" alt="Vestimenta y ambiente" />
+              <span class="nexus-card-pill">Vestimenta</span>
+            </div>
+            <div class="nexus-card-body">
+              <h3>¿Cómo debo vestirme?</h3>
+              <p>Ven tal como eres. Encontrarás personas vestidas con ropa informal, jeans o trajes cómodos. Lo importante es tu corazón, no tu ropa.</p>
+            </div>
+          </article>
+
+          <!-- Nexus Card 2 -->
+          <article class="nexus-card site-card">
+            <div class="nexus-card-thumb-wrap">
+              <img src="Media/03.jpg" alt="Nazareno Kids" />
+              <span class="nexus-card-pill">Niños & Familia</span>
+            </div>
+            <div class="nexus-card-body">
+              <h3>¿Qué pasa con mis hijos?</h3>
+              <p>Contamos con salas seguras por edades en Nazareno Kids (cunas hasta primaria) con lecciones bíblicas divertidas y maestras amorosas.</p>
+            </div>
+          </article>
+
+          <!-- Nexus Card 3 -->
+          <article class="nexus-card site-card">
+            <div class="nexus-card-thumb-wrap">
+              <img src="Media/02.jpg" alt="Parqueadero y logística" />
+              <span class="nexus-card-pill">Parqueadero</span>
+            </div>
+            <div class="nexus-card-body">
+              <h3>¿Dónde puedo parquear?</h3>
+              <p>Disponemos de zonas de parqueo y equipo de anfitriones y seguridad en el exterior para guiarte al llegar a la sede.</p>
+            </div>
+          </article>
+
+          <!-- Nexus Card 4 -->
+          <article class="nexus-card site-card">
+            <div class="nexus-card-thumb-wrap">
+              <img src="Media/nzrnWelcome01.jpg" alt="Duración del culto" />
+              <span class="nexus-card-pill">Tiempo</span>
+            </div>
+            <div class="nexus-card-body">
+              <h3>¿Cuánto dura la reunión?</h3>
+              <p>Nuestras celebraciones duran aproximadamente 1 hora y 30 minutos, con tiempos de alabanza contemporánea y mensaje práctico.</p>
+            </div>
+          </article>
+
+          <!-- Nexus Card 5 -->
+          <article class="nexus-card site-card">
+            <div class="nexus-card-thumb-wrap">
+              <img src="Media/nzrnWelcome02.jpg" alt="Bienvenida y anfitriones" />
+              <span class="nexus-card-pill">Anfitriones</span>
+            </div>
+            <div class="nexus-card-body">
+              <h3>¿A quién me dirijo al llegar?</h3>
+              <p>En las puertas de entrada nuestro equipo de bienvenida te recibirá con una sonrisa, te ofrecerá un café y te ayudará a ubicarte.</p>
+            </div>
+          </article>
+
+          <!-- Nexus Card 6 -->
+          <article class="nexus-card site-card">
+            <div class="nexus-card-thumb-wrap">
+              <img src="Media/nzrnComs.jpg" alt="Transmisión online" />
+              <span class="nexus-card-pill">En Vivo</span>
+            </div>
+            <div class="nexus-card-body">
+              <h3>¿Puedo verlo primero en línea?</h3>
+              <p>¡Claro que sí! Transmitimos nuestras celebraciones en directo cada domingo por YouTube y Facebook si deseas conocer la dinámica.</p>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- ========================================================================
+        5. MAPA & CÓMO LLEGAR (UBICACIÓN EXACTA)
+        ======================================================================== -->
+      <section class="visit-map-section" id="ubicacion">
+        <div class="visit-map-box reveal">
+          <div class="visit-map-info">
+            <p class="eyebrow">NUESTRA CASA EN CALI</p>
+            <h2 style="font: 900 clamp(32px, 4vw, 48px) / 1 var(--display); letter-spacing: -1.5px; margin: 8px 0 16px;">
+              Llega fácilmente.
+            </h2>
+            <p style="color: var(--muted); font-size: 15px; line-height: 1.6; margin: 0 0 24px;">
+              Estamos ubicados en el sur de Cali, en el barrio Quintas de Don Simón, sobre la Calle 13 (Avenida Pasoancho).
+            </p>
+            <div style="background: #faf8f5; border: 1px solid var(--line); border-radius: 16px; padding: 18px; margin-bottom: 24px;">
+              <strong style="display:block; font-family:var(--display); font-size:16px;">Iglesia del Nazareno Cali</strong>
+              <span style="color:var(--muted); font-size:13px;">Calle 13 # 75-109 · Quintas de Don Simón, Cali, Colombia</span>
+            </div>
+            <div style="display:flex; gap:12px; flex-wrap:wrap;">
+              <a class="button button-dark" href="https://maps.google.com/?q=Calle+13+75-109+Cali" target="_blank" rel="noreferrer">
+                Abrir en Google Maps ↗
+              </a>
+              <a class="button button-light" href="https://wa.link/62syyk" target="_blank" rel="noreferrer">
+                Escribir por WhatsApp ↗
+              </a>
+            </div>
+          </div>
+
+          <iframe
+            class="visit-map-frame"
+            title="Mapa Iglesia del Nazareno Cali"
+            src="https://www.google.com/maps?q=Calle%2013%20%2375-109%2C%20Cali&output=embed"
+            loading="lazy"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer Profesional -->
+    <footer class="site-footer" id="contacto">
+      <div class="footer-main-grid">
+        <div class="footer-col footer-col-brand">
+          <a class="footer-brand-badge" href="index.html">
+            <img src="Media/logoBlanco.png" alt="Logo Iglesia del Nazareno Cali" />
+          </a>
+          <p class="footer-brand-tagline">
+            Una iglesia en Cali apasionada por Jesús, comprometida con las personas y transformando nuestra ciudad.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Contacto</h4>
+          <p class="footer-contact-item"><strong>Iglesia del Nazareno Cali</strong></p>
+          <p class="footer-contact-item">Calle 13 # 75-109, Quintas de Don Simón<br />Cali, Valle del Cauca, Colombia</p>
+          <p class="footer-contact-item"><a href="mailto:info@nazarenocali.org">info@nazarenocali.org</a></p>
+          <p class="footer-contact-item"><a href="https://wa.link/62syyk" target="_blank" rel="noreferrer">+57 304 377 8188</a></p>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Enlaces</h4>
+          <ul class="footer-links-list">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="visitanos.html">Planifica tu visita</a></li>
+            <li><a href="primera-vez.html">Primera vez</a></li>
+            <li><a href="encuentros.html">Encuentros H/M</a></li>
+            <li><a href="grupos.html">Grupos de Conexión</a></li>
+            <li><a href="podcast.html">Podcast Network</a></li>
+            <li><a href="eventos.html">Actividades & Eventos</a></li>
+            <li><a href="donar.html">Dar / Donación</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Medios & Redes</h4>
+          <ul class="footer-links-list">
+            <li><a href="https://www.youtube.com/user/nazarenocali" target="_blank" rel="noreferrer"><i class="fa-brands fa-youtube"></i> YouTube ↗</a></li>
+            <li><a href="https://www.instagram.com/nazarenocali/" target="_blank" rel="noreferrer"><i class="fa-brands fa-instagram"></i> Instagram ↗</a></li>
+            <li><a href="podcast.html"><i class="fa-brands fa-spotify"></i> Spotify Podcasts ↗</a></li>
+            <li><a href="mensajes.html"><i class="fa-solid fa-podcast"></i> Prédicas en Vivo</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col footer-col-newsletter">
+          <h4 class="footer-heading">Mantente Conectado</h4>
+          <p class="footer-newsletter-desc">
+            Suscríbete a nuestro boletín para recibir noticias, devocionales y actividades de nuestra comunidad.
+          </p>
+          <form class="footer-newsletter-form" data-footer-newsletter>
+            <div class="footer-form-field">
+              <input type="text" name="first_name" placeholder="Nombre" required />
+            </div>
+            <div class="footer-form-field">
+              <input type="email" name="email" placeholder="Correo electrónico" required />
+            </div>
+            <label class="footer-form-checkbox">
+              <input type="checkbox" name="privacy_policy" required />
+              <span>Acepto las políticas de privacidad.</span>
+            </label>
+            <button class="footer-submit-btn" type="submit">Suscribirme ↗</button>
+            <p class="footer-form-status" data-newsletter-status></p>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom-strip">
+        <div class="footer-strip-left">
+          <span class="strip-label">Celebraciones de domingo:</span>
+          <span class="strip-times">6:30 AM · 8:15 AM · 10:00 AM · 12:00 PM</span>
+        </div>
+        <div class="footer-strip-center">
+          <a class="footer-live-link" href="mensajes.html">
+            <span class="live-dot"></span> Ver transmisión online ▷
+          </a>
+        </div>
+        <div class="footer-strip-right">
+          <span>© 2026 Iglesia del Nazareno Cali. Todos los derechos reservados.</span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/visitas-tracker.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

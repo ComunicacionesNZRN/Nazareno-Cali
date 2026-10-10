@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Donaciones | Generosidad con Propósito | Iglesia del Nazareno Cali</title>
+    <meta
+      name="description"
+      content="Apoya la misión de la Iglesia del Nazareno Cali. Conoce nuestras opciones de donación en línea (PSE), transferencia bancaria, QR y puntos presenciales."
+    />
+    <link rel="icon" type="image/png" href="Media/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Cormorant+Garamond:ital,wght@0,500;1,500;1,600&family=Sora:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Encabezado Global -->
+    <header class="site-header" data-header>
+      <a class="brand" href="index.html" aria-label="Iglesia del Nazareno Cali, inicio">
+        <img class="brand-logo" src="Media/logoNegro.png" alt="Iglesia del Nazareno Cali" />
+      </a>
+      <nav class="main-nav" aria-label="Navegación principal">
+        <a href="index.html">Inicio</a>
+        <a href="visitanos.html">Visítanos</a>
+        <a href="ministerios.html">Servir</a>
+        <a href="grupos.html">Grupos</a>
+        <a href="eventos.html">Actividades</a>
+        <a class="active" href="donar.html">Donación</a>
+        <a href="nosotros.html">Conócenos</a>
+      </nav>
+      <div class="header-actions">
+        <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Abrir menú">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <div class="mobile-nav" id="mobile-nav" aria-hidden="true"></div>
+
+    <main class="give-page">
+      
+      <!-- ========================================================================
+        CONTENEDOR VIDEO HERO "DONACIONES" (ESTILO SOUL CHURCH / GIVING)
+        ======================================================================== -->
+      <section class="giving-hero-video-wrap">
+        <div class="giving-hero-media">
+          <img class="giving-hero-video" src="Media/01.jpg" alt="" />
+          <div class="giving-hero-overlay"></div>
+        </div>
+        
+        <!-- Texto Gigante Impactante -->
+        <div class="giving-hero-title-wrap reveal">
+          <h1 class="giving-hero-big-title">DONACIONES</h1>
+        </div>
+      </section>
+
+      <!-- 1. Intro Editorial -->
+      <section class="give-hero">
+        <div class="give-hero-inner reveal">
+          <p class="eyebrow">Generosidad con Propósito</p>
+          <h2>Dar es un acto<br />de <em>adoración.</em></h2>
+          <p class="give-hero-lead">
+            Creemos que la generosidad no se trata de lo que Dios quiere de nosotros, sino de lo que Él quiere para nosotros. Cada aporte sostiene la misión de acompañar personas, servir a nuestra ciudad y anunciar la esperanza de Jesús.
+          </p>
+          <div class="give-hero-actions">
+            <a class="button button-dark" href="#metodos">Ver opciones para donar <span>↓</span></a>
+            <a class="button button-light" href="https://wa.link/62syyk" target="_blank" rel="noreferrer">Hablar con tesorería <span>↗</span></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. Pilares de Impacto (Where Your Giving Goes) -->
+      <section class="give-impact-section">
+        <div class="give-impact-header reveal">
+          <p class="eyebrow">Tu impacto</p>
+          <h2>El fruto de tu<br /><em>generosidad.</em></h2>
+        </div>
+
+        <div class="give-impact-grid">
+          <article class="give-impact-card site-card reveal">
+            <div class="give-impact-img">
+              <img src="Media/01.jpg" alt="Iglesia local y reuniones" />
+            </div>
+            <div class="give-impact-body">
+              <span class="impact-badge">01 · Casa Local</span>
+              <h3>La Iglesia Local</h3>
+              <p>Sostiene las celebraciones de domingo, el ministerio de niños Nazareno Kids, jóvenes JNI, grupos de conexión y la formación espiritual continua de cientos de familias.</p>
+            </div>
+          </article>
+
+          <article class="give-impact-card site-card reveal">
+            <div class="give-impact-img">
+              <img src="Media/03.jpg" alt="Acción social y alcance comunitario" />
+            </div>
+            <div class="give-impact-body">
+              <span class="impact-badge">02 · Nuestra Ciudad</span>
+              <h3>Acción Social & Cali</h3>
+              <p>Llevamos alimentos, brigadas de salud y apoyo integral a comunidades vulnerables, comedores comunitarios y sectores deprimidos de nuestra ciudad.</p>
+            </div>
+          </article>
+
+          <article class="give-impact-card site-card reveal">
+            <div class="give-impact-img">
+              <img src="Media/02.jpg" alt="Misiones y plantación" />
+            </div>
+            <div class="give-impact-body">
+              <span class="impact-badge">03 · Misiones Globales</span>
+              <h3>Expansión & Misiones</h3>
+              <p>Apoyamos misioneros, obras en zonas rurales de Colombia y proyectos de ayuda humanitaria y plantación de nuevas iglesias a nivel mundial.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 3. Métodos de Donación (Cards Interactivas) -->
+      <section class="give-methods-section" id="metodos">
+        <div class="give-methods-header reveal">
+          <p class="eyebrow">Formas de participar</p>
+          <h2>Elige cómo <em>donar.</em></h2>
+          <p>Ofrecemos diferentes canales digitales y presenciales para que realices tus diezmos, ofrendas o donaciones especiales con total seguridad.</p>
+        </div>
+
+        <div class="give-methods-grid">
+          
+          <!-- Opción 1: En Línea (PSE) -->
+          <div class="give-card give-card-highlight site-card reveal">
+            <div class="give-card-top">
+              <span class="give-card-icon"><i class="fa-solid fa-globe"></i></span>
+              <span class="give-card-tag">Recomendado</span>
+            </div>
+            <h3>Donación en Línea (PSE)</h3>
+            <p>Haz tu aporte de forma inmediata a través de la pasarela digital mediante PSE, tarjetas débito o crédito desde cualquier banco nacional.</p>
+            <div class="give-card-action">
+              <a class="button button-dark" href="contacto.html">
+                Ir a Pasarela PSE <span>↗</span>
+              </a>
+            </div>
+            <span class="give-note-small">Transacción 100% cifrada y protegida.</span>
+          </div>
+
+          <!-- Opción 2: Transferencia Bancaria Nacional -->
+          <div class="give-card site-card reveal">
+            <div class="give-card-top">
+              <span class="give-card-icon"><i class="fa-solid fa-building-columns"></i></span>
+            </div>
+            <h3>Transferencia Bancolombia</h3>
+            <p>Transfiere directamente desde tu aplicación bancaria o cajero automático:</p>
+            
+            <div class="copy-box">
+              <div class="copy-box-row">
+                <span>Cuenta de Ahorros:</span>
+                <code>123-456789-00</code>
+                <button class="copy-btn" type="button" data-copy-target="12345678900" title="Copiar número de cuenta">
+                  <i class="fa-regular fa-copy"></i> Copiar
+                </button>
+              </div>
+              <div class="copy-box-row">
+                <span>Titular:</span>
+                <code>Iglesia del Nazareno Cali</code>
+                <button class="copy-btn" type="button" data-copy-target="Iglesia del Nazareno Cali" title="Copiar titular">
+                  <i class="fa-regular fa-copy"></i> Copiar
+                </button>
+              </div>
+              <div class="copy-box-row">
+                <span>NIT:</span>
+                <code>800.123.456-7</code>
+                <button class="copy-btn" type="button" data-copy-target="8001234567" title="Copiar NIT">
+                  <i class="fa-regular fa-copy"></i> Copiar
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Opción 3: Llave Digital & QR (Bre-B / Nequi) -->
+          <div class="give-card site-card reveal">
+            <div class="give-card-top">
+              <span class="give-card-icon"><i class="fa-solid fa-qrcode"></i></span>
+            </div>
+            <h3>Llave Digital & QR</h3>
+            <p>Envía tu donación al instante utilizando la llave de transferencias o escaneando el código QR desde tu celular:</p>
+            
+            <div class="copy-box">
+              <div class="copy-box-row">
+                <span>Llave Celular:</span>
+                <code>304 377 8188</code>
+                <button class="copy-btn" type="button" data-copy-target="3043778188" title="Copiar Llave">
+                  <i class="fa-regular fa-copy"></i> Copiar
+                </button>
+              </div>
+              <div class="copy-box-row">
+                <span>Llave Correo:</span>
+                <code>donaciones@nazarenocali.org</code>
+                <button class="copy-btn" type="button" data-copy-target="donaciones@nazarenocali.org" title="Copiar Correo">
+                  <i class="fa-regular fa-copy"></i> Copiar
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Opción 4: Transferencia Internacional (SWIFT / ABA) -->
+          <div class="give-card site-card reveal">
+            <div class="give-card-top">
+              <span class="give-card-icon"><i class="fa-solid fa-earth-americas"></i></span>
+            </div>
+            <h3>Donaciones Internacionales</h3>
+            <p>Para transferencias desde el exterior (Estados Unidos, Europa o Latinoamérica):</p>
+            
+            <div class="copy-box">
+              <div class="copy-box-row">
+                <span>Código SWIFT:</span>
+                <code>COLOMX44</code>
+                <button class="copy-btn" type="button" data-copy-target="COLOMX44" title="Copiar SWIFT">
+                  <i class="fa-regular fa-copy"></i> Copiar
+                </button>
+              </div>
+              <div class="copy-box-row">
+                <span>Banco Corresponsal:</span>
+                <code>Bancolombia S.A.</code>
+              </div>
+            </div>
+          </div>
+
+          <!-- Opción 5: Puntos Presenciales -->
+          <div class="give-card give-card-full site-card reveal">
+            <div class="give-card-top">
+              <span class="give-card-icon"><i class="fa-solid fa-church"></i></span>
+            </div>
+            <h3>En Persona durante las Celebraciones</h3>
+            <p>
+              Puedes entregar tus diezmos y ofrendas en sobre durante nuestras reuniones presenciales los domingos, o utilizar datáfono en el punto de información de la sede principal:
+              <strong>Calle 13 # 75-109 · Quintas de Don Simón, Cali.</strong>
+            </p>
+            <div style="margin-top: 16px;">
+              <a class="button button-light" href="visitanos.html">Ver horarios y ubicación <span>↗</span></a>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 4. Transparencia & Certificados Tributarios -->
+      <section class="give-transparency-section reveal">
+        <div class="give-transparency-box">
+          <div class="give-transparency-text">
+            <span class="impact-badge" style="background: rgba(255,255,255,0.2); color:#fff;">Transparencia & Legalidad</span>
+            <h2>Certificados de Donación y Respaldo Legal</h2>
+            <p>
+              La Iglesia del Nazareno Cali es una entidad religiosa sin ánimo de lucro debidamente registrada. Todos tus aportes son administrados con integridad, y puedes solicitar tu <strong>Certificado de Donación</strong> para deducciones tributarias ante la DIAN en tu declaración de renta.
+            </p>
+            <div class="transparency-actions">
+              <a class="button button-light" href="https://wa.link/62syyk" target="_blank" rel="noreferrer">
+                Solicitar certificado por WhatsApp <span>↗</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. Preguntas Frecuentes sobre Donar -->
+      <section class="give-faq-section">
+        <div class="give-faq-header reveal">
+          <p class="eyebrow">Dudas frecuentes</p>
+          <h2>Preguntas sobre <em>generosidad.</em></h2>
+        </div>
+
+        <div class="faq-accordion reveal">
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              <span>¿Por qué damos diezmos y ofrendas en la iglesia?</span>
+              <i class="fa-solid fa-plus"></i>
+            </button>
+            <div class="faq-answer">
+              <p>La Biblia nos enseña que dar es una respuesta de gratitud y fe hacia Dios, quien nos provee todo. A través de nuestros diezmos y ofrendas reconocemos que Él es nuestra fuente, y sostenemos la predicación del evangelio y el cuidado de los necesitados.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              <span>¿Cómo obtengo mi certificado para la declaración de renta (DIAN)?</span>
+              <i class="fa-solid fa-plus"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Simplemente escríbenos por WhatsApp o a donaciones@nazarenocali.org con tu nombre completo, número de cédula/NIT y los soportes de las donaciones realizadas durante el año. Nuestro departamento contable emitirá tu certificado oficial.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              <span>¿Es seguro realizar donaciones a través de canales digitales?</span>
+              <i class="fa-solid fa-plus"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Sí, absolutamente. Todas las transferencias se realizan directamente de banco a banco a nombre de la personería jurídica oficial de la Iglesia del Nazareno Cali, garantizando total trazabilidad y seguridad.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              <span>¿Puedo donar en especie o apoyar una campaña específica?</span>
+              <i class="fa-solid fa-plus"></i>
+            </button>
+            <div class="faq-answer">
+              <p>¡Claro que sí! Puedes donar alimentos no perecederos, ropa en buen estado para nuestras jornadas de acción social, o aportar a proyectos de construcción y misiones. Contáctanos directamente para coordinar la entrega.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer Profesional Soul Church -->
+    <footer class="site-footer" id="contacto">
+      <div class="footer-main-grid">
+        <div class="footer-col footer-col-brand">
+          <a class="footer-brand-badge" href="index.html" aria-label="Inicio">
+            <img src="Media/logoBlanco.png" alt="Logo Iglesia del Nazareno Cali" />
+          </a>
+          <p class="footer-brand-tagline">
+            Una iglesia en Cali apasionada por Jesús, comprometida con las personas y transformando nuestra ciudad.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Contacto</h4>
+          <p class="footer-contact-item"><strong>Iglesia del Nazareno Cali</strong></p>
+          <p class="footer-contact-item">Calle 13 # 75-109, Quintas de Don Simón<br />Cali, Valle del Cauca, Colombia</p>
+          <p class="footer-contact-item"><a href="mailto:info@nazarenocali.org">info@nazarenocali.org</a></p>
+          <p class="footer-contact-item"><a href="https://wa.link/62syyk" target="_blank" rel="noreferrer">+57 304 377 8188</a></p>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Enlaces</h4>
+          <ul class="footer-links-list">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="visitanos.html">Planifica tu visita</a></li>
+            <li><a href="ministerios.html">Equipos de Servicio</a></li>
+            <li><a href="grupos.html">Grupos de Conexión</a></li>
+            <li><a href="eventos.html">Actividades & Eventos</a></li>
+            <li><a href="donar.html">Dar / Donación</a></li>
+            <li><a href="contacto.html">Políticas de Privacidad & Tratamiento de Datos ↗</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Medios & Redes</h4>
+          <ul class="footer-links-list">
+            <li><a href="https://www.youtube.com/user/nazarenocali" target="_blank" rel="noreferrer"><i class="fa-brands fa-youtube"></i> YouTube ↗</a></li>
+            <li><a href="https://www.instagram.com/nazarenocali/" target="_blank" rel="noreferrer"><i class="fa-brands fa-instagram"></i> Instagram ↗</a></li>
+            <li><a href="https://www.facebook.com/nazarenocali" target="_blank" rel="noreferrer"><i class="fa-brands fa-facebook"></i> Facebook ↗</a></li>
+            <li><a href="mensajes.html"><i class="fa-solid fa-podcast"></i> Prédicas en audio & Video</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col footer-col-newsletter">
+          <h4 class="footer-heading">Mantente Conectado</h4>
+          <p class="footer-newsletter-desc">
+            Suscríbete a nuestro boletín para recibir noticias, devocionales y actividades de nuestra comunidad.
+          </p>
+          <form class="footer-newsletter-form" data-footer-newsletter>
+            <div class="footer-form-field">
+              <input type="text" name="first_name" placeholder="Nombre" required />
+            </div>
+            <div class="footer-form-field">
+              <input type="text" name="last_name" placeholder="Apellido" required />
+            </div>
+            <div class="footer-form-field">
+              <input type="email" name="email" placeholder="Correo electrónico" required />
+            </div>
+            <label class="footer-form-checkbox">
+              <input type="checkbox" name="privacy_policy" required />
+              <span>Acepto las políticas de privacidad y tratamiento de datos de Nazareno Cali.</span>
+            </label>
+            <button class="footer-submit-btn" type="submit">Suscribirme ↗</button>
+            <p class="footer-form-status" data-newsletter-status></p>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom-strip">
+        <div class="footer-strip-left">
+          <span class="strip-label">Celebraciones de domingo:</span>
+          <span class="strip-times">6:30 AM · 8:15 AM · 10:00 AM · 12:00 PM</span>
+        </div>
+        <div class="footer-strip-center">
+          <a class="footer-live-link" href="mensajes.html">
+            <span class="live-dot"></span> Ver transmisión online ▷
+          </a>
+        </div>
+        <div class="footer-strip-right">
+          <span>© 2026 Iglesia del Nazareno Cali. Todos los derechos reservados.</span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-client.js"></script>
+    <script src="js/visitas-tracker.js"></script>
+    <script src="script.js"></script>
+    <script>
+      // Interactividad para el acordeón de FAQs
+      document.querySelectorAll(".faq-question").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const item = btn.parentElement;
+          const isOpen = btn.getAttribute("aria-expanded") === "true";
+          
+          document.querySelectorAll(".faq-item").forEach((other) => {
+            if (other !== item) {
+              other.classList.remove("is-open");
+              other.querySelector(".faq-question")?.setAttribute("aria-expanded", "false");
+            }
+          });
+
+          item.classList.toggle("is-open", !isOpen);
+          btn.setAttribute("aria-expanded", String(!isOpen));
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,958 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Podcast | Iglesia del Nazareno Cali | NZRN</title>
+    <meta name="description" content="Explora prédicas y podcasts de la Iglesia del Nazareno Cali." />
+    <meta http-equiv="refresh" content="0; url=mensajes.html?tipo=podcasts" />
+    <script>window.location.replace("mensajes.html?tipo=podcasts");</script>
+    <link rel="icon" type="image/png" href="Media/favicon.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800;12..96,900&family=Sora:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* ========================================================================
+        ESTÉTICA THE RINGER · EXCLUSIVAMENTE CON BRICOLAGE GROTESQUE & SORA
+        ======================================================================== */
+      :root {
+        --ringer-dark: #121316;
+        --ringer-card: #1c1d22;
+        --ringer-green: #1db954;
+        --ringer-border: rgba(20, 20, 20, 0.12);
+        --ringer-dark-border: rgba(255, 255, 255, 0.12);
+      }
+
+      body.ringer-page {
+        background: #f8f6f0;
+        color: var(--ink);
+        font-family: var(--body);
+        padding-top: var(--header-height);
+        padding-bottom: 120px;
+        overflow-x: hidden;
+      }
+
+      /* 1. Hero / Lead Episode (The Ringer Featured Showcase) */
+      .ringer-hero-section {
+        padding: clamp(24px, 4vw, 50px) clamp(16px, 5vw, 60px) 30px;
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      .ringer-network-kicker {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-family: var(--display);
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--violet);
+        margin-bottom: 16px;
+      }
+
+      .ringer-network-kicker i {
+        color: var(--orange);
+      }
+
+      .ringer-lead-box {
+        background: var(--ringer-dark);
+        color: #ffffff;
+        border-radius: var(--radius);
+        padding: clamp(24px, 4vw, 44px);
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 36px;
+        align-items: center;
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.15);
+      }
+
+      .ringer-video-frame {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        border-radius: 18px;
+        overflow: hidden;
+        background: #000;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+      }
+
+      .ringer-video-frame iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+
+      .ringer-lead-info {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .ringer-show-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 4px 12px;
+        border-radius: 99px;
+        background: rgba(255, 255, 255, 0.12);
+        color: var(--orange);
+        font-family: var(--display);
+        font-size: 11px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 12px;
+        width: fit-content;
+      }
+
+      .ringer-lead-title {
+        font: 900 clamp(26px, 3.8vw, 44px) / 1.05 var(--display);
+        color: #ffffff;
+        letter-spacing: -1.5px;
+        margin: 0 0 14px;
+      }
+
+      .ringer-lead-desc {
+        color: #b3b6c2;
+        font-family: var(--body);
+        font-size: 14.5px;
+        line-height: 1.6;
+        margin: 0 0 24px;
+      }
+
+      .ringer-lead-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .ringer-btn-spotify {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 20px;
+        border-radius: 99px;
+        background: var(--ringer-green);
+        color: #ffffff;
+        font-family: var(--body);
+        font-size: 12px;
+        font-weight: 800;
+        transition: transform 0.2s, box-shadow 0.2s;
+        text-decoration: none;
+      }
+
+      .ringer-btn-youtube {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 20px;
+        border-radius: 99px;
+        background: rgba(255, 255, 255, 0.12);
+        color: #ffffff;
+        border: 1px solid var(--ringer-dark-border);
+        font-family: var(--body);
+        font-size: 12px;
+        font-weight: 800;
+        transition: transform 0.2s, background 0.2s;
+        text-decoration: none;
+      }
+
+      .ringer-btn-spotify:hover, .ringer-btn-youtube:hover {
+        transform: translateY(-2px);
+      }
+
+      /* ========================================================================
+        2. NETWORK SHOWS DIRECTORY (CATÁLOGO DE PROGRAMAS THE RINGER)
+        ======================================================================== */
+      .ringer-shows-section {
+        padding: 40px clamp(16px, 5vw, 60px) 60px;
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      .ringer-section-title {
+        font: 900 clamp(30px, 4vw, 48px) / 1 var(--display);
+        letter-spacing: -1.5px;
+        margin: 0 0 8px;
+        color: var(--ink);
+      }
+
+      .ringer-section-lead {
+        color: var(--muted);
+        font-family: var(--body);
+        font-size: 15px;
+        margin: 0 0 30px;
+      }
+
+      .ringer-shows-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 20px;
+      }
+
+      .ringer-show-card {
+        background: #ffffff;
+        border: 1px solid var(--ringer-border);
+        border-radius: 20px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+        text-decoration: none;
+      }
+
+      .ringer-show-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
+      }
+
+      .ringer-show-cover {
+        width: 100%;
+        aspect-ratio: 1;
+        overflow: hidden;
+        position: relative;
+        background: var(--ringer-dark);
+      }
+
+      .ringer-show-cover img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.4s ease;
+      }
+
+      .ringer-show-card:hover .ringer-show-cover img {
+        transform: scale(1.05);
+      }
+
+      .ringer-show-tag {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        padding: 4px 10px;
+        border-radius: 6px;
+        background: rgba(18, 19, 22, 0.88);
+        backdrop-filter: blur(4px);
+        color: #ffffff;
+        font-family: var(--display);
+        font-size: 10px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      .ringer-show-body {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+      }
+
+      .ringer-show-body h4 {
+        font: 800 20px / 1.15 var(--display);
+        color: var(--ink);
+        margin: 0 0 6px;
+        letter-spacing: -0.5px;
+      }
+
+      .ringer-show-body p {
+        color: var(--muted);
+        font-family: var(--body);
+        font-size: 13px;
+        line-height: 1.5;
+        margin: 0 0 16px;
+      }
+
+      .ringer-show-footer {
+        margin-top: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-family: var(--body);
+        font-size: 11px;
+        font-weight: 800;
+        color: var(--violet);
+        padding-top: 12px;
+        border-top: 1px solid rgba(20, 20, 20, 0.08);
+      }
+
+      /* ========================================================================
+        3. FEED DE EPISODIOS CON FILTROS INTERACTIVOS
+        ======================================================================== */
+      .ringer-episodes-section {
+        padding: 20px clamp(16px, 5vw, 60px) 90px;
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      .ringer-filter-pills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 28px;
+      }
+
+      .ringer-filter-btn {
+        padding: 8px 18px;
+        border-radius: 99px;
+        border: 1px solid var(--ringer-border);
+        background: #ffffff;
+        color: var(--ink);
+        font-family: var(--body);
+        font-size: 12px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+
+      .ringer-filter-btn.active, .ringer-filter-btn:hover {
+        background: var(--ink);
+        color: #ffffff;
+        border-color: var(--ink);
+      }
+
+      .ringer-episodes-list {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 22px;
+      }
+
+      .ringer-ep-card {
+        background: #ffffff;
+        border: 1px solid var(--ringer-border);
+        border-radius: 18px;
+        padding: 22px;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.03);
+        transition: transform 0.25s ease, border-color 0.25s ease;
+      }
+
+      .ringer-ep-card:hover {
+        transform: translateY(-4px);
+        border-color: var(--violet);
+      }
+
+      .ringer-ep-thumb-wrap {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        border-radius: 12px;
+        overflow: hidden;
+        background: var(--ringer-dark);
+        margin-bottom: 16px;
+      }
+
+      .ringer-ep-thumb-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .ringer-play-trigger {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        background: rgba(0, 0, 0, 0.35);
+        opacity: 0;
+        transition: opacity 0.25s;
+        cursor: pointer;
+      }
+
+      .ringer-ep-card:hover .ringer-play-trigger {
+        opacity: 1;
+      }
+
+      .play-icon-bubble {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: var(--ringer-green);
+        color: #ffffff;
+        display: grid;
+        place-items: center;
+        font-size: 18px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        transform: scale(0.9);
+        transition: transform 0.2s;
+      }
+
+      .ringer-ep-card:hover .play-icon-bubble {
+        transform: scale(1);
+      }
+
+      .ringer-ep-category {
+        font-family: var(--display);
+        font-size: 11px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--violet);
+        margin-bottom: 6px;
+      }
+
+      .ringer-ep-title {
+        font: 800 18px / 1.2 var(--display);
+        color: var(--ink);
+        margin: 0 0 8px;
+        letter-spacing: -0.5px;
+      }
+
+      .ringer-ep-desc {
+        color: var(--muted);
+        font-family: var(--body);
+        font-size: 13px;
+        line-height: 1.5;
+        margin: 0 0 16px;
+      }
+
+      .ringer-ep-meta {
+        margin-top: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 12px;
+        border-top: 1px solid rgba(20, 20, 20, 0.08);
+        font-family: var(--body);
+        font-size: 11px;
+        color: var(--muted);
+        font-weight: 600;
+      }
+
+      .btn-play-inline {
+        background: none;
+        border: none;
+        color: var(--ringer-green);
+        font-family: var(--body);
+        font-size: 12px;
+        font-weight: 800;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 0;
+      }
+
+      /* ========================================================================
+        4. MINI-PLAYER FLOTANTE IN-APP (BARRA INFERIOR MÓVIL/DESKTOP)
+        ======================================================================== */
+      .app-mini-player {
+        position: fixed;
+        bottom: calc(16px + var(--safe-bottom));
+        left: 50%;
+        transform: translateX(-50%) translateY(140%);
+        width: min(94vw, 760px);
+        background: #141416;
+        color: #ffffff;
+        border-radius: 999px;
+        padding: 10px 18px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        z-index: 2000;
+        transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .app-mini-player.is-visible {
+        transform: translateX(-50%) translateY(0);
+      }
+
+      .player-track-info {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        min-width: 0;
+      }
+
+      .player-track-thumb {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        overflow: hidden;
+        flex-shrink: 0;
+        border: 2px solid var(--ringer-green);
+      }
+
+      .player-track-thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .player-track-details {
+        min-width: 0;
+      }
+
+      .player-track-title {
+        font-family: var(--display);
+        font-size: 14px;
+        font-weight: 800;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: #ffffff;
+        margin: 0;
+        letter-spacing: -0.3px;
+      }
+
+      .player-track-show {
+        font-family: var(--body);
+        font-size: 11px;
+        color: var(--ringer-green);
+        margin: 0;
+      }
+
+      .player-controls {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-shrink: 0;
+      }
+
+      .player-ctrl-btn {
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        background: #ffffff;
+        color: #141416;
+        border: none;
+        display: grid;
+        place-items: center;
+        font-size: 14px;
+        cursor: pointer;
+        transition: transform 0.2s;
+      }
+
+      .player-ctrl-btn:hover {
+        transform: scale(1.08);
+      }
+
+      .player-close-btn {
+        background: none;
+        border: none;
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 16px;
+        cursor: pointer;
+        padding: 4px;
+      }
+
+      /* Responsive Breakpoints */
+      @media (max-width: 1024px) {
+        .ringer-shows-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .ringer-episodes-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .ringer-lead-box { grid-template-columns: 1fr; }
+      }
+
+      @media (max-width: 650px) {
+        .ringer-shows-grid { grid-template-columns: 1fr; }
+        .ringer-episodes-list { grid-template-columns: 1fr; }
+        .app-mini-player {
+          border-radius: 20px;
+          bottom: calc(10px + var(--safe-bottom));
+          padding: 10px 14px;
+        }
+      }
+    </style>
+  </head>
+  <body class="ringer-page">
+    <!-- Encabezado Global -->
+    <header class="site-header" data-header>
+      <a class="brand" href="index.html">
+        <img class="brand-logo" src="Media/logoNegro.png" alt="Nazareno Cali" />
+      </a>
+      <nav class="main-nav">
+        <a href="index.html">Inicio</a>
+        <a href="visitanos.html">Visítanos</a>
+        <a href="grupos.html">Grupos</a>
+        <a href="encuentros.html">Encuentros</a>
+        <a class="active" href="podcast.html">Podcast</a>
+        <a href="eventos.html">Actividades</a>
+        <a href="donar.html">Donación</a>
+        <a href="nosotros.html">Conócenos</a>
+      </nav>
+      <div class="header-actions">
+        <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <div class="mobile-nav" id="mobile-nav" aria-hidden="true"></div>
+
+    <main>
+      <!-- ========================================================================
+        1. LEAD STORY / EPISODIO DESTACADO (THE RINGER LEAD SHOWCASE)
+        ======================================================================== -->
+      <section class="ringer-hero-section reveal">
+        <div class="ringer-network-kicker">
+          <i class="fa-solid fa-tower-broadcast"></i>PODCAST NZRN · EPISODIO DESTACADO
+        </div>
+
+        <div class="ringer-lead-box">
+          <!-- Video Podcast Reproductor en Estudio -->
+          <div class="ringer-video-frame">
+            <iframe id="featured-video-iframe" src="https://www.youtube.com/embed/kZNdlw4Z4Nw?rel=0" title="Podcast Destacado" allowfullscreen></iframe>
+          </div>
+
+          <!-- Información Editorial del Episodio -->
+          <div class="ringer-lead-info">
+            <span class="ringer-show-badge">Conversaciones de Fe · Temp. 2</span>
+            <h1 class="ringer-lead-title" id="featured-lead-title">
+              Caminando en Fe en Tiempos de Incertidumbre
+            </h1>
+            <p class="ringer-lead-desc" id="featured-lead-desc">
+              Una conversación sincera sobre cómo mantenernos firmes en las promesas de Dios cuando las circunstancias cambian, junto a invitados especiales de nuestra casa pastoral.
+            </p>
+            <div class="ringer-lead-actions">
+              <a class="ringer-btn-spotify" href="https://open.spotify.com" target="_blank" rel="noreferrer">
+                <i class="fa-brands fa-spotify"></i> Escuchar en Spotify
+              </a>
+              <a class="ringer-btn-youtube" href="https://www.youtube.com/watch?v=kZNdlw4Z4Nw" target="_blank" rel="noreferrer">
+                <i class="fa-brands fa-youtube"></i> Ver en YouTube
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================================
+        2. DIRECTORIO DE PROGRAMAS (THE RINGER SHOW NETWORK)
+        ======================================================================== -->
+      <section class="ringer-shows-section">
+        <div class="reveal">
+          <h2 class="ringer-section-title">Nuestros Programas</h2>
+          <p class="ringer-section-lead">Explora las series temáticas producidas para acompañar tu día a día.</p>
+        </div>
+
+        <div class="ringer-shows-grid reveal">
+          
+          <!-- Show 1 -->
+          <article class="ringer-show-card site-card" data-show-filter="fe">
+            <div class="ringer-show-cover">
+              <img src="Media/01.jpg" alt="Conversaciones de Fe" />
+              <span class="ringer-show-tag">Estudio & Vida</span>
+            </div>
+            <div class="ringer-show-body">
+              <h4>Conversaciones de Fe</h4>
+              <p>Entrevistas y debates profundos sobre teología práctica, dudas y testimonios de transformación.</p>
+              <div class="ringer-show-footer">
+                <span>Disponible en Video & Audio</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </div>
+            </div>
+          </article>
+
+          <!-- Show 2 -->
+          <article class="ringer-show-card site-card" data-show-filter="predicas">
+            <div class="ringer-show-cover">
+              <img src="Media/02.jpg" alt="Palabra Viva" />
+              <span class="ringer-show-tag">Prédicas Dominicales</span>
+            </div>
+            <div class="ringer-show-body">
+              <h4>Palabra Viva</h4>
+              <p>Las enseñanzas completas de cada domingo en audio de alta fidelidad para escuchar donde estés.</p>
+              <div class="ringer-show-footer">
+                <span>Actualizado cada domingo</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </div>
+            </div>
+          </article>
+
+          <!-- Show 3 -->
+          <article class="ringer-show-card site-card" data-show-filter="jovenes">
+            <div class="ringer-show-cover">
+              <img src="Media/03.jpg" alt="JNI Podcast" />
+              <span class="ringer-show-tag">Juventud JNI</span>
+            </div>
+            <div class="ringer-show-body">
+              <h4>JNI Podcast</h4>
+              <p>Charlas sin filtro sobre universidad, relaciones, salud mental y propósito para jóvenes.</p>
+              <div class="ringer-show-footer">
+                <span>Nueva temporada</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </div>
+            </div>
+          </article>
+
+          <!-- Show 4 -->
+          <article class="ringer-show-card site-card" data-show-filter="familia">
+            <div class="ringer-show-cover">
+              <img src="Media/nzrnWelcome01.jpg" alt="Hogar & Raíces" />
+              <span class="ringer-show-tag">Familia & Parejas</span>
+            </div>
+            <div class="ringer-show-body">
+              <h4>Hogar & Raíces</h4>
+              <p>Herramientas y principios bíblicos para fortalecer tu matrimonio y criar hijos en fe.</p>
+              <div class="ringer-show-footer">
+                <span>Consejería & Familia</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- ========================================================================
+        3. FEED DE EPISODIOS CON FILTRADO RÁPIDO
+        ======================================================================== -->
+      <section class="ringer-episodes-section">
+        <div class="reveal">
+          <h2 class="ringer-section-title">Últimos Episodios</h2>
+          <p class="ringer-section-lead">Toca cualquier episodio para escucharlo al instante.</p>
+        </div>
+
+        <!-- Filtros de categoría -->
+        <div class="ringer-filter-pills reveal">
+          <button class="ringer-filter-btn active" data-cat="todos">Todos los episodios</button>
+          <button class="ringer-filter-btn" data-cat="predicas">Prédicas de Domingo</button>
+          <button class="ringer-filter-btn" data-cat="jovenes">Juventud JNI</button>
+          <button class="ringer-filter-btn" data-cat="familia">Familia & Matrimonios</button>
+          <button class="ringer-filter-btn" data-cat="fe">Entrevistas & Fe</button>
+        </div>
+
+        <!-- Listado de episodios -->
+        <div class="ringer-episodes-list reveal" id="episodes-container">
+          
+          <!-- Ep 1 -->
+          <article class="ringer-ep-card site-card" data-category="predicas" data-audio-title="El Poder de una Oración Sincera" data-audio-show="Palabra Viva" data-audio-thumb="Media/01.jpg">
+            <div class="ringer-ep-thumb-wrap">
+              <img src="Media/01.jpg" alt="Episodio 1" />
+              <div class="ringer-play-trigger" title="Reproducir en la app">
+                <span class="play-icon-bubble"><i class="fa-solid fa-play"></i></span>
+              </div>
+            </div>
+            <span class="ringer-ep-category">Prédica · Domingo</span>
+            <h3 class="ringer-ep-title">El Poder de una Oración Sincera</h3>
+            <p class="ringer-ep-desc">Cómo un corazón humilde derriba gigantes y abre puertas de bendición para tu vida.</p>
+            <div class="ringer-ep-meta">
+              <span><i class="fa-regular fa-clock"></i> 38 min</span>
+              <button class="btn-play-inline"><i class="fa-solid fa-circle-play"></i> Reproducir</button>
+            </div>
+          </article>
+
+          <!-- Ep 2 -->
+          <article class="ringer-ep-card site-card" data-category="jovenes" data-audio-title="Propósito vs. Presión Social" data-audio-show="JNI Podcast" data-audio-thumb="Media/03.jpg">
+            <div class="ringer-ep-thumb-wrap">
+              <img src="Media/03.jpg" alt="Episodio 2" />
+              <div class="ringer-play-trigger" title="Reproducir en la app">
+                <span class="play-icon-bubble"><i class="fa-solid fa-play"></i></span>
+              </div>
+            </div>
+            <span class="ringer-ep-category">JNI Jóvenes</span>
+            <h3 class="ringer-ep-title">Propósito vs. Presión Social</h3>
+            <p class="ringer-ep-desc">Cómo tomar decisiones con firmeza en la universidad y el trabajo sin perder tu identidad.</p>
+            <div class="ringer-ep-meta">
+              <span><i class="fa-regular fa-clock"></i> 28 min</span>
+              <button class="btn-play-inline"><i class="fa-solid fa-circle-play"></i> Reproducir</button>
+            </div>
+          </article>
+
+          <!-- Ep 3 -->
+          <article class="ringer-ep-card site-card" data-category="familia" data-audio-title="Construyendo un Hogar con Paz" data-audio-show="Hogar & Raíces" data-audio-thumb="Media/02.jpg">
+            <div class="ringer-ep-thumb-wrap">
+              <img src="Media/02.jpg" alt="Episodio 3" />
+              <div class="ringer-play-trigger" title="Reproducir en la app">
+                <span class="play-icon-bubble"><i class="fa-solid fa-play"></i></span>
+              </div>
+            </div>
+            <span class="ringer-ep-category">Familia</span>
+            <h3 class="ringer-ep-title">Construyendo un Hogar con Paz</h3>
+            <p class="ringer-ep-desc">Principios para resolver desacuerdos y mantener un ambiente lleno de gracia en casa.</p>
+            <div class="ringer-ep-meta">
+              <span><i class="fa-regular fa-clock"></i> 34 min</span>
+              <button class="btn-play-inline"><i class="fa-solid fa-circle-play"></i> Reproducir</button>
+            </div>
+          </article>
+
+        </div>
+      </section>
+    </main>
+
+    <!-- ========================================================================
+      4. REPRODUCTOR FLOTANTE IN-APP (THE RINGER FLOATING MINI-PLAYER)
+      ======================================================================== -->
+    <div class="app-mini-player" id="app-mini-player">
+      <div class="player-track-info">
+        <div class="player-track-thumb">
+          <img id="mini-player-img" src="Media/01.jpg" alt="Track thumbnail" />
+        </div>
+        <div class="player-track-details">
+          <p class="player-track-title" id="mini-player-title">Selecciona un episodio</p>
+          <p class="player-track-show" id="mini-player-show">Nazareno Podcast Network</p>
+        </div>
+      </div>
+      <div class="player-controls">
+        <button class="player-ctrl-btn" id="mini-play-btn" title="Reproducir / Pausa">
+          <i class="fa-solid fa-play"></i>
+        </button>
+        <a class="ringer-btn-spotify" id="mini-spotify-link" href="https://open.spotify.com" target="_blank" rel="noreferrer" style="padding: 8px 14px; font-size: 11px;">
+          <i class="fa-brands fa-spotify"></i> Abrir
+        </a>
+        <button class="player-close-btn" id="mini-player-close" title="Cerrar reproductor">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Footer Profesional -->
+    <footer class="site-footer" id="contacto">
+      <div class="footer-main-grid">
+        <div class="footer-col footer-col-brand">
+          <a class="footer-brand-badge" href="index.html">
+            <img src="Media/logoBlanco.png" alt="Logo Iglesia del Nazareno Cali" />
+          </a>
+          <p class="footer-brand-tagline">
+            Una iglesia en Cali apasionada por Jesús, comprometida con las personas y transformando nuestra ciudad.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Contacto</h4>
+          <p class="footer-contact-item"><strong>Iglesia del Nazareno Cali</strong></p>
+          <p class="footer-contact-item">Calle 13 # 75-109, Quintas de Don Simón<br />Cali, Valle del Cauca, Colombia</p>
+          <p class="footer-contact-item"><a href="mailto:info@nazarenocali.org">info@nazarenocali.org</a></p>
+          <p class="footer-contact-item"><a href="https://wa.link/62syyk" target="_blank" rel="noreferrer">+57 304 377 8188</a></p>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Enlaces</h4>
+          <ul class="footer-links-list">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="visitanos.html">Planifica tu visita</a></li>
+            <li><a href="encuentros.html">Encuentros H/M</a></li>
+            <li><a href="podcast.html">Podcast Network</a></li>
+            <li><a href="grupos.html">Grupos de Conexión</a></li>
+            <li><a href="eventos.html">Actividades & Eventos</a></li>
+            <li><a href="donar.html">Dar / Donación</a></li>
+            <li><a href="contacto.html">Políticas de Privacidad ↗</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Medios & Redes</h4>
+          <ul class="footer-links-list">
+            <li><a href="https://open.spotify.com" target="_blank" rel="noreferrer"><i class="fa-brands fa-spotify"></i> Spotify Podcasts ↗</a></li>
+            <li><a href="https://www.youtube.com/user/nazarenocali" target="_blank" rel="noreferrer"><i class="fa-brands fa-youtube"></i> YouTube ↗</a></li>
+            <li><a href="https://www.instagram.com/nazarenocali/" target="_blank" rel="noreferrer"><i class="fa-brands fa-instagram"></i> Instagram ↗</a></li>
+            <li><a href="mensajes.html"><i class="fa-solid fa-podcast"></i> Prédicas en Vivo</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col footer-col-newsletter">
+          <h4 class="footer-heading">Mantente Conectado</h4>
+          <p class="footer-newsletter-desc">
+            Suscríbete a nuestro boletín para recibir nuevos episodios, devocionales y noticias.
+          </p>
+          <form class="footer-newsletter-form" data-footer-newsletter>
+            <div class="footer-form-field">
+              <input type="text" name="first_name" placeholder="Nombre" required />
+            </div>
+            <div class="footer-form-field">
+              <input type="email" name="email" placeholder="Correo electrónico" required />
+            </div>
+            <label class="footer-form-checkbox">
+              <input type="checkbox" name="privacy_policy" required />
+              <span>Acepto las políticas de privacidad.</span>
+            </label>
+            <button class="footer-submit-btn" type="submit">Suscribirme ↗</button>
+            <p class="footer-form-status" data-newsletter-status></p>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom-strip">
+        <div class="footer-strip-left">
+          <span class="strip-label">Celebraciones de domingo:</span>
+          <span class="strip-times">6:30 AM · 8:15 AM · 10:00 AM · 12:00 PM</span>
+        </div>
+        <div class="footer-strip-center">
+          <a class="footer-live-link" href="mensajes.html">
+            <span class="live-dot"></span> Ver transmisión online ▷
+          </a>
+        </div>
+        <div class="footer-strip-right">
+          <span>© 2026 Iglesia del Nazareno Cali. Todos los derechos reservados.</span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/visitas-tracker.js"></script>
+    <script src="script.js"></script>
+    <script>
+      // 1. Filtrado de episodios interactivo
+      const filterBtns = document.querySelectorAll(".ringer-filter-btn");
+      const epCards = document.querySelectorAll(".ringer-ep-card");
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+          filterBtns.forEach(b => b.classList.remove("active"));
+          btn.classList.add("active");
+          const cat = btn.dataset.cat;
+
+          epCards.forEach(card => {
+            if (cat === "todos" || card.dataset.category === cat) {
+              card.style.display = "flex";
+            } else {
+              card.style.display = "none";
+            }
+          });
+        });
+      });
+
+      // 2. Mini-Player Flotante Interactivo In-App
+      const miniPlayer = document.getElementById("app-mini-player");
+      const miniTitle = document.getElementById("mini-player-title");
+      const miniShow = document.getElementById("mini-player-show");
+      const miniImg = document.getElementById("mini-player-img");
+      const miniPlayBtn = document.getElementById("mini-play-btn");
+      const miniCloseBtn = document.getElementById("mini-player-close");
+      let isPlaying = false;
+
+      epCards.forEach(card => {
+        const trigger = card.querySelector(".ringer-play-trigger") || card;
+        const playBtn = card.querySelector(".btn-play-inline");
+
+        const startTrack = () => {
+          const title = card.dataset.audioTitle || "Episodio de Podcast";
+          const show = card.dataset.audioShow || "Nazareno Network";
+          const thumb = card.dataset.audioThumb || "Media/01.jpg";
+
+          miniTitle.textContent = title;
+          miniShow.textContent = show;
+          miniImg.src = thumb;
+
+          miniPlayer.classList.add("is-visible");
+          isPlaying = true;
+          miniPlayBtn.innerHTML = '<i class="fa-solid fa-pause"></i>';
+        };
+
+        if (trigger) trigger.addEventListener("click", startTrack);
+        if (playBtn) playBtn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          startTrack();
+        });
+      });
+
+      miniPlayBtn.addEventListener("click", () => {
+        isPlaying = !isPlaying;
+        miniPlayBtn.innerHTML = isPlaying ? '<i class="fa-solid fa-pause"></i>' : '<i class="fa-solid fa-play"></i>';
+      });
+
+      miniCloseBtn.addEventListener("click", () => {
+        miniPlayer.classList.remove("is-visible");
+      });
+    </script>
+  </body>
+</html>

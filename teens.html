@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Teens NZRN | Adolescentes | Nazareno Cali</title>
+    <meta name="description" content="El espacio para adolescentes de 12 a 15 años en la Iglesia del Nazareno Cali. Amistades, identidad y propósito." />
+    <link rel="icon" type="image/png" href="Media/favicon.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Syne:wght@700;800;900&family=Sora:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .teens-hero {
+        background: #08281d;
+        color: #ffffff;
+        padding: calc(var(--header-height) + 40px) clamp(20px, 6vw, 80px) 70px;
+        border-radius: 0 0 32px 32px;
+        text-align: center;
+      }
+      .teens-badge {
+        font-family: 'Syne', sans-serif;
+        font-size: clamp(52px, 10vw, 120px);
+        font-weight: 900;
+        color: #a3e635;
+        letter-spacing: -2px;
+        margin: 0;
+      }
+      .teens-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 28px;
+        max-width: 1200px;
+        margin: 60px auto 80px;
+        padding: 0 clamp(20px, 6vw, 80px);
+      }
+      .teens-card {
+        background: #faf8f5;
+        border: 2px solid #ecfccb;
+        border-radius: 24px;
+        padding: 34px 28px;
+      }
+      .teens-card h3 {
+        font: 800 24px var(--display);
+        color: #08281d;
+        margin: 10px 0;
+      }
+      @media (max-width: 800px) {
+        .teens-grid { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header" data-header>
+      <a class="brand" href="index.html"><img class="brand-logo" src="Media/logoNegro.png" alt="Nazareno Cali" /></a>
+      <nav class="main-nav">
+        <a href="index.html">Inicio</a>
+        <a class="active" href="teens.html" style="color: #4d7c0f;">Teens</a>
+        <a href="jni.html">JNI Jóvenes</a>
+        <a href="kids.html">Kids</a>
+        <a href="grupos.html">Grupos</a>
+        <a href="visitanos.html">Visítanos</a>
+      </nav>
+      <div class="header-actions">
+        <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <div class="mobile-nav" id="mobile-nav" aria-hidden="true"></div>
+
+    <main>
+      <section class="teens-hero reveal">
+        <span class="teens-badge">TEENS NZRN</span>
+        <p class="eyebrow" style="color: #a3e635; margin-top: 10px;">12 A 15 AÑOS · PRE-JUVENILES</p>
+        <h1 style="font: 800 clamp(36px, 5vw, 64px)/1 var(--display); margin: 10px 0 20px;">
+          El puente entre la niñez y tu juventud con propósito.
+        </h1>
+        <p style="max-width: 650px; margin: 0 auto 28px; font-size: 16px; color: #d9f99d;">
+          Un espacio creado para que los adolescentes hagan amigos firmes, conversen sobre temas reales y construyan su propia convicción de fe.
+        </p>
+        <a class="button" href="https://wa.link/62syyk" target="_blank" rel="noreferrer" style="background: #a3e635; color: #08281d; font-weight: 800;">
+          Conectar con los líderes de Teens ➔
+        </a>
+      </section>
+
+      <section class="teens-grid">
+        <article class="teens-card site-card reveal">
+          <span style="font-size: 32px;">🔥</span>
+          <h3>Respuestas a tus Preguntas</h3>
+          <p style="color: var(--muted); font-size: 14.5px; line-height: 1.6;">Espacios abiertos y guiados por mentores para hablar sobre identidad, amistades, presión social y propósito.</p>
+        </article>
+
+        <article class="teens-card site-card reveal">
+          <span style="font-size: 32px;">🎮</span>
+          <h3>Actividades & Campamentos</h3>
+          <p style="color: var(--muted); font-size: 14.5px; line-height: 1.6;">Tardes de juegos, fogatas, retiros especiales y actividades pensadas 100% para su edad.</p>
+        </article>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-bottom-strip">
+        <span>© 2026 Teens Nazareno (TEENS NZRN) · Iglesia del Nazareno Cali</span>
+      </div>
+    </footer>
+
+    <script src="js/visitas-tracker.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

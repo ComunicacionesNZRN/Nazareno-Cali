@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Encuentro de Hombres | Iglesia del Nazareno Cali</title>
+    <link rel="icon" type="image/png" href="Media/favicon.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Encabezado Global -->
+    <header class="site-header" data-header>
+      <a class="brand" href="index.html">
+        <img class="brand-logo" src="Media/logoNegro.png" alt="Nazareno Cali" />
+      </a>
+      <nav class="main-nav">
+        <a href="index.html">Inicio</a>
+        <a href="visitanos.html">Visítanos</a>
+        <a href="primera-vez.html">Próximo paso</a>
+        <a class="active" href="encuentro-hombres.html">Hombres</a>
+        <a href="encuentro-mujeres.html">Mujeres</a>
+        <a href="eventos.html">Actividades</a>
+      </nav>
+      <div class="header-actions">
+        <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Abrir menú">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <div class="mobile-nav" id="mobile-nav" aria-hidden="true"></div>
+
+    <main class="encuentro-page">
+      <!-- 1. Hero Masivo HOMBRES -->
+      <section class="encuentro-hero-wrap hombres">
+        <img class="encuentro-hero-bg" src="Media/01.jpg" alt="Encuentro de Hombres" />
+        <div class="encuentro-hero-overlay"></div>
+        <div class="encuentro-hero-content reveal">
+          <p class="eyebrow" style="color: #f2a218;">RETIRO ESPIRITUAL ANUAL</p>
+          <h1 class="encuentro-big-title">HOMBRES</h1>
+          <p class="encuentro-hero-lema" data-encuentro-lema>Hombres de Valor y Conquista</p>
+          <div class="encuentro-meta-pills">
+            <span class="meta-pill"><i class="fa-regular fa-calendar"></i> <span data-encuentro-fecha>Próxima fecha en cartelera</span></span>
+            <span class="meta-pill"><i class="fa-solid fa-location-dot"></i> <span data-encuentro-lugar>Casa de Retiros Nazareno</span></span>
+            <span class="meta-pill"><i class="fa-solid fa-tag"></i> Inversión: $<span data-encuentro-precio>180.000</span> COP</span>
+          </div>
+          <a class="button button-dark" href="#inscripcion" style="background: #f2a218; color: #141414; border-color: #f2a218;">
+            Inscribirme Ahora <span>↓</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- 2. Información del Retiro -->
+      <section class="encuentro-info-section">
+        <div class="encuentro-grid-split">
+          <div class="encuentro-info-text reveal">
+            <p class="eyebrow">Un fin de semana transformador</p>
+            <h2>Un tiempo para ser restaurado y afirmado.</h2>
+            <p>El Encuentro de Hombres es un espacio diseñado para desconectarse de la rutina y reconectarse con Dios. Durante 3 días vivirás enseñanzas poderosas, tiempos de sanidad interior, compañerismo y afirmación de tu identidad y liderazgo en la familia y la sociedad.</p>
+            <div class="encuentro-features-list">
+              <div class="encuentro-feat-item"><i class="fa-solid fa-check"></i> Alojamiento y alimentación completa incluida.</div>
+              <div class="encuentro-feat-item"><i class="fa-solid fa-check"></i> Charlas sobre carácter, finanzas y paternidad.</div>
+              <div class="encuentro-feat-item"><i class="fa-solid fa-check"></i> Transporte ida y regreso desde la sede principal.</div>
+            </div>
+          </div>
+          <div class="gallery-card reveal" style="aspect-ratio: 16/11; border-radius: 20px;">
+            <img src="Media/02.jpg" alt="Encuentro de Hombres en comunidad" />
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. Galería de Encuentros Anteriores -->
+      <section class="encuentro-gallery-section">
+        <div class="reveal">
+          <p class="eyebrow">Momentos Inolvidables</p>
+          <h2 style="font: 800 clamp(32px, 4.5vw, 54px)/1 var(--display); letter-spacing:-1px; margin: 0 0 10px;">Galería de Encuentros Anteriores</h2>
+          <p style="color: var(--muted); margin:0;">Testimonios visuales de vidas transformadas por el poder de Dios.</p>
+        </div>
+        <div class="encuentro-gallery-grid reveal" data-encuentro-gallery>
+          <div class="gallery-card"><img src="Media/01.jpg" alt="Encuentro de Hombres" loading="lazy" /></div>
+          <div class="gallery-card"><img src="Media/03.jpg" alt="Ministración y adoración" loading="lazy" /></div>
+          <div class="gallery-card"><img src="Media/02.jpg" alt="Compañerismo" loading="lazy" /></div>
+        </div>
+      </section>
+
+      <!-- 4. Formulario de Inscripción -->
+      <section class="encuentro-register-section" id="inscripcion">
+        <div class="register-card-box encounter-closed-card reveal" data-inscripciones-cerradas role="status">
+          <span class="encounter-closed-icon" aria-hidden="true"><i class="fa-solid fa-calendar-xmark"></i></span>
+          <p class="eyebrow">Próximo encuentro</p>
+          <h2>Inscripciones Cerradas</h2>
+          <p>Actualmente los cupos para el próximo encuentro no están disponibles. ¡Mantente atento a nuestros anuncios dominicales y redes sociales para la próxima fecha!</p>
+        </div>
+        <div data-inscripcion-form hidden>
+        <div class="register-card-box reveal">
+          <p class="eyebrow" style="text-align: center;">Paso 1 de 2</p>
+          <h2 style="font: 800 36px/1 var(--display); letter-spacing:-1px; text-align:center; margin-bottom:10px;">Formulario de Inscripción</h2>
+          <p style="text-align: center; color: var(--muted); font-size:14px;">Diligencia tus datos personales. Al enviar, pasarás al portal de pago para confirmar tu cupo.</p>
+
+          <form id="form-hombres" class="register-form-grid">
+            <input type="hidden" name="tipo_encuentro" value="hombres" />
+            
+            <div class="form-group">
+              <label>Nombres</label>
+              <input type="text" name="nombres" required placeholder="Tus nombres" />
+            </div>
+            <div class="form-group">
+              <label>Apellidos</label>
+              <input type="text" name="apellidos" required placeholder="Tus apellidos" />
+            </div>
+            <div class="form-group">
+              <label>Documento de Identidad (Cédula / TI)</label>
+              <input type="text" name="documento_identidad" required placeholder="Número de documento" />
+            </div>
+            <div class="form-group">
+              <label>Edad</label>
+              <input type="number" name="edad" min="12" max="100" required placeholder="Edad" />
+            </div>
+            <div class="form-group">
+              <label>Correo Electrónico</label>
+              <input type="email" name="correo" required placeholder="tucorreo@ejemplo.com" />
+            </div>
+            <div class="form-group">
+              <label>Número Celular / WhatsApp</label>
+              <input type="tel" name="celular" required placeholder="300 000 0000" />
+            </div>
+            <div class="form-group">
+              <label>¿Perteneces a una Red de 12 o Grupo?</label>
+              <select name="pertenece_red" id="select-red-hombres">
+                <option value="false">No, asisto por primera vez</option>
+                <option value="true">Sí, pertenezco a una Red</option>
+              </select>
+            </div>
+            <div class="form-group" id="red-name-group" style="display: none;">
+              <label>Nombre de la Red o Líder de Grupo</label>
+              <input type="text" name="red_nombre" placeholder="Nombre de tu líder o red" />
+            </div>
+            <div class="form-group form-full">
+              <label>Medio de Pago con el que deseas cancelar</label>
+              <select name="medio_pago" required>
+                <option value="pse">PSE / Tarjeta Online</option>
+                <option value="transferencia">Transferencia Bancolombia</option>
+                <option value="efectivo">Efectivo en el Punto de Información</option>
+              </select>
+            </div>
+            <div class="form-group form-full">
+              <button class="button button-dark" type="submit" id="btn-submit-hombres" style="width:100%; padding: 16px; font-size:14px; background: #f2a218; color: #141414; border-color: #f2a218;">
+                Continuar al Pago e Inscripción ➔
+              </button>
+            </div>
+          </form>
+        </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" id="contacto">
+      <div class="footer-main-grid">
+        <!-- Columna 1: Brand & Logo Badge -->
+        <div class="footer-col footer-col-brand">
+          <a class="footer-brand-badge" href="index.html" aria-label="Inicio">
+            <img src="Media/logoBlanco.png" alt="Logo Iglesia del Nazareno Cali" />
+          </a>
+          <p class="footer-brand-tagline">
+            Una iglesia en Cali apasionada por Jesús, comprometida con las personas y transformando nuestra ciudad.
+          </p>
+        </div>
+
+        <!-- Columna 2: Contacto General -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Contacto</h4>
+          <p class="footer-contact-item"><strong>Iglesia del Nazareno Cali</strong></p>
+          <p class="footer-contact-item">Calle 13 # 75-109, Quintas de Don Simón<br />Cali, Valle del Cauca, Colombia</p>
+          <p class="footer-contact-item"><a href="mailto:info@nazarenocali.org">info@nazarenocali.org</a></p>
+          <p class="footer-contact-item"><a href="https://wa.link/62syyk" target="_blank" rel="noreferrer">+57 304 377 8188</a></p>
+        </div>
+
+        <!-- Columna 3: Enlaces Rápidos & Legal -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Enlaces</h4>
+          <ul class="footer-links-list">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="visitanos.html">Planifica tu visita</a></li>
+            <li><a href="ministerios.html">Equipos de Servicio</a></li>
+            <li><a href="grupos.html">Grupos de Conexión</a></li>
+            <li><a href="eventos.html">Actividades & Eventos</a></li>
+            <li><a href="donar.html">Dar / Donación</a></li>
+            <li><a href="contacto.html">Políticas de Privacidad & Tratamiento de Datos ↗</a></li>
+          </ul>
+        </div>
+
+        <!-- Columna 4: Medios & Redes Sociales -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Medios & Redes</h4>
+          <ul class="footer-links-list">
+            <li><a href="https://www.youtube.com/user/nazarenocali" target="_blank" rel="noreferrer"><i class="fa-brands fa-youtube"></i> YouTube ↗</a></li>
+            <li><a href="https://www.instagram.com/nazarenocali/" target="_blank" rel="noreferrer"><i class="fa-brands fa-instagram"></i> Instagram ↗</a></li>
+            <li><a href="https://www.facebook.com/nazarenocali" target="_blank" rel="noreferrer"><i class="fa-brands fa-facebook"></i> Facebook ↗</a></li>
+            <li><a href="mensajes.html"><i class="fa-solid fa-podcast"></i> Prédicas en audio & Video</a></li>
+          </ul>
+        </div>
+
+        <!-- Columna 5: Newsletter / Boletín (Stay Tuned) -->
+        <div class="footer-col footer-col-newsletter">
+          <h4 class="footer-heading">Mantente Conectado</h4>
+          <p class="footer-newsletter-desc">
+            Suscríbete a nuestro boletín para recibir noticias, devocionales y actividades de nuestra comunidad.
+          </p>
+          <form class="footer-newsletter-form" data-footer-newsletter>
+            <div class="footer-form-field">
+              <input type="text" name="first_name" placeholder="Nombre" required />
+            </div>
+            <div class="footer-form-field">
+              <input type="text" name="last_name" placeholder="Apellido" required />
+            </div>
+            <div class="footer-form-field">
+              <input type="email" name="email" placeholder="Correo electrónico" required />
+            </div>
+            <label class="footer-form-checkbox">
+              <input type="checkbox" name="privacy_policy" required />
+              <span>Acepto las políticas de privacidad y tratamiento de datos de Nazareno Cali.</span>
+            </label>
+            <button class="footer-submit-btn" type="submit">Suscribirme ↗</button>
+            <p class="footer-form-status" data-newsletter-status></p>
+          </form>
+        </div>
+      </div>
+
+      <!-- Barra Inferior de Servicios y Transmisión -->
+      <div class="footer-bottom-strip">
+        <div class="footer-strip-left">
+          <span class="strip-label">Celebraciones de domingo:</span>
+          <span class="strip-times">6:30 AM · 8:15 AM · 10:00 AM · 12:00 PM</span>
+        </div>
+        <div class="footer-strip-center">
+          <a class="footer-live-link" href="mensajes.html">
+            <span class="live-dot"></span> Ver transmisión online ▷
+          </a>
+        </div>
+        <div class="footer-strip-right">
+          <span>© 2026 Iglesia del Nazareno Cali. Todos los derechos reservados.</span>
+        </div>
+      </div>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-client.js"></script>
+    <script src="script.js"></script>
+    <script>
+      const client = window._supabase || window.supabaseClient;
+      const formHombres = document.querySelector("#form-hombres");
+      const redSelect = document.querySelector("#select-red-hombres");
+      const redInputGroup = document.querySelector("#red-name-group");
+      let currentPrice = 180000;
+
+      redSelect.addEventListener("change", () => {
+        redInputGroup.style.display = redSelect.value === "true" ? "flex" : "none";
+      });
+
+      const enrollmentSection = document.querySelector("[data-inscripcion-form]");
+      const closedNotice = document.querySelector("[data-inscripciones-cerradas]");
+      const gallery = document.querySelector("[data-encuentro-gallery]");
+
+      const renderEncounterGallery = (urls) => {
+        if (!gallery) return;
+        gallery.replaceChildren();
+        urls.forEach((url) => {
+          try {
+            const imageUrl = new URL(url, window.location.href);
+            if (!["http:", "https:"].includes(imageUrl.protocol)) return;
+            const card = document.createElement("div");
+            card.className = "gallery-card";
+            const image = document.createElement("img");
+            image.src = imageUrl.href;
+            image.alt = "Encuentro de Hombres";
+            image.loading = "lazy";
+            card.append(image);
+            gallery.append(card);
+          } catch {
+            // Ignorar URLs inválidas y continuar con las demás imágenes.
+          }
+        });
+      };
+
+      const loadEnrollmentSettings = async () => {
+        if (!client) return;
+        const { data, error } = await client
+          .from("configuracion_encuentros")
+          .select("inscripciones_abiertas, galeria_urls")
+          .eq("genero", "hombres")
+          .maybeSingle();
+        const isOpen = !error && data?.inscripciones_abiertas === true;
+        enrollmentSection.hidden = !isOpen;
+        closedNotice.hidden = isOpen;
+        if (!error && data && Array.isArray(data.galeria_urls)) renderEncounterGallery(data.galeria_urls);
+      };
+
+      (async () => {
+        await loadEnrollmentSettings();
+        if (!client) return;
+        const { data } = await client.from("encuentros_config").select("*").eq("id", "hombres").maybeSingle();
+        if (data) {
+          if (data.lema) document.querySelector("[data-encuentro-lema]").textContent = data.lema;
+          if (data.precio) {
+            currentPrice = Number(data.precio);
+            document.querySelector("[data-encuentro-precio]").textContent = currentPrice.toLocaleString("es-CO");
+          }
+          if (data.lugar) document.querySelector("[data-encuentro-lugar]").textContent = data.lugar;
+          if (data.fecha_inicio && data.fecha_fin) {
+            document.querySelector("[data-encuentro-fecha]").textContent = `${data.fecha_inicio} al ${data.fecha_fin}`;
+          }
+        }
+      })();
+
+      formHombres.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        if (enrollmentSection.hidden) return;
+        const { data: enrollmentStatus, error: enrollmentError } = await client
+          .from("configuracion_encuentros")
+          .select("inscripciones_abiertas")
+          .eq("genero", "hombres")
+          .maybeSingle();
+        if (enrollmentError || enrollmentStatus?.inscripciones_abiertas !== true) {
+          enrollmentSection.hidden = true;
+          closedNotice.hidden = false;
+          document.querySelector("#inscripcion").scrollIntoView({ behavior: "smooth", block: "center" });
+          return;
+        }
+        const btn = document.querySelector("#btn-submit-hombres");
+        btn.disabled = true;
+        btn.textContent = "Procesando inscripción...";
+
+        const data = new FormData(formHombres);
+        const ticketCode = `HOM-${Date.now().toString().slice(-6)}`;
+        
+        const payload = {
+          codigo_ticket: ticketCode,
+          tipo_encuentro: "hombres",
+          nombres: data.get("nombres"),
+          apellidos: data.get("apellidos"),
+          documento_identidad: data.get("documento_identidad"),
+          edad: Number(data.get("edad")),
+          correo: data.get("correo"),
+          celular: data.get("celular"),
+          pertenece_red: data.get("pertenece_red") === "true",
+          red_nombre: data.get("red_nombre") || null,
+          medio_pago: data.get("medio_pago"),
+          valor_pagado: currentPrice,
+          estado_pago: "pendiente"
+        };
+
+        try {
+          const { error } = await client.from("encuentros_inscripciones").insert(payload);
+          if (error) throw error;
+          window.location.href = `encuentro-pago.html?ticket=${ticketCode}`;
+        } catch (err) {
+          alert("Error al inscribirse: " + err.message);
+          btn.disabled = false;
+          btn.textContent = "Continuar al Pago e Inscripción ➔";
+        }
+      });
+    </script>
+  </body>
+</html>

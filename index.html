@@ -46,14 +46,16 @@
         ======================================================================== -->
       <section class="hero" id="inicio" aria-labelledby="hero-welcome-title">
         <div class="hero-media passion-entrance">
-          <video class="hero-video" poster="Media/nazareno.jpg" autoplay muted loop playsinline preload="none" aria-hidden="true"></video>
+          <!-- El <video> no tenía ninguna fuente (no hay archivo de video en el repo): se usa la imagen fija.
+               Para volver al video: <video class="hero-video" poster="Media/nazareno.jpg" autoplay muted loop playsinline aria-hidden="true"><source src="Media/hero.mp4" type="video/mp4" /></video> -->
+          <img class="hero-video" src="Media/nazareno.jpg" alt="" />
           <div class="hero-shade"></div>
           <div class="hero-welcome-content">
             <h1 id="hero-welcome-title">BIENVENIDOS</h1>
             <p class="hero-welcome-kicker">Iglesia del Nazareno Cali</p>
             <div class="hero-welcome-actions">
               <a class="hero-welcome-primary" href="visitanos.html">Planifica tu visita <span aria-hidden="true">↗</span></a>
-              <a class="hero-welcome-secondary" href="nosotros.html">Conócenos</a>
+              <a class="hero-welcome-secondary hero-text-link" href="nosotros.html">Conoce nuestra iglesia</a>
             </div>
           </div>
           <a class="hero-scroll-cue" href="#manifiesto" aria-label="Desliza para conocer nuestra misión">
@@ -62,18 +64,25 @@
         </div>
       </section>
 
+      <!-- Franja de visita: horarios y dirección justo bajo el hero -->
+      <section class="visit-strip" aria-label="Horarios y ubicación">
+        <p class="visit-strip-item"><i class="fa-solid fa-clock" aria-hidden="true"></i> <strong>Domingos</strong> 6:30 a. m. · 8:15 a. m. · 10:00 a. m. · 12:00 p. m.</p>
+        <p class="visit-strip-item"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Calle 13 # 75-109, Quintas de Don Simón, Cali</p>
+        <a class="visit-strip-link" href="https://maps.google.com/?q=Calle+13+75-109+Cali" target="_blank" rel="noreferrer">Cómo llegar <span aria-hidden="true">↗</span></a>
+      </section>
+
       <section class="hero-manifesto" id="manifiesto" aria-labelledby="hero-manifesto-title">
         <div class="hero-manifesto-grid">
           <div class="hero-manifesto-card passion-entrance">
-            <h1 class="passion-step-2" id="hero-manifesto-title"><span>Amamos a Dios.</span><span>Amamos a las Personas.</span><em>Imitamos a Jesús.</em></h1>
+            <h2 class="passion-step-2 hero-manifesto-title" id="hero-manifesto-title"><span>Amamos a Dios.</span><span>Amamos a las Personas.</span><em>Imitamos a Jesús.</em></h2>
           </div>
           <div class="hero-manifesto-followup passion-entrance">
             <p class="hero-intro passion-step-3">Una familia que sigue a Jesús, sirve a Cali y celebra la vida juntos.</p>
           </div>
         </div>
         <div class="hero-manifesto-actions hero-actions passion-entrance">
-          <a class="button hero-cta-primary passion-step-4" href="mensajes.html?tipo=sermones">Ver prédica <span>↗</span></a>
-          <a class="button hero-cta-secondary passion-step-4" href="mensajes.html?tipo=experiencia">Ver experiencia completa <span>↗</span></a>
+          <a class="hero-text-link passion-step-4" href="mensajes.html?tipo=sermones">Ver la última prédica <span aria-hidden="true">↗</span></a>
+          <a class="hero-text-link passion-step-4" href="mensajes.html?tipo=experiencia">Ver el culto completo del domingo <span aria-hidden="true">↗</span></a>
         </div>
       </section>
 
@@ -134,7 +143,7 @@
           </a>
 
           <!-- Tarjeta 4: PUNTO CONEXIÓN -->
-          <a class="ministry-brand-card brand-conexion site-card" href="grupos.html">
+          <a class="ministry-brand-card brand-conexion site-card" href="#grupos-whatsapp">
             <div class="ministry-badge-wrap">
               <span class="sub-brand-text">PUNTO</span>
               <span class="sub-brand-text" style="font-size: 1.1em; line-height: 0.85;">CONEXIÓN</span>
@@ -144,7 +153,7 @@
               <span class="ministry-age-pill">Familias & Adultos</span>
               <h3>Grupos en Casa</h3>
               <p>Comunidad semanal en los hogares de Cali para estudiar la Biblia, orar y compartir un café.</p>
-              <span class="ministry-card-arrow">Buscar mi grupo ➔</span>
+              <span class="ministry-card-arrow">Unirme a un grupo ➔</span>
             </div>
           </a>
 
@@ -164,11 +173,11 @@
             <img src="Media/01.jpg" alt="Celebración de domingo en la Iglesia del Nazareno Cali" />
             <span class="discover-card-overlay"><small>01 · Cada domingo</small><strong>Celebraciones<br />de domingo</strong><span>Horarios, ubicación y qué esperar ↗</span></span>
           </a>
-          <a class="discover-card discover-card-orange" href="encuentros.html"><img src="Media/encuentroHombres.jpg" alt="encuentros" /><span class="discover-card-overlay"></span><span class="discover-card-number">03</span><strong>Encuentros de<br />hombres y mujeres</strong><span>Retiros espirituales anuales ↗</span></a>
-          <a class="discover-card discover-card-image" href="jni.html"><img src="Media/03.jpg" alt="Jóvenes reunidos en comunidad" /><span class="discover-card-overlay"><small>04 · Nueva generación</small><strong>Reuniones<br />de jóvenes JNI</strong><span>Sábados 5:30 PM ↗</span></span></a>
-          <a class="discover-card discover-card-outline" href="podcast.html"><img src="Media/predica.jpg" alt="Predicas Nazareno" /><span class="discover-card-overlay"></span><span class="discover-card-number">05</span><strong>Predicas</strong><span>Escucha en Spotify & YouTube ↗</span></a>
-          <a class="discover-card discover-card-violet" href="ministerios.html"><img src="Media/servir.jpg" alt="servicio Iglesia" /><span class="discover-card-overlay"></span><span class="discover-card-number">06</span><strong>Servir</strong><span>Pon tus dones en movimiento ↗</span></a>
-          <a class="discover-card discover-card-outline" href="devocional.html"><img src="Media/devocional.jpg" alt="palabra de vida" /><span class="discover-card-overlay"></span><span class="discover-card-number">07</span><strong>Palabra de Vida</strong><span>Devocionales diarios ↗</span></a>
+          <a class="discover-card discover-card-orange" href="encuentros.html"><img src="Media/encuentroHombres.jpg" alt="Hombres reunidos en un encuentro espiritual de la iglesia" /><span class="discover-card-overlay"></span><span class="discover-card-number">03</span><strong>Encuentros de<br />hombres y mujeres</strong><span>Retiros espirituales anuales ↗</span></a>
+          <a class="discover-card discover-card-image" href="jni.html"><img src="Media/03.jpg" alt="Jóvenes reunidos en comunidad" /><span class="discover-card-overlay"><small>04 · Nueva generación</small><strong>Reuniones<br />de jóvenes JNI</strong><span>Sábados 5:30 p. m. ↗</span></span></a>
+          <a class="discover-card discover-card-outline" href="podcast.html"><img src="Media/predica.jpg" alt="Pastor predicando en una celebración de domingo" /><span class="discover-card-overlay"></span><span class="discover-card-number">05</span><strong>Prédicas</strong><span>Escucha en Spotify & YouTube ↗</span></a>
+          <a class="discover-card discover-card-violet" href="ministerios.html"><img src="Media/servir.jpg" alt="Voluntarios sirviendo en la iglesia" /><span class="discover-card-overlay"></span><span class="discover-card-number">06</span><strong>Servir</strong><span>Pon tus dones en movimiento ↗</span></a>
+          <a class="discover-card discover-card-outline" href="devocional.html"><img src="Media/devocional.jpg" alt="Biblia abierta del devocional Palabra de Vida" /><span class="discover-card-overlay"></span><span class="discover-card-number">07</span><strong>Palabra de Vida</strong><span>Devocionales diarios ↗</span></a>
         </div>
         <div class="discover-connect-controls" aria-label="Controles del carrusel">
           <button type="button" class="discover-connect-arrow" data-connect-prev aria-label="Contenido anterior">←</button>
@@ -222,7 +231,17 @@
       </section>
 
       <!-- Grupos en Portada -->
-      <section class="groups" id="grupos" aria-labelledby="groups-title">
+      <!-- Llamado a grupos mientras no haya grupos reales publicados -->
+      <section class="groups-whatsapp-cta" id="grupos-whatsapp" aria-labelledby="groups-wa-title">
+        <p class="eyebrow">Grupos de conexión</p>
+        <h2 id="groups-wa-title">Encuentra tu<em> grupo.</em></h2>
+        <p>Nos reunimos en hogares de toda Cali durante la semana. Escríbenos y te ayudamos a encontrar el grupo más cercano a ti.</p>
+        <a class="button button-dark groups-whatsapp-button" href="https://wa.me/573043778188" target="_blank" rel="noreferrer"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Escríbenos por WhatsApp para unirte a un grupo <span aria-hidden="true">↗</span></a>
+      </section>
+
+      <!-- Buscador y mapa de grupos: OCULTO con el atributo hidden hasta cargar grupos reales.
+           Para reactivarlo: quitar "hidden" de esta sección (y, si se quiere, la sección de WhatsApp de arriba). -->
+      <section class="groups" id="grupos" aria-labelledby="groups-title" hidden>
         <div class="groups-intro">
           <div>
             <p class="eyebrow">Grupos de conexión</p>
@@ -233,14 +252,14 @@
           </p>
         </div>
         <div class="groups-experience">
-          <aside class="groups-list">
+          <div class="groups-list" role="region" aria-label="Lista de grupos">
             <div class="groups-list-head">
               <label for="group-search">Buscar grupo</label>
               <input id="group-search" type="search" placeholder="Barrio, día o líder" />
               <span data-group-count></span>
             </div>
             <div class="groups-results" data-groups-results></div>
-          </aside>
+          </div>
           <div class="groups-map-wrap">
             <div id="groups-map" aria-label="Mapa de Grupos de Conexión en Cali"></div>
             <p class="groups-privacy">
@@ -264,7 +283,7 @@
         </div>
 
         <div class="footer-col">
-          <h4 class="footer-heading">Contacto</h4>
+          <h3 class="footer-heading">Contacto</h3>
           <p class="footer-contact-item"><strong>Iglesia del Nazareno Cali</strong></p>
           <p class="footer-contact-item">Calle 13 # 75-109, Quintas de Don Simón<br />Cali, Valle del Cauca, Colombia</p>
           <p class="footer-contact-item"><a href="mailto:info@nazarenocali.org">info@nazarenocali.org</a></p>
@@ -272,7 +291,7 @@
         </div>
 
         <div class="footer-col">
-          <h4 class="footer-heading">Enlaces</h4>
+          <h3 class="footer-heading">Enlaces</h3>
           <ul class="footer-links-list">
             <li><a href="index.html">Inicio</a></li>
             <li><a href="visitanos.html">Planifica tu visita</a></li>
@@ -286,26 +305,27 @@
         </div>
 
         <div class="footer-col">
-          <h4 class="footer-heading">Medios & Redes</h4>
+          <h3 class="footer-heading">Medios & Redes</h3>
           <ul class="footer-links-list">
             <li><a href="https://www.youtube.com/user/nazarenocali" target="_blank" rel="noreferrer"><i class="fa-brands fa-youtube"></i> YouTube ↗</a></li>
             <li><a href="https://www.instagram.com/nazarenocali/" target="_blank" rel="noreferrer"><i class="fa-brands fa-instagram"></i> Instagram ↗</a></li>
-            <li><a href="podcast.html"><i class="fa-brands fa-spotify"></i> Spotify Podcasts ↗</a></li>
-            <li><a href="mensajes.html"><i class="fa-solid fa-podcast"></i> Prédicas en Audio & Video</a></li>
+            <li><a href="mensajes.html"><i class="fa-solid fa-podcast"></i> Prédicas en audio y video</a></li>
           </ul>
         </div>
 
         <div class="footer-col footer-col-newsletter">
-          <h4 class="footer-heading">Mantente Conectado</h4>
+          <h3 class="footer-heading">Mantente Conectado</h3>
           <p class="footer-newsletter-desc">
             Suscríbete a nuestro boletín para recibir noticias, devocionales y actividades de nuestra comunidad.
           </p>
           <form class="footer-newsletter-form" data-footer-newsletter>
             <div class="footer-form-field">
-              <input type="text" name="first_name" placeholder="Nombre" required />
+              <label class="footer-form-label" for="newsletter-name">Nombre</label>
+              <input id="newsletter-name" type="text" name="first_name" placeholder="Tu nombre" autocomplete="given-name" required />
             </div>
             <div class="footer-form-field">
-              <input type="email" name="email" placeholder="Correo electrónico" required />
+              <label class="footer-form-label" for="newsletter-email">Correo electrónico</label>
+              <input id="newsletter-email" type="email" name="email" placeholder="tucorreo@ejemplo.com" autocomplete="email" required />
             </div>
             <label class="footer-form-checkbox">
               <input type="checkbox" name="privacy_policy" required />
@@ -320,7 +340,7 @@
       <div class="footer-bottom-strip">
         <div class="footer-strip-left">
           <span class="strip-label">Celebraciones de domingo:</span>
-          <span class="strip-times">6:30 AM · 8:15 AM · 10:00 AM · 12:00 PM</span>
+          <span class="strip-times">6:30 a. m. · 8:15 a. m. · 10:00 a. m. · 12:00 p. m.</span>
         </div>
         <div class="footer-strip-center">
           <a class="footer-live-link" href="mensajes.html">

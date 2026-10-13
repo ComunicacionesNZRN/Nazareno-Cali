@@ -8585,23 +8585,30 @@ video[poster],
 }
 .visit-strip-link:hover { background: var(--orange); }
 
-/* Hero: un solo CTA principal; lo demás son enlaces de texto */
-.hero-welcome-secondary.hero-text-link,
-.hero-text-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  min-height: 44px;
-  padding: 0 4px;
-  background: none;
-  font-weight: 700;
-  text-decoration: underline;
-  text-underline-offset: 4px;
+/* Hero: un solo CTA principal ("Planifica tu visita"); lo demás son botones
+   secundarios con contorno (outline), redondeados como el resto del sitio. */
+.hero-welcome-actions .hero-welcome-secondary.hero-btn-outline {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  color: #fff;
 }
-.hero-welcome-actions .hero-welcome-secondary.hero-text-link { color: #fff; border: 0; box-shadow: none; backdrop-filter: none; padding: 0 4px; }
-.hero-welcome-secondary.hero-text-link:hover { background: none; color: var(--orange); }
-.hero-manifesto-actions .hero-text-link { color: #141414; font-size: 16px; }
-.hero-manifesto-actions .hero-text-link:hover { color: var(--violet); }
+.hero-welcome-actions .hero-welcome-secondary.hero-btn-outline:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+.hero-manifesto-actions .button.hero-btn-outline {
+  border: 1.5px solid #141414;
+  border-radius: 999px;
+  background: transparent;
+  color: #141414;
+}
+.hero-manifesto-actions .button.hero-btn-outline:hover {
+  background: #141414;
+  color: #fff;
+}
+@media (max-width: 700px) {
+  .hero-manifesto-actions { flex-direction: column; align-items: stretch; }
+  .hero-manifesto-actions .button.hero-btn-outline { width: 100%; }
+}
 
 /* Carrusel: área táctil de 24px en los puntos (el punto visible sigue pequeño) */
 .discover-connect-dot {

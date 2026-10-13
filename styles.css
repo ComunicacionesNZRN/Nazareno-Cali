@@ -124,7 +124,7 @@ button {
   position: relative;
   padding: 9px 0;
 }
-.site-header .main-nav a[href="podcast.html"] {
+.site-header .main-nav a[href="mensajes.html"] {
   display: inline-flex;
   align-items: center;
   gap: 7px;
@@ -8533,4 +8533,22 @@ video[poster],
 
 .schedule-times-row .time-slot-box.site-card {
   padding: 16px 12px;
+}
+
+/* ========================================================================
+  NAV SUPERIOR: tamaño de texto (+1px) y ajuste responsive sin solapes.
+  Entre 1101px y 1280px se reduce el espacio y el tracking para que los 8
+  items quepan; por debajo de 1100px se usa el menú hamburguesa.
+  ======================================================================== */
+.site-header .main-nav a {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+}
+@media (max-width: 1280px) {
+  .site-header .main-nav { gap: clamp(10px, 1.2vw, 18px); }
+  .site-header .main-nav a { letter-spacing: 0.05em; }
+}
+@media (max-width: 1180px) {
+  .site-header .main-nav { gap: 10px; }
+  .site-header .main-nav a { font-size: 10.5px; letter-spacing: 0.03em; }
 }

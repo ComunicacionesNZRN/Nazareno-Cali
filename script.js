@@ -24,25 +24,17 @@ if (!document.querySelector('link[href*="font-awesome"]')) {
 /* ========================================================================
   NAVEGACIÓN SUPERIOR (DESKTOP)
   ======================================================================== */
+/* Una sola etiqueta por destino (ver PR): se usa en desktop, en el menú
+   móvil y en el HTML estático de cada página. */
 const primaryNavigation = [
   ["Devocional", "devocional.html"],
   ["Tu Próximo Paso", "primera-vez.html"],
   ["Grupos", "grupos.html"],
   ["Encuentros", "encuentros.html"],
-  ["Prédicas", "podcast.html"],
-  ["Actividades", "eventos.html"],
-  ["Donación", "donar.html"],
-  ["Conócenos", "nosotros.html"],
-];
-
-const utilityNavigation = [
-  ["Inicio", "index.html"],
-  ["Visítanos", "visitanos.html"],
-  ["Primera vez", "primera-vez.html"],
-  ["Recursos", "devocional.html"],
-  ["Grupos", "grupos.html"],
-  ["En vivo y prédicas", "mensajes.html"],
-  ["Contacto", "contacto.html"],
+  ["Prédicas", "mensajes.html"],
+  ["Eventos", "eventos.html"],
+  ["Donaciones", "donar.html"],
+  ["Nosotros", "nosotros.html"],
 ];
 
 const currentPage = window.location.pathname.split("/").pop() || "index.html";
@@ -51,7 +43,7 @@ const navigationMarkup = (items, numbered = false) =>
   items
     .map(
       ([label, href], index) =>
-        `<a${href === currentPage ? ' class="active"' : ""} href="${href}">${label}${href === "podcast.html" ? ' <span class="live-dot nav-live-dot" role="img" aria-label="En vivo"></span>' : ""}${numbered ? ` <small>${String(index + 1).padStart(2, "0")}</small>` : ""}</a>`,
+        `<a${href === currentPage ? ' class="active"' : ""} href="${href}">${label}${href === "mensajes.html" ? ' <span class="live-dot nav-live-dot" role="img" aria-label="En vivo"></span>' : ""}${numbered ? ` <small>${String(index + 1).padStart(2, "0")}</small>` : ""}</a>`,
     )
     .join("");
 
@@ -351,24 +343,23 @@ if (connectCarousel) {
 if (mobileNav) {
   const menuSections = [
     ["Descubre", [
-      ["Primera vez", "Tu próximo paso y qué esperar", "primera-vez.html", "fa-compass"],
+      ["Tu Próximo Paso", "Qué esperar en tu primera visita", "primera-vez.html", "fa-compass"],
       ["Visítanos", "Horarios y cómo llegar", "visitanos.html", "fa-house"],
-      ["Palabra de Vida", "Devocionales diarios", "devocional.html", "fa-book-open"],
-      ["Prédicas", "Escucha en Spotify & YouTube", "podcast.html", "fa-podcast"],
-      ["En vivo y prédicas", "Transmisiones online", "mensajes.html", "fa-play"],
+      ["Devocional", "Palabra de Vida, devocionales diarios", "devocional.html", "fa-book-open"],
+      ["Prédicas", "En vivo, video y podcast", "mensajes.html", "fa-play"],
     ]],
     ["Comunidades", [
       ["JNI Jóvenes", "Sábados 5:30 PM", "jni.html", "fa-bolt"],
-      ["Teens (12-15 años)", "Pre-juveniles con propósito", "teens.html", "fa-fire-flame-curved"],
-      ["Nazareno Kids", "Bebés a Primaria", "kids.html", "fa-shapes"],
-      ["Punto Conexión", "Grupos de hogar en Cali", "grupos.html", "fa-people-group"],
-      ["Encuentros H/M", "Retiros espirituales anuales", "encuentros.html", "fa-users-between-lines"],
+      ["Teens", "Adolescentes de 12 a 15 años", "teens.html", "fa-fire-flame-curved"],
+      ["Kids", "Bebés a primaria", "kids.html", "fa-shapes"],
+      ["Grupos", "Grupos de conexión en Cali", "grupos.html", "fa-people-group"],
+      ["Encuentros", "Retiros de hombres y mujeres", "encuentros.html", "fa-users-between-lines"],
     ]],
     ["Participa", [
-      ["Servir", "Equipos de voluntariado", "ministerios.html", "fa-hands-helping"],
-      ["Actividades", "Eventos y agenda", "eventos.html", "fa-calendar-days"],
-      ["Donación", "Generosidad en acción", "donar.html", "fa-heart"],
-      ["Nuestra Iglesia", "Historia y equipo pastoral", "nosotros.html", "fa-church"],
+      ["Servir", "Equipos de ministerio", "ministerios.html", "fa-hands-helping"],
+      ["Eventos", "Agenda de actividades", "eventos.html", "fa-calendar-days"],
+      ["Donaciones", "Generosidad en acción", "donar.html", "fa-heart"],
+      ["Nosotros", "Historia y equipo pastoral", "nosotros.html", "fa-church"],
       ["Contacto", "Hablemos por WhatsApp", "contacto.html", "fa-message"],
     ]],
   ];
@@ -384,7 +375,7 @@ if (mobileNav) {
                 ([label, description, href, icon]) =>
                   `<a class="menu-item" href="${href}">
                     <span class="menu-item-icon"><i class="fa-solid ${icon}" aria-hidden="true"></i></span>
-                    <span><strong>${label}${href === "podcast.html" ? ' <span class="live-dot nav-live-dot" role="img" aria-label="En vivo"></span>' : ""}</strong><small>${description}</small></span>
+                    <span><strong>${label}${href === "mensajes.html" ? ' <span class="live-dot nav-live-dot" role="img" aria-label="En vivo"></span>' : ""}</strong><small>${description}</small></span>
                     <b aria-hidden="true">↗</b>
                   </a>`
               )

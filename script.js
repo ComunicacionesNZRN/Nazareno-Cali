@@ -1378,6 +1378,8 @@ const getZoneCoordinates = (zona = "", index = 0) => {
 
 const initGroupsApp = async () => {
   if (!mapElement || !window.L) return;
+  // Sección oculta (atributo hidden en index.html): no inicializar mapa ni consultar grupos.
+  if (mapElement.closest("[hidden]")) return;
 
   if (groupsMapInstance) {
     groupsMapInstance.remove();
@@ -1482,7 +1484,12 @@ const initGroupsApp = async () => {
         <a href="${group.contact}" target="_blank" rel="noreferrer">Solicitar dirección al líder ↗</a>
       </article>
     `;
-    const marker = L.marker([group.lat, group.lng], { icon: markerIcon })
+    const marker = L.marker([group.lat, group.lng], {
+      icon: markerIcon,
+      title: `Grupo ${group.name}`,
+      alt: `Grupo ${group.name}`,
+      keyboard: true,
+    })
       .addTo(groupsMap)
       .bindPopup(popupContent);
     markers.set(group.name, marker);

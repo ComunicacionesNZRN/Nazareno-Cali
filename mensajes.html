@@ -299,8 +299,7 @@
     -->
     <script type="application/json" id="msg-config">
     {
-      "canal_url": "https://www.youtube.com/user/nazarenocali",
-      "canal_feed": "https://www.youtube.com/feeds/videos.xml?user=nazarenocali",
+      "canal_url": "https://www.youtube.com/@nazarenocali",
       "destacada": { "url": "", "titulo": "", "predicador": "", "fecha": "", "descripcion": "" },
       "extras": [],
       "respaldo": "https://www.youtube.com/watch?v=kZNdlw4Z4Nw"
@@ -316,8 +315,7 @@
   /* ---------- Configuración ---------- */
   let cfg = {};
   try { cfg = JSON.parse($('#msg-config').textContent); } catch (e) { console.warn('[mensajes] config inválida', e); }
-  const CANAL_URL = cfg.canal_url || 'https://www.youtube.com/user/nazarenocali';
-  const CANAL_FEED = cfg.canal_feed || 'https://www.youtube.com/feeds/videos.xml?user=nazarenocali';
+  const CANAL_URL = (cfg.canal_url || 'https://www.youtube.com/@nazarenocali').replace(/\/+$/, '').replace(/\/videos$/, '');
   const DEFAULT_PREACHER = 'Iglesia del Nazareno Cali';
   const DEFAULT_DESC = 'Mira este mensaje de la Iglesia del Nazareno Cali y compártelo con alguien que lo necesite.';
   const IS_WEB = /^https?:$/.test(location.protocol);
@@ -342,7 +340,7 @@
     dialog: $('[data-msg-dialog]'),
   };
   if (!el.player || !el.track) return;
-  const state = { pool: [], feed: [], live: null, current: null, loading: true, player: null, menuItem: null };
+  const state = { pool: [], feed: [], sermons: [], live: null, current: null, loading: true, player: null, menuItem: null };
 
   /* ---------- Utilidades ---------- */
   function h(tag, attrs = {}, kids = []) {
@@ -442,26 +440,32 @@
   }
 
   async function loadFeed() {
-    const key = 'msg-feed-v1';
+    const key = 'msg-feed-v2';
     try {
       const c = JSON.parse(sessionStorage.getItem(key) || 'null');
       if (c && Date.now() - c.t < 30 * 60 * 1000) return c.items.map((i) => mk(i.id, { title: i.title, preacher: i.preacher, date: i.ts ? new Date(i.ts) : null }));
     } catch (e) { /* sin caché */ }
 
-    const data = await fetchJSON('https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent(CANAL_FEED));
-    if (data.status !== 'ok' || !Array.isArray(data.items)) throw new Error('feed');
-    const items = data.items.slice(0, MAX_FEED_ITEMS).map((it) => {
-      const id = ytId((it.guid || '').replace('yt:video:', '')) || ytId(it.link);
-      const ts = it.pubDate ? new Date(String(it.pubDate).replace(' ', 'T') + 'Z').getTime() : 0;
-      return { id, title: it.title || '', preacher: it.author || (data.feed && data.feed.title) || '', ts: isNaN(ts) ? 0 : ts };
-    }).filter((i) => i.id);
+    const response = await fetch('https://r.jina.ai/' + CANAL_URL + '/videos');
+    if (!response.ok) throw new Error('canal HTTP ' + response.status);
+    const markdown = await response.text();
+    const pattern = /^### \[(.*?)\]\(https:\/\/www\.youtube\.com\/watch\?v=([\w-]{11})[^)]*\)/gm;
+    const seen = new Set();
+    const items = [...markdown.matchAll(pattern)].reduce((videos, match) => {
+      const [, title, id] = match;
+      if (!seen.has(id)) {
+        seen.add(id);
+        videos.push({ id, title, preacher: DEFAULT_PREACHER, ts: 0 });
+      }
+      return videos;
+    }, []).slice(0, MAX_FEED_ITEMS);
     try { sessionStorage.setItem(key, JSON.stringify({ t: Date.now(), items })); } catch (e) { /* sin caché */ }
     return items.map((i) => mk(i.id, { title: i.title, preacher: i.preacher, date: i.ts ? new Date(i.ts) : null }));
   }
 
-  async function loadLive() {
+  async function loadSermons() {
     const client = window.supabaseAdmin?.client;
-    if (!client) return null;
+    if (!client) return [];
     try {
       // Actualiza el registro local con el estado oficial del canal. La Edge
       // Function limita las consultas a YouTube para cuidar la cuota de la API.
@@ -470,23 +474,24 @@
 
       const { data, error } = await client
         .from('sermones')
-        .select('titulo, predicador, fecha, youtube_url, youtube_video_id')
+        .select('titulo, predicador, fecha, youtube_url, youtube_video_id, en_vivo')
         .eq('publicado', true)
-        .eq('en_vivo', true)
-        .limit(1)
-        .maybeSingle();
-      if (error || !data) return null;
-      const id = ytId(data.youtube_video_id) || ytId(data.youtube_url);
-      return id ? mk(id, {
-        title: data.titulo || 'Transmisión en vivo',
-        preacher: data.predicador || DEFAULT_PREACHER,
-        date: parseDate(data.fecha),
-        description: 'Estás viendo la transmisión en vivo de la Iglesia del Nazareno Cali.',
-        isLive: true,
-      }) : null;
+        .order('fecha', { ascending: false })
+        .limit(100);
+      if (error) throw error;
+      return (data || []).map((sermon) => {
+        const id = ytId(sermon.youtube_video_id) || ytId(sermon.youtube_url);
+        if (!id) return null;
+        return mk(id, {
+          title: sermon.titulo || '',
+          preacher: sermon.predicador || DEFAULT_PREACHER,
+          date: parseDate(sermon.fecha),
+          isLive: sermon.en_vivo === true,
+        });
+      }).filter(Boolean);
     } catch (e) {
-      console.warn('[mensajes] no se pudo consultar el en vivo', e);
-      return null;
+      console.warn('[mensajes] no se pudieron consultar las prédicas publicadas', e);
+      return [];
     }
   }
 
@@ -500,6 +505,7 @@
       map.set(src.id, cur);
     };
     state.feed.forEach(put);
+    state.sermons.forEach(put);
     manualItems().forEach(put); // lo escrito a mano manda sobre lo de YouTube
     if (state.live) put(state.live);
     const arr = [...map.values()];
@@ -774,14 +780,15 @@
     buildPool();
     if (id) selectVideo(id, { scroll: false, updateUrl: false });
 
-    state.live = await loadLive();
     try { state.feed = await loadFeed(); }
     catch (e) { console.warn('[mensajes] no se pudo leer el canal de YouTube', e); }
+    state.sermons = await loadSermons();
+    state.live = state.sermons.find((item) => item.isLive) || null;
 
     buildPool();
     state.loading = false;
 
-    if (!id) id = (state.live && state.live.id) || pinned || (state.feed[0] && state.feed[0].id) || ytId(cfg.respaldo);
+    if (!id) id = (state.live && state.live.id) || pinned || (state.sermons.find((item) => !item.isLive)?.id) || (state.feed[0] && state.feed[0].id) || ytId(cfg.respaldo);
     if (id) {
       const keepPlaying = state.current && state.current.id === id && el.player.querySelector('iframe');
       if (keepPlaying) { renderDetails(lookup(id) || state.current); renderCarousel(); }

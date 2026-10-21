@@ -1517,8 +1517,20 @@ const initGroupsApp = async () => {
       groupCount.textContent = `${filtered.length} grupo${filtered.length === 1 ? "" : "s"} encontrado${filtered.length === 1 ? "" : "s"}`;
     }
 
+    // Estado vacío: sin grupos publicados se oculta el mapa y se ofrece WhatsApp.
+    const groupsExperience = groupsResults.closest(".groups-experience");
+    const noGroups = activeGroups.length === 0;
+    groupsExperience?.classList.toggle("is-empty", noGroups);
+    if (noGroups && groupsMap) groupsMap.closePopup();
+    if (!noGroups) setTimeout(fullMapRefresh, 50);
+
     if (!filtered.length) {
-      groupsResults.innerHTML = '<p style="padding: 24px 20px; color: #a8a5ad; font-size: 13px;">No hay grupos de conexión registrados actualmente.</p>';
+      groupsResults.innerHTML = noGroups
+        ? `<div class="groups-empty">
+            <p class="groups-empty-text">Estamos actualizando la lista de grupos de conexión. Escríbenos y te ayudamos a encontrar el grupo más cercano a ti.</p>
+            <a class="button groups-whatsapp-button groups-empty-button" href="https://wa.me/573043778188" target="_blank" rel="noreferrer"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Escríbenos por WhatsApp para unirte a un grupo <span aria-hidden="true">↗</span></a>
+          </div>`
+        : '<p class="groups-empty-text">Ningún grupo coincide con tu búsqueda. Prueba con otro barrio, día o líder.</p>';
       return;
     }
 

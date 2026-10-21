@@ -8620,14 +8620,13 @@ video[poster],
 }
 .discover-connect-dot.is-active { background-clip: content-box; }
 .discover-connect-dots { gap: 0; }
-/* Texto sobre fotos: degradado más oscuro y línea ≥14px */
+/* Texto sobre fotos: sin degradado/sombra sobre la imagen; línea ≥14px */
 .discover-card-overlay {
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.88) 0%, rgba(0, 0, 0, 0.55) 45%, rgba(0, 0, 0, 0.05) 100%) !important;
+  background: none !important;
 }
 .discover-card-overlay > span,
 .discover-card > span:last-child {
   font-size: 14px;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
 }
 
 /* Llamado a grupos por WhatsApp */

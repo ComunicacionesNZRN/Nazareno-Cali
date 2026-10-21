@@ -207,6 +207,11 @@
         link.textContent = "escríbenos por WhatsApp";
         help.replaceChildren(document.createTextNode(`${detail} `), link, document.createTextNode("."));
         document.querySelector("#ticket-user-name").after(help);
+        // Sin inscripción válida, "Reportar transferencia" abre WhatsApp con un mensaje prellenado.
+        const waText = ticket
+          ? `Hola, quiero reportar una transferencia para un Encuentro, pero la página no encontró mi ticket.\nTicket: ${ticket}\nNombre:`
+          : "Hola, quiero reportar una transferencia para un Encuentro, pero no tengo el código de mi ticket.\nNombre:";
+        document.querySelector("#btn-report-transfer").href = `https://wa.me/573043778188?text=${encodeURIComponent(waText)}`;
       };
 
       (async () => {

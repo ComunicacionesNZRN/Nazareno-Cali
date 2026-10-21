@@ -189,19 +189,61 @@
         });
       });
 
-      (async () => {
-        if (!ticket || !client) return;
-        const { data } = await client.from("encuentros_inscripciones").select("*").eq("codigo_ticket", ticket).maybeSingle();
-        if (data) {
-          document.querySelector("#ticket-encuentro-name").textContent = `Encuentro de ${data.tipo_encuentro}`;
-          document.querySelector("#ticket-user-name").textContent = `${data.nombres} ${data.apellidos}`;
-          document.querySelector("#ticket-code-display").textContent = data.codigo_ticket;
-          document.querySelector("#cash-ticket-code").textContent = data.codigo_ticket;
-          document.querySelector("#ticket-price-display").textContent = `$${Number(data.valor_pagado || 180000).toLocaleString("es-CO")} COP`;
+      const showTicketProblem = (title, detail) => {
+        document.querySelector("#ticket-encuentro-name").textContent = "Ticket no disponible";
+        document.querySelector("#ticket-user-name").textContent = title;
+        document.querySelector("#ticket-code-display").textContent = ticket || "—";
+        document.querySelector("#ticket-price-display").textContent = "—";
+        const help = document.querySelector("#ticket-help") || document.createElement("p");
+        help.id = "ticket-help";
+        help.setAttribute("role", "alert");
+        help.style.cssText = "margin: 8px 0 0; font-size: 13px; color: #8a1c1c;";
+        // textContent: el código viene de la URL, nunca se inserta como HTML.
+        const link = document.createElement("a");
+        link.href = "https://wa.me/573043778188";
+        link.target = "_blank";
+        link.rel = "noreferrer";
+        link.style.cssText = "color:inherit;font-weight:700;text-decoration:underline;";
+        link.textContent = "escríbenos por WhatsApp";
+        help.replaceChildren(document.createTextNode(`${detail} `), link, document.createTextNode("."));
+        document.querySelector("#ticket-user-name").after(help);
+        // Sin inscripción válida, "Reportar transferencia" abre WhatsApp con un mensaje prellenado.
+        const waText = ticket
+          ? `Hola, quiero reportar una transferencia para un Encuentro, pero la página no encontró mi ticket.\nTicket: ${ticket}\nNombre:`
+          : "Hola, quiero reportar una transferencia para un Encuentro, pero no tengo el código de mi ticket.\nNombre:";
+        document.querySelector("#btn-report-transfer").href = `https://wa.me/573043778188?text=${encodeURIComponent(waText)}`;
+      };
 
-          const msg = encodeURIComponent(`Hola, envío mi comprobante para el Encuentro de ${data.tipo_encuentro}.\nNombre: ${data.nombres} ${data.apellidos}\nTicket: ${data.codigo_ticket}`);
-          document.querySelector("#btn-report-transfer").href = `https://wa.me/573043778188?text=${msg}`;
+      (async () => {
+        if (!ticket) {
+          showTicketProblem("No encontramos tu ticket", "El enlace no trae un código de ticket. Revisa el enlace que recibiste al inscribirte o");
+          return;
         }
+        if (!client) {
+          showTicketProblem("No pudimos cargar tu ticket", "Hubo un problema de conexión. Recarga la página en unos minutos o");
+          return;
+        }
+        // Lectura pública vía función SECURITY DEFINER (ver Admin sql/a2-rls-limpieza.sql):
+        // devuelve solo codigo_ticket, tipo_encuentro, nombres, apellidos y valor_pagado.
+        const { data: rows, error } = await client.rpc("ver_ticket_encuentro", { p_codigo: ticket });
+        const data = rows?.[0];
+        if (error) {
+          console.warn("[ticket] no se pudo consultar el ticket:", error.message);
+          showTicketProblem("No pudimos cargar tu ticket", "Hubo un problema al consultar tu inscripción. Recarga la página en unos minutos o");
+          return;
+        }
+        if (!data) {
+          showTicketProblem("No encontramos tu ticket", `No hay una inscripción con el código ${ticket}. Revisa el enlace que recibiste o`);
+          return;
+        }
+        document.querySelector("#ticket-encuentro-name").textContent = `Encuentro de ${data.tipo_encuentro}`;
+        document.querySelector("#ticket-user-name").textContent = `${data.nombres} ${data.apellidos}`;
+        document.querySelector("#ticket-code-display").textContent = data.codigo_ticket;
+        document.querySelector("#cash-ticket-code").textContent = data.codigo_ticket;
+        document.querySelector("#ticket-price-display").textContent = `$${Number(data.valor_pagado || 180000).toLocaleString("es-CO")} COP`;
+
+        const msg = encodeURIComponent(`Hola, envío mi comprobante para el Encuentro de ${data.tipo_encuentro}.\nNombre: ${data.nombres} ${data.apellidos}\nTicket: ${data.codigo_ticket}`);
+        document.querySelector("#btn-report-transfer").href = `https://wa.me/573043778188?text=${msg}`;
       })();
     </script>
   </body>

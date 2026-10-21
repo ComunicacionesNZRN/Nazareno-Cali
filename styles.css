@@ -8696,3 +8696,8 @@ video[poster],
   background: #25d366; color: #0b1a10; font-size: 15px; font-weight: 800; white-space: normal; text-align: left;
 }
 .groups-empty-button:hover { background: #1fb457; }
+
+/* Pago de encuentro: el footer iba al lado de la tarjeta (flex en fila). */
+.checkout-page { flex-direction: column; gap: 40px; padding-left: 0; padding-right: 0; }
+.checkout-page .checkout-container { margin-inline: 16px; width: min(calc(100% - 32px), 580px); }
+.checkout-page .site-footer { width: 100%; align-self: stretch; }

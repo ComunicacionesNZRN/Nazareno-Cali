@@ -8680,3 +8680,19 @@ video[poster],
 @media (max-width: 700px) {
   .groups-map-wrap, #groups-map { height: 280px !important; min-height: 280px !important; }
 }
+
+/* ========================================================================
+  GRUPOS — estado vacío (0 grupos publicados): sin mapa, con WhatsApp
+  ======================================================================== */
+.groups-experience.is-empty .groups-map-wrap { display: none !important; }
+.groups-experience.is-empty { grid-template-columns: 1fr !important; height: auto !important; min-height: 0 !important; max-height: none !important; }
+.groups-experience.is-empty .groups-list { width: 100%; max-width: none; height: auto; max-height: none; }
+.groups-empty { padding: 28px 20px; display: grid; gap: 20px; justify-items: start; }
+.groups-empty-text { margin: 0; padding: 24px 20px; color: #3f3d45; font-size: 15px; line-height: 1.5; }
+.groups-empty .groups-empty-text { padding: 0; max-width: 560px; }
+.groups-empty-button {
+  display: inline-flex; align-items: center; gap: 10px; min-height: 52px;
+  padding: 0 24px; border-radius: 999px; border: 0;
+  background: #25d366; color: #0b1a10; font-size: 15px; font-weight: 800; white-space: normal; text-align: left;
+}
+.groups-empty-button:hover { background: #1fb457; }

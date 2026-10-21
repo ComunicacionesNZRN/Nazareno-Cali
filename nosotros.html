@@ -285,10 +285,12 @@
           </p>
           <form class="footer-newsletter-form" data-footer-newsletter>
             <div class="footer-form-field">
-              <input type="text" name="first_name" placeholder="Nombre" required />
+              <label class="footer-form-label" for="newsletter-name">Nombre</label>
+              <input id="newsletter-name" type="text" name="first_name" placeholder="Tu nombre" autocomplete="given-name" required />
             </div>
             <div class="footer-form-field">
-              <input type="email" name="email" placeholder="Correo electrónico" required />
+              <label class="footer-form-label" for="newsletter-email">Correo electrónico</label>
+              <input id="newsletter-email" type="email" name="email" placeholder="tucorreo@ejemplo.com" autocomplete="email" required />
             </div>
             <label class="footer-form-checkbox">
               <input type="checkbox" name="privacy_policy" required />

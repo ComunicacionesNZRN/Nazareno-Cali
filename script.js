@@ -934,15 +934,7 @@ if (mediaLibrary) {
     sermonRefreshInProgress = true;
 
     try {
-      if (mediaClient?.functions?.invoke) {
-        try {
-          const { error } = await mediaClient.functions.invoke("youtube-media-sync");
-          if (error) console.warn("No se pudo sincronizar YouTube:", error.message);
-        } catch (error) {
-          console.warn("No se pudo sincronizar YouTube:", error.message);
-        }
-      }
-
+      // Solo lectura: la sincronización con YouTube corre en el servidor (ver PR).
       sermonItems = await loadMediaTable("sermones", sermonGrid, sermonState, "sermon");
       if (!sermonLoadFailed) renderSermons();
     } finally {

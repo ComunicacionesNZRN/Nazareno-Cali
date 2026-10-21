@@ -473,11 +473,9 @@
     const client = window.supabaseAdmin?.client;
     if (!client) return [];
     try {
-      // Actualiza el registro local con el estado oficial del canal. La Edge
-      // Function limita las consultas a YouTube para cuidar la cuota de la API.
-      const { error: syncError } = await client.functions.invoke('youtube-media-sync');
-      if (syncError) console.warn('[mensajes] no se pudo sincronizar el en vivo', syncError.message);
-
+      // La página pública solo LEE la tabla `sermones`. La sincronización con
+      // YouTube (Edge Function youtube-media-sync, escribe con service_role) se
+      // ejecuta en el servidor de forma programada, no desde el navegador.
       const { data, error } = await client
         .from('sermones')
         .select('titulo, predicador, fecha, youtube_url, youtube_video_id, en_vivo')
@@ -786,8 +784,9 @@
     buildPool();
     if (id) selectVideo(id, { scroll: false, updateUrl: false });
 
-    try { state.feed = await loadFeed(); }
-    catch (e) { console.warn('[mensajes] no se pudo leer el canal de YouTube', e); }
+    // El feed vía r.jina.ai (proxy de terceros) respondía 401: se desactiva.
+    // Los videos vienen de la tabla `sermones` (sincronizada en el servidor).
+    state.feed = [];
     state.sermons = await loadSermons();
     state.live = state.sermons.find((item) => item.isLive) || null;
 

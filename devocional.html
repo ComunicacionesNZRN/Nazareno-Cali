@@ -300,9 +300,11 @@
 
       const formatDevoDate = (iso) => {
         if (!iso) return "Fecha por confirmar";
-        const date = parseDevoDate(iso);
+        const dateOnly = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(iso));
+        // Fecha sin hora: mediodía UTC cae en el mismo día en Bogotá. Con hora: se muestra el día de Bogotá.
+        const date = dateOnly ? new Date(Date.UTC(Number(dateOnly[1]), Number(dateOnly[2]) - 1, Number(dateOnly[3]), 12)) : parseDevoDate(iso);
         if (!date) return "Fecha por confirmar";
-        return new Intl.DateTimeFormat("es-CO", { weekday: "short", day: "numeric", month: "short", year: "numeric" }).format(date);
+        return new Intl.DateTimeFormat("es-CO", { timeZone: "America/Bogota", weekday: "short", day: "numeric", month: "short", year: "numeric" }).format(date);
       };
 
       const renderDevotionalsPage = (devotionals) => {

@@ -81,11 +81,34 @@ const updateNavigationLiveIndicator = async () => {
 updateNavigationLiveIndicator();
 
 document
-  .querySelectorAll('.site-footer .footer-links-list a[href="mensajes.html"], .site-footer .footer-links-list a[href="podcast.html"]')
+  .querySelectorAll('.site-footer .footer-links-list a[href="mensajes.html"]')
   .forEach((link) => {
     const icon = link.querySelector("i");
     link.replaceChildren(...(icon ? [icon, document.createTextNode(" Prédicas")] : [document.createTextNode("Prédicas")]));
   });
+
+// Podcast ≠ Prédicas: el enlace "Podcast" del footer solo aparece si hay episodios publicados.
+(async () => {
+  const podcastLinks = [...document.querySelectorAll('.site-footer .footer-links-list a[href="podcast.html"]')];
+  if (!podcastLinks.length) return;
+  podcastLinks.forEach((link) => {
+    const icon = link.querySelector("i");
+    link.replaceChildren(...(icon ? [icon, document.createTextNode(" Podcast")] : [document.createTextNode("Podcast")]));
+    link.closest("li")?.setAttribute("hidden", "");
+  });
+  const client = window.supabaseAdmin?.client || window._supabase;
+  if (!client) return;
+  try {
+    const { count, error } = await client
+      .from("podcasts")
+      .select("id", { count: "exact", head: true })
+      .eq("publicado", true);
+    if (error) throw error;
+    if (count > 0) podcastLinks.forEach((link) => link.closest("li")?.removeAttribute("hidden"));
+  } catch (error) {
+    console.warn("[footer] no se pudo consultar si hay episodios de podcast:", error.message);
+  }
+})();
 
 /* ========================================================================
   CARRUSEL INTERACTIVO DE PORTADA ("DESCUBRE MÁS MANERAS DE CONECTAR")

@@ -281,10 +281,27 @@
       const getClient = () => window._supabase || window.supabaseClient || window.supabaseAdmin?.client;
       const escapeDevotionalHtml = (value = "") => String(value).replace(/[&<>\"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;", "'": "&#39;" })[char]);
 
+      // Las fechas "AAAA-MM-DD" sin hora se leen como fecha local (no UTC) para no mostrar el día anterior.
+      const parseDevoDate = (iso) => {
+        if (!iso) return null;
+        const dateOnly = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(iso));
+        const date = dateOnly ? new Date(Number(dateOnly[1]), Number(dateOnly[2]) - 1, Number(dateOnly[3])) : new Date(iso);
+        return Number.isNaN(date.getTime()) ? null : date;
+      };
+
+      const BOGOTA_DAY = new Intl.DateTimeFormat("en-CA", { timeZone: "America/Bogota", year: "numeric", month: "2-digit", day: "2-digit" });
+      const isDevoToday = (iso) => {
+        const dateOnly = /^(\d{4}-\d{2}-\d{2})$/.exec(String(iso || ""));
+        const date = parseDevoDate(iso);
+        if (!date) return false;
+        const devoDay = dateOnly ? dateOnly[1] : BOGOTA_DAY.format(date);
+        return devoDay === BOGOTA_DAY.format(new Date());
+      };
+
       const formatDevoDate = (iso) => {
-        if (!iso) return "Hoy";
-        const date = new Date(iso);
-        if (Number.isNaN(date.getTime())) return "Fecha por confirmar";
+        if (!iso) return "Fecha por confirmar";
+        const date = parseDevoDate(iso);
+        if (!date) return "Fecha por confirmar";
         return new Intl.DateTimeFormat("es-CO", { weekday: "short", day: "numeric", month: "short", year: "numeric" }).format(date);
       };
 
@@ -302,6 +319,8 @@
 
         // 1. Banner Principal (Último devocional)
         if (featuredSlot && latest) {
+          const latestDateValue = latest.publicar_at || latest.fecha || latest.created_at;
+          const latestTag = isDevoToday(latestDateValue) ? "★ DEVOCIONAL DEL DÍA" : "★ ÚLTIMO DEVOCIONAL";
           const latestTitle = escapeDevotionalHtml(latest.titulo || "Devocional");
           const latestImage = escapeDevotionalHtml(latest.imagen_url || "Media/01.jpg");
           const latestExcerpt = escapeDevotionalHtml(latest.resumen || latest.contenido || latest.cuerpo || "").slice(0, 180);
@@ -309,11 +328,11 @@
             <div class="event-hero-banner" style="background-image: url('${latestImage}')">
               <div class="event-hero-content">
                 <div class="event-hero-info">
-                  <span class="event-hero-tag">★ DEVOCIONAL DEL DÍA</span>
+                  <span class="event-hero-tag">${latestTag}</span>
                   <h2>${latestTitle}</h2>
                   <p>${latestExcerpt}${latestExcerpt.length >= 180 ? "…" : ""}</p>
                   <div class="event-hero-meta">
-                    <span><i class="fa-regular fa-calendar"></i> ${formatDevoDate(latest.publicar_at || latest.fecha || latest.created_at)}</span>
+                    <span><i class="fa-regular fa-calendar"></i> ${formatDevoDate(latestDateValue)}</span>
                   </div>
                 </div>
                 <div class="event-hero-actions">

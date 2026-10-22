@@ -6298,6 +6298,7 @@ button {
   scroll-margin-top: calc(var(--header-height) + 30px);
 }
 
+.about-section h1,
 .about-section h2 {
   font: 800 clamp(36px, 5vw, 64px) / 0.98 var(--display);
   letter-spacing: -2px;
@@ -6305,6 +6306,7 @@ button {
   color: var(--ink);
 }
 
+.about-section h1 em,
 .about-section h2 em {
   color: var(--violet);
   font-family: var(--serif);
@@ -8700,3 +8702,22 @@ video[poster],
 .checkout-page { flex-direction: column; gap: 40px; padding-left: 0; padding-right: 0; }
 .checkout-page .checkout-container { margin-inline: 16px; width: min(calc(100% - 32px), 580px); }
 .checkout-page .site-footer { width: 100%; align-self: stretch; }
+
+/* Footer: enlaces ocultos hasta que haya contenido (p. ej. Podcast) */
+.footer-links-list li[hidden] {
+  display: none;
+}
+
+/* Nosotros: puntos del carrusel del equipo con área táctil ≥24px (mismo patrón que discover-connect-dot) */
+.cornerstone-dot {
+  box-sizing: content-box;
+  padding: 8px;
+  background-clip: content-box;
+}
+.cornerstone-dot.active { background-clip: content-box; }
+.cornerstone-dots { gap: 0; }
+.cornerstone-carousel-track:focus-visible {
+  outline: 3px solid var(--violet);
+  outline-offset: 4px;
+  border-radius: 16px;
+}

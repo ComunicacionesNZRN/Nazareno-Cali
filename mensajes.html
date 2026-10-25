@@ -832,7 +832,17 @@
         selectVideo(liveId, { scroll: false, updateUrl: false });
         say('Estamos en vivo');
       } else {
-        if (curId) { const cur = lookup(curId); if (cur) { state.current = cur; renderDetails(cur); } }
+        const cur = curId ? lookup(curId) : null;
+        if (cur) {
+          state.current = cur;
+          renderDetails(cur);
+        } else if (state.current && state.current.isLive) {
+          // La fila del en vivo ya no está en `sermones`: no dejar "EN VIVO ·" pegado
+          state.current = Object.assign({}, state.current, { isLive: false });
+          const fallback = !playing && (state.sermons.find((item) => !item.isLive) || state.pool[0]);
+          if (fallback) { selectVideo(fallback.id, { scroll: false, updateUrl: false }); return; }
+          renderDetails(state.current);
+        }
         renderCarousel();
       }
     } finally {

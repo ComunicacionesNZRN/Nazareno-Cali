@@ -807,7 +807,56 @@
     if (missing.length) { await Promise.allSettled(missing.map(enrich)); renderCarousel(); }
   }
 
-  init();
+  /* ---------- En vivo sin recargar: vuelve a leer `sermones` cada 90 s ---------- */
+  const LIVE_POLL_MS = 90 * 1000;
+  let livePollTimer = null;
+  let livePollBusy = false;
+  let lastLivePoll = Date.now();
+
+  async function refreshLive() {
+    if (livePollBusy || doc.hidden) return;
+    livePollBusy = true;
+    try {
+      const sermons = await loadSermons();
+      lastLivePoll = Date.now();
+      if (!sermons.length) return;
+      const prevLiveId = state.live && state.live.id;
+      state.sermons = sermons;
+      state.live = sermons.find((item) => item.isLive) || null;
+      const liveId = state.live && state.live.id;
+      buildPool();
+      const playing = Boolean(el.player.querySelector('iframe'));
+      const curId = state.current && state.current.id;
+      if (liveId && liveId !== prevLiveId && !playing) {
+        // Empezó una transmisión: se muestra sin interrumpir a quien ya está viendo otro video
+        selectVideo(liveId, { scroll: false, updateUrl: false });
+        say('Estamos en vivo');
+      } else {
+        if (curId) { const cur = lookup(curId); if (cur) { state.current = cur; renderDetails(cur); } }
+        renderCarousel();
+      }
+    } finally {
+      livePollBusy = false;
+    }
+  }
+
+  function startLivePoll() {
+    if (livePollTimer) return;
+    livePollTimer = window.setInterval(refreshLive, LIVE_POLL_MS);
+  }
+  function stopLivePoll() {
+    if (livePollTimer) window.clearInterval(livePollTimer);
+    livePollTimer = null;
+  }
+
+  doc.addEventListener('visibilitychange', () => {
+    if (doc.hidden) { stopLivePoll(); return; }
+    if (Date.now() - lastLivePoll >= LIVE_POLL_MS) refreshLive();
+    startLivePoll();
+  });
+  window.addEventListener('pagehide', stopLivePoll);
+
+  init().finally(() => { lastLivePoll = Date.now(); if (!doc.hidden) startLivePoll(); });
 })();
     </script>
 </body>

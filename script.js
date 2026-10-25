@@ -78,7 +78,38 @@ const updateNavigationLiveIndicator = async () => {
   }
 };
 
-updateNavigationLiveIndicator();
+// El indicador "En vivo" se vuelve a consultar cada 90 s (solo con la pestaña visible).
+const NAV_LIVE_POLL_MS = 90 * 1000;
+let navLivePollTimer = null;
+let lastNavLiveCheck = 0;
+
+const checkNavigationLive = () => {
+  lastNavLiveCheck = Date.now();
+  return updateNavigationLiveIndicator();
+};
+
+const startNavLivePoll = () => {
+  if (navLivePollTimer || !document.querySelector(".nav-live-dot")) return;
+  navLivePollTimer = window.setInterval(checkNavigationLive, NAV_LIVE_POLL_MS);
+};
+
+const stopNavLivePoll = () => {
+  if (navLivePollTimer) window.clearInterval(navLivePollTimer);
+  navLivePollTimer = null;
+};
+
+checkNavigationLive();
+startNavLivePoll();
+
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden) {
+    stopNavLivePoll();
+    return;
+  }
+  if (Date.now() - lastNavLiveCheck >= NAV_LIVE_POLL_MS) checkNavigationLive();
+  startNavLivePoll();
+});
+window.addEventListener("pagehide", stopNavLivePoll);
 
 document
   .querySelectorAll('.site-footer .footer-links-list a[href="mensajes.html"]')
@@ -681,7 +712,7 @@ if (mediaLibrary) {
   let sermonLoadFailed = false;
   let sermonRefreshInProgress = false;
   let lastSermonRefresh = 0;
-  const SERMON_REFRESH_INTERVAL = 30 * 60 * 1000;
+  const SERMON_REFRESH_INTERVAL = 3 * 60 * 1000;
 
   const readMediaField = (record, ...keys) => {
     for (const key of keys) {
@@ -968,9 +999,10 @@ if (mediaLibrary) {
 
   refreshSermons();
   loadMediaTable("podcasts", podcastGrid, podcastState, "podcast");
-  window.setInterval(() => {
+  const sermonRefreshTimer = window.setInterval(() => {
     if (!document.hidden) refreshSermons();
   }, SERMON_REFRESH_INTERVAL);
+  window.addEventListener("pagehide", () => window.clearInterval(sermonRefreshTimer), { once: true });
   document.addEventListener("visibilitychange", () => {
     if (!document.hidden && Date.now() - lastSermonRefresh >= SERMON_REFRESH_INTERVAL) refreshSermons();
   });

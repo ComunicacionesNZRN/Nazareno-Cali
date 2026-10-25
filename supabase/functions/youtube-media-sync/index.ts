@@ -2,7 +2,11 @@ const supabaseUrl = Deno.env.get("SUPABASE_URL");
 const serviceRoleKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
 const youtubeApiKey = Deno.env.get("YOUTUBE_API_KEY");
 const youtubeChannelId = Deno.env.get("YOUTUBE_CHANNEL_ID") || "UCiYeT4_HfmnSEbtYjxPnRgg";
-const syncIntervalSeconds = Math.max(900, Number(Deno.env.get("YOUTUBE_SYNC_INTERVAL_SECONDS") || 1800));
+// El cron corre cada 5 min; 270 s con 30 s de margen evita que una corrida llegue "cached".
+const syncIntervalSeconds = Math.max(240, Number(Deno.env.get("YOUTUBE_SYNC_INTERVAL_SECONDS") || 270));
+const syncMarginSeconds = 30;
+// Lista de subidas del canal: "UU" + id del canal sin "UC" (evita channels.list).
+const uploadsPlaylistId = `UU${youtubeChannelId.slice(2)}`;
 const defaultChannelTitle = "Iglesia del Nazareno Cali";
 
 const allowedOrigins = (Deno.env.get("YOUTUBE_SYNC_ALLOWED_ORIGINS") || "")
@@ -96,7 +100,7 @@ const synchronizeChannel = async () => {
   }
 
   const now = new Date();
-  const minimumSyncTime = new Date(now.getTime() - syncIntervalSeconds * 1000);
+  const minimumSyncTime = new Date(now.getTime() - (syncIntervalSeconds - syncMarginSeconds) * 1000);
   const stateRows = await databaseRequest("youtube_sync_state", {
     query: new URLSearchParams({ id: "eq.1", select: "last_attempt_at,last_success_at" }),
   });
@@ -117,47 +121,37 @@ const synchronizeChannel = async () => {
   }
 
   try {
-    const [liveResult, channelResult] = await Promise.all([
-      youtubeRequest("search", new URLSearchParams({
-        part: "snippet",
-        channelId: youtubeChannelId,
-        eventType: "live",
-        type: "video",
-        maxResults: "1",
-      })),
-      youtubeRequest("channels", new URLSearchParams({
-        part: "contentDetails,snippet",
-        id: youtubeChannelId,
-        maxResults: "1",
-      })),
-    ]);
-
-    const channel = channelResult.items?.[0];
-    const uploadsPlaylistId = channel?.contentDetails?.relatedPlaylists?.uploads;
-    if (!uploadsPlaylistId) throw new Error("No se encontró la lista de videos del canal.");
-
+    // Costo por corrida: playlistItems (1 unidad) + videos.list (1 unidad). Sin search.list (100).
     const uploadsResult = await youtubeRequest("playlistItems", new URLSearchParams({
-      part: "snippet,contentDetails",
+      part: "contentDetails",
       playlistId: uploadsPlaylistId,
       maxResults: "20",
     }));
 
-    const activeLive = liveResult.items?.[0];
-    const activeLiveId = activeLive?.id?.videoId || "";
+    const videoIds = [...new Set((uploadsResult.items || [])
+      .map((item: Record<string, any>) => item.contentDetails?.videoId)
+      .filter(Boolean))] as string[];
+
+    const videosResult = videoIds.length
+      ? await youtubeRequest("videos", new URLSearchParams({
+        part: "snippet,liveStreamingDetails",
+        id: videoIds.join(","),
+        maxResults: "50",
+      }))
+      : { items: [] };
+
     const videos = new Map<string, Record<string, any>>();
-
-    for (const item of uploadsResult.items || []) {
-      const videoId = item.contentDetails?.videoId || item.snippet?.resourceId?.videoId;
-      if (videoId) videos.set(videoId, item.snippet || {});
+    const liveIds = new Set<string>();
+    for (const item of videosResult.items || []) {
+      if (!item?.id) continue;
+      videos.set(item.id, item.snippet || {});
+      // Solo "live" cuenta como en vivo; "upcoming" (programado) no.
+      if (item.snippet?.liveBroadcastContent === "live") liveIds.add(item.id);
     }
 
-    if (activeLiveId && !videos.has(activeLiveId)) {
-      videos.set(activeLiveId, activeLive.snippet || {});
-    }
-
-    const channelTitle = channel.snippet?.title || defaultChannelTitle;
+    const channelTitle = defaultChannelTitle;
     const rows = [...videos.entries()].map(([videoId, snippet]) => ({
-      ...sermonFromVideo(videoId, { channelTitle, ...snippet }, videoId === activeLiveId),
+      ...sermonFromVideo(videoId, { channelTitle, ...snippet }, liveIds.has(videoId)),
     }));
 
     await databaseRequest("sermones", {
@@ -183,7 +177,7 @@ const synchronizeChannel = async () => {
       prefer: "return=minimal",
     });
 
-    return { status: "synced", live: Boolean(activeLiveId), count: rows.length };
+    return { status: "synced", live: liveIds.size > 0, count: rows.length };
   } catch (error) {
     await databaseRequest("youtube_sync_state", {
       method: "PATCH",
